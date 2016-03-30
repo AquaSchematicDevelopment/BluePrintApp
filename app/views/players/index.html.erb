@@ -5,7 +5,7 @@
   <div>
     <label>Username</label>
     <p><%= player.name %></p>
-      <button class="btn btn-primary"><%= link_to 'Delete', delete_player_path(player.id), method: 'delete' %></button>
+      <%= link_to 'Delete', delete_player_path(player.id), method: 'delete', class: 'btn btn-primary' %>
   </div>
   <% end %>
 
