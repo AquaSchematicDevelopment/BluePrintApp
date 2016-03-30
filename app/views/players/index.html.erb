@@ -1,17 +1,17 @@
 <style>
 div.col-xs-9 {
-    background-color:rgb(191,191,191);
+
 } 
 </style>
 
 <div class="container">
-  
   <h2>Player List</h2>
+  <label>Username</label>
+
   <% @players.each do |player| %>
   <div class="row">  
     <div class="col-xs-9">
-      <label>Username</label>
-      <h3><%= player.name %></h3>
+      <p><%= player.name %></p>
     </div>
     <div class="col-xs-3">
       <%= link_to 'Delete', delete_player_path(player.id), method: 'delete', class: 'btn btn-primary' %>
