@@ -6,12 +6,12 @@ div.col-xs-9 {
 
 <div class="container">
   <h2>Player List</h2>
-  <h4>Username</h4>
+  <h5>Username</h5>
 
   <% @players.each do |player| %>
   <div class="row">  
     <div class="col-xs-9">
-      <h5><%= player.name %></h5>
+      <p><%= player.name %></p>
     </div>
     <div class="col-xs-3">
       <%= link_to 'Delete', delete_player_path(player.id), method: 'delete', class: 'btn btn-primary' %>
