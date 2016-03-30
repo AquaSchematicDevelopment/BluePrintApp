@@ -1,9 +1,14 @@
-<% @players.each do |player| %>
+<div class="container">
+  
+  <h2>Player List</h2>
+  <% @players.each do |player| %>
   <div>
     <label>Username</label>
     <p><%= player.name %></p>
-    <%= link_to 'Delete', delete_player_path(player.id), method: 'delete' %>
+      <button class="btn btn-primary"><%= link_to 'Delete', delete_player_path(player.id), method: 'delete' %></button>
   </div>
-<% end %>
+  <% end %>
 
-<%= link_to 'Register Player', new_player_path %>
+  <button class="btn btn-primary"><%= link_to 'Register Player', new_player_path %></button>
+
+</div>
