@@ -2,10 +2,12 @@
   
   <h2>Player List</h2>
   <% @players.each do |player| %>
-  <div class="span9">
-    <label>Username</label>
-    <p><%= player.name %></p>
-    <%= link_to 'Delete', delete_player_path(player.id), method: 'delete', class: 'btn btn-primary' %>
+  <div class="row">  
+    <div class="span9">
+      <label>Username</label>
+      <p><%= player.name %></p>
+      <%= link_to 'Delete', delete_player_path(player.id), method: 'delete', class: 'btn btn-primary' %>
+    </div>
   </div>
   <% end %>
 
