@@ -11,6 +11,12 @@
     border-style: solid;
     border-width: 1px;
   }
+  
+  .btn-primary {
+    background: #0099cc;
+    color: #ffffff;
+    border-radius:0;
+}
 
 </style>
 
@@ -24,6 +30,6 @@
     </div>
   </div>
   <div class="row">
-    <%= link_to 'Change Your Password', change_password_path %>
+    <%= link_to 'Change Your Password', change_password_path class: 'btn btn-primary%>
   </div>
 </div>
