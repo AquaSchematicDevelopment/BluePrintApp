@@ -1,4 +1,9 @@
-<label>Email:</label>
-<p><%= current_user.email %></p>
-
-<%= link_to 'Change Your Password', change_password_path %>
+<div class="row">
+  <div class="col-md-3">
+    <label>Email:</label>
+  </div>
+  <div class="col-md-9">
+    <p><%= current_user_email %></p>
+  </div>
+  <%= link_to 'Change Your Password', change_password_path %>
+</div>
