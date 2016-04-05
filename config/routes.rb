@@ -25,6 +25,31 @@ Rails.application.routes.draw do
   post 'sport/:id/edit', to: 'sports#update'
   delete 'sport/:id/delete', to: 'sports#destroy', as: :delete_sport
   get 'sport/:sport_id/addLeague', to: 'leagues#new', as: :add_league
+  post 'sport/:sport_id/addLeague', to: 'leagues#create'
+  
+  get 'leagues/:sport_id', to: 'leagues#index', as: :leagues
+  #get 'league/new', to: 'leagues#new', as: :new_league
+  #post 'league/new', to: 'leagues#create'
+  get 'league/:id', to: 'leagues#show', as: :show_league
+  get 'league/:id/edit', to: 'leagues#edit', as: :edit_league
+  post 'league/:id/edit', to: 'leagues#update'
+  delete 'league/:id/delete', to: 'leagues#delete', as: :delete_league
+  get 'league/:league_id/addSeason', to: 'seasons#new', as: :add_season
+  post 'league/:league_id/addSeason', to: 'seasons#create'
+  
+  get 'seasons/:sport_id', to: 'seasons#index', as: :seasons
+  get 'season/:id', to: 'seasons#show', as: :show_season
+  get 'season/:id/edit', to: 'seasons#edit', as: :edit_season
+  post 'season/:id/edit', to: 'seasons#update'
+  delete 'season/:id/delete', to: 'seasons#delete', as: :delete_season
+  get 'season/:season_id/addTeam', to: 'teams#new', as: :add_team
+  post 'season/:season_id/addTeam', to: 'teams#create'
+  
+  get 'teams/:season_id', to: 'teams#index', as: :teams
+  get 'team/:id', to: 'teams#show', as: :show_team
+  get 'team/:id/edit', to: 'teams#edit', as: :edit_team
+  post 'team/:id/edit', to: 'teams#update'
+  delete 'team/:id/delete', to: 'teams#delete', as: :delete_team
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
