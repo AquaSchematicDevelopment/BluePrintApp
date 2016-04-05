@@ -4,7 +4,7 @@ class LeaguesController < ApplicationController
   # GET /leagues
   # GET /leagues.json
   def index
-    @leagues = League.all
+    @leagues = League.where(sport_id: params[:sport_id])
   end
 
   # GET /leagues/1
@@ -25,6 +25,7 @@ class LeaguesController < ApplicationController
   # POST /leagues.json
   def create
     @league = League.new(league_params)
+    @league.edit(sport_id: params[:sport_id])
 
     respond_to do |format|
       if @league.save
@@ -69,6 +70,6 @@ class LeaguesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def league_params
-      params.require(:league).permit(:name, :sport_id)
+      params.require(:league).permit(:name)
     end
 end
