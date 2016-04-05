@@ -24,16 +24,21 @@ class SeasonsController < ApplicationController
   # POST /seasons
   # POST /seasons.json
   def create
-    @season = Season.new(season_params)
-    @season.edit(league_id: params[:league_id])
-
-    respond_to do |format|
-      if @season.save
-        format.html { redirect_to @season, notice: 'Season was successfully created.' }
-        format.json { render :show, status: :created, location: @season }
-      else
-        format.html { render :new }
-        format.json { render json: @season.errors, status: :unprocessable_entity }
+    if Season.where(league_id: params[:league_id], name: season_params[:name]).first
+      @errors = ['A season with that name already exists for the league']
+      render :new
+    else
+      @season = Season.new(season_params)
+      @season.league_id = params[:league_id]
+  
+      respond_to do |format|
+        if @season.save
+          format.html { redirect_to @season, notice: 'Season was successfully created.' }
+          format.json { render :show, status: :created, location: @season }
+        else
+          format.html { render :new }
+          format.json { render json: @season.errors, status: :unprocessable_entity }
+        end
       end
     end
   end
@@ -41,13 +46,18 @@ class SeasonsController < ApplicationController
   # PATCH/PUT /seasons/1
   # PATCH/PUT /seasons/1.json
   def update
-    respond_to do |format|
-      if @season.update(season_params)
-        format.html { redirect_to @season, notice: 'Season was successfully updated.' }
-        format.json { render :show, status: :ok, location: @season }
-      else
-        format.html { render :edit }
-        format.json { render json: @season.errors, status: :unprocessable_entity }
+    if Season.where(league_id: params[:league_id], name: season_params[:name]).first
+      @errors = ['A season with that name already exists for the league']
+      render :edit
+    else
+      respond_to do |format|
+        if @season.update(season_params)
+          format.html { redirect_to @season, notice: 'Season was successfully updated.' }
+          format.json { render :show, status: :ok, location: @season }
+        else
+          format.html { render :edit }
+          format.json { render json: @season.errors, status: :unprocessable_entity }
+        end
       end
     end
   end
