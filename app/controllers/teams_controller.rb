@@ -4,7 +4,7 @@ class TeamsController < ApplicationController
   # GET /teams
   # GET /teams.json
   def index
-    @teams = Team.where(season_id: params[:season_id]
+    @teams = Team.where(season_id: params[:season_id])
   end
 
   # GET /teams/1
@@ -24,16 +24,21 @@ class TeamsController < ApplicationController
   # POST /teams
   # POST /teams.json
   def create
-    @team = Team.new(team_params)
-    @team.edit(season_id: params[:season_id])
-
-    respond_to do |format|
-      if @team.save
-        format.html { redirect_to @team, notice: 'Team was successfully created.' }
-        format.json { render :show, status: :created, location: @team }
-      else
-        format.html { render :new }
-        format.json { render json: @team.errors, status: :unprocessable_entity }
+    if Team.where(season_id: params[:season_id], name: team_params[:name])
+      @errors = ['There already exists a team with that name in the league']
+      render :new
+    else
+      @team = Team.new(team_params)
+      @team.season_id = params[:season_id]
+  
+      respond_to do |format|
+        if @team.save
+          format.html { redirect_to @team, notice: 'Team was successfully created.' }
+          format.json { render :show, status: :created, location: @team }
+        else
+          format.html { render :new }
+          format.json { render json: @team.errors, status: :unprocessable_entity }
+        end
       end
     end
   end
@@ -41,13 +46,18 @@ class TeamsController < ApplicationController
   # PATCH/PUT /teams/1
   # PATCH/PUT /teams/1.json
   def update
-    respond_to do |format|
-      if @team.update(team_params)
-        format.html { redirect_to @team, notice: 'Team was successfully updated.' }
-        format.json { render :show, status: :ok, location: @team }
-      else
-        format.html { render :edit }
-        format.json { render json: @team.errors, status: :unprocessable_entity }
+    if Team.where(season_id: @team.season_id, name: team_params[:name])
+      @errors = ['There already exists a team with that name in the league']
+      render :new
+    else
+      respond_to do |format|
+        if @team.update(team_params)
+          format.html { redirect_to @team, notice: 'Team was successfully updated.' }
+          format.json { render :show, status: :ok, location: @team }
+        else
+          format.html { render :edit }
+          format.json { render json: @team.errors, status: :unprocessable_entity }
+        end
       end
     end
   end
