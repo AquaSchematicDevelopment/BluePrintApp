@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Book value:</strong>
+  <%= @seasonal_performance.book_value %>
+</p>
+
+<p>
+  <strong>Team:</strong>
+  <%= @seasonal_performance.team_id %>
+</p>
+
+<p>
+  <strong>Season:</strong>
+  <%= @seasonal_performance.season_id %>
+</p>
+
+<%= link_to 'Edit', edit_seasonal_performance_path(@seasonal_performance) %> |
+<%= link_to 'Back', seasonal_performances_path %>

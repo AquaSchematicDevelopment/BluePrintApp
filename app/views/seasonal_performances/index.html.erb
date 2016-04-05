@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Seasonal Performances</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Book value</th>
+      <th>Team</th>
+      <th>Season</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @seasonal_performances.each do |seasonal_performance| %>
+      <tr>
+        <td><%= seasonal_performance.book_value %></td>
+        <td><%= seasonal_performance.team_id %></td>
+        <td><%= seasonal_performance.season_id %></td>
+        <td><%= link_to 'Show', seasonal_performance %></td>
+        <td><%= link_to 'Edit', edit_seasonal_performance_path(seasonal_performance) %></td>
+        <td><%= link_to 'Destroy', seasonal_performance, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Seasonal performance', new_seasonal_performance_path %>

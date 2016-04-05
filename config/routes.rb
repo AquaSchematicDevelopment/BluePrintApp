@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :seasonal_performances
+  resources :seasons
   resources :holdings
   resources :portfolios
   resources :leagues
