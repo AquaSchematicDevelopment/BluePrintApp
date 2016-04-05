@@ -23,7 +23,7 @@ div.col-xs-1 {
   <% @sports.each do |sport| %>
   <div class="row">  
     <div class="col-xs-9">
-      <p><%= sport.name %></p>
+      <p><h4><%= sport.name %></h4></p>
     </div>
 	<div class="col-xs-1">
       <p><%= link_to 'Show', show_sport_path(sport), class: 'btn btn-primary' %></p>
@@ -32,7 +32,8 @@ div.col-xs-1 {
       <p><%= link_to 'Edit', edit_sport_path(sport), class: 'btn btn-primary' %></p>
     </div>
     <div class="col-xs-1">
-     <p><%= link_to 'Destroy', delete_sport_path(sport), method: :delete, class: 'btn btn-primary', data: { confirm: 'Are you sure?' } %></p>
+      <p><%= link_to 'Destroy', delete_sport_path(sport), method: :delete, class: 'btn btn-primary', data: { confirm: 'Are you sure?' } %></p>
+    </div>
   </div>
   <% end %>
   
