@@ -25,6 +25,7 @@ class TeamsController < ApplicationController
   # POST /teams.json
   def create
     @team = Team.new(team_params)
+    @team.edit(season_id: params[:season_id])
 
     respond_to do |format|
       if @team.save
@@ -69,6 +70,6 @@ class TeamsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def team_params
-      params.require(:team).permit(:name, :sport_id)
+      params.require(:team).permit(:name)
     end
 end
