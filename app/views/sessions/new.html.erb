@@ -15,17 +15,7 @@
 					<div id="legend">
 						<legend class="">Login</legend>
 					</div>
-					<% if @errors && @errors.any? %>
-          <div id="error_explanation">
-            <h2><%= pluralize(@errors.count, "error") %>:</h2>
-
-            <ul>
-              <% @errors.each do |message| %>
-                <li><%= message %></li>
-              <% end %>
-            </ul>
-          </div>
-          <% end %>
+					
 					<div class="control-group">
 						<!-- Username -->
 						<label class="control-label"  for="username">Username</label>
