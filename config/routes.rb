@@ -1,11 +1,5 @@
 Rails.application.routes.draw do
-  resources :seasonal_performances
-  resources :seasons
-  resources :holdings
-  resources :portfolios
-  resources :leagues
-  resources :teams
-  resources :sports
+  
   root 'pages#home'
   
   #resources :users
@@ -22,6 +16,12 @@ Rails.application.routes.draw do
   get 'profile' => 'profiles#show', as: :profile
   get 'profile/change_password' => 'profiles#change_password', as: :change_password
   post 'profile/change_password' => 'profiles#update_password'
+  
+  get 'sports', to: 'sports#index', as: :sport_index
+  get 'sport/new', to: 'sports#new', as: :new_sport
+  post 'sport/new', to: 'sports#create'
+  get 'sport/:id', to: 'sports#show', as: :show_sport
+  get 'sport/:sport_id/addLeague', to: 'leagues#new', as: :add_league
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
