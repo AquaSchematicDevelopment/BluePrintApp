@@ -4,7 +4,7 @@ class SeasonsController < ApplicationController
   # GET /seasons
   # GET /seasons.json
   def index
-    @seasons = Season.all
+    @seasons = Season.where(league_id: params[:league_id]
   end
 
   # GET /seasons/1
