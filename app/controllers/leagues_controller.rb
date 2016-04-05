@@ -24,16 +24,21 @@ class LeaguesController < ApplicationController
   # POST /leagues
   # POST /leagues.json
   def create
-    @league = League.new(league_params)
-    @league.edit(sport_id: params[:sport_id])
-
-    respond_to do |format|
-      if @league.save
-        format.html { redirect_to @league, notice: 'League was successfully created.' }
-        format.json { render :show, status: :created, location: @league }
-      else
-        format.html { render :new }
-        format.json { render json: @league.errors, status: :unprocessable_entity }
+    if League.find_by(name: league_params[:name])
+      @errors = ['A League with that name already exists']
+      render :new
+    else
+      @league = League.new(league_params)
+      @league.sport_id = params[:sport_id])
+  
+      respond_to do |format|
+        if @league.save
+          format.html { redirect_to @league, notice: 'League was successfully created.' }
+          format.json { render :show, status: :created, location: @league }
+        else
+          format.html { render :new }
+          format.json { render json: @league.errors, status: :unprocessable_entity }
+        end
       end
     end
   end
@@ -41,13 +46,18 @@ class LeaguesController < ApplicationController
   # PATCH/PUT /leagues/1
   # PATCH/PUT /leagues/1.json
   def update
-    respond_to do |format|
-      if @league.update(league_params)
-        format.html { redirect_to @league, notice: 'League was successfully updated.' }
-        format.json { render :show, status: :ok, location: @league }
-      else
-        format.html { render :edit }
-        format.json { render json: @league.errors, status: :unprocessable_entity }
+    if League.find_by(name: league_params[:name])
+      @errors = ['A Leaugue with that name already exists']
+      render :edit
+    else
+      respond_to do |format|
+        if @league.update(league_params)
+          format.html { redirect_to @league, notice: 'League was successfully updated.' }
+          format.json { render :show, status: :ok, location: @league }
+        else
+          format.html { render :edit }
+          format.json { render json: @league.errors, status: :unprocessable_entity }
+        end
       end
     end
   end
