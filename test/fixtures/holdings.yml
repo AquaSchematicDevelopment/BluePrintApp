@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  profolio_id: 1
+  team_id: 1
+  blue_prints: 9.99
+
+two:
+  profolio_id: 1
+  team_id: 1
+  blue_prints: 9.99

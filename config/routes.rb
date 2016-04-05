@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :holdings
+  resources :portfolios
   resources :leagues
   resources :teams
   resources :sports
