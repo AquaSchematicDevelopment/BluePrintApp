@@ -5,12 +5,9 @@ div.col-xs-6 {
 }
 div.col-xs-2 {
   border-style: solid;
-  border-width: 1px;
+  border-width:01px;
 }
-div.col-xs-1 {
-  border-style: solid;
-  border-width: 1px;
-}
+
 .btn-primary {
   background: #0099cc;
   color: #ffffff;
@@ -30,13 +27,13 @@ div.col-xs-1 {
       <p><%= sport.name %></p>
     </div>
 	<div class="col-xs-2">
-      <%= link_to 'Show', show_sport_path(sport), class: 'btn btn-primary' %>
+      <p><%= link_to 'Show', show_sport_path(sport), class: 'btn btn-primary' %></p>
     </div>
 	<div class="col-xs-2">
-      <%= link_to 'Edit', edit_sport_path(sport), class: 'btn btn-primary' %>
+      <p><%= link_to 'Edit', edit_sport_path(sport), class: 'btn btn-primary' %></p>
     </div>
     <div class="col-xs-2">
-      <%= link_to 'Destroy', delete_sport_path(sport), method: :delete, class: 'btn btn-primary', data: { confirm: 'Are you sure?' } %>
+      <p><%= link_to 'Destroy', delete_sport_path(sport), method: :delete, class: 'btn btn-primary', data: { confirm: 'Are you sure?' } %></p>
     </div>
   </div>
   <% end %>
