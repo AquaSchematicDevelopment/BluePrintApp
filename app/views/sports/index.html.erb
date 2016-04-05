@@ -16,7 +16,7 @@
         <td><%= sport.name %></td>
         <td><%= link_to 'Show', show_sport_path(sport) %></td>
         <td><%= link_to 'Edit', edit_sport_path(sport) %></td>
-        <td><%= link_to 'Destroy', sport, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', delete_sport_path(sport), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
