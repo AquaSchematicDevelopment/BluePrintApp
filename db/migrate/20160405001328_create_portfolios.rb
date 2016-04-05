@@ -7,5 +7,7 @@ class CreatePortfolios < ActiveRecord::Migration
 
       t.timestamps null: false
     end
+    add_index :portfolios, :user_id
+    add_index :portfolios, :league_id
   end
 end
