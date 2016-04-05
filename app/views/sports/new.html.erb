@@ -1,6 +1,6 @@
 <h1>New Sport</h1>
 
-<%= form_for(@sport, ) do |f| %>
+<%= form_for(@sport, url: new_sport_path) do |f| %>
   <% if @sport.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@sport.errors.count, "error") %> prohibited this sport from being saved:</h2>
