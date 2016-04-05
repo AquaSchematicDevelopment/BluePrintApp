@@ -49,6 +49,18 @@
   </div>
 </div>
 
+<% if @errors && @errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(@errors.count, "error") %>:</h2>
+
+  <ul>
+    <% @errors.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+
 <%= yield %>
 
 </body>
