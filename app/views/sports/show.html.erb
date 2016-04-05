@@ -9,14 +9,16 @@
 
 </style>
 
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <p id="notice"><%= notice %></p>
 
-<h2> Edit Sport </h2>
+  <h2> Edit Sport </h2>
 
-<p>
-  <strong>Name:</strong>
-  <%= @sport.name %>
-</p>
+  <p>
+    <strong>Name:</strong>
+    <%= @sport.name %>
+  </p>
 
-<%= link_to 'Edit', edit_sport_path(@sport), class: 'btn btn-primary' %> |
-<%= link_to 'Back', sports_path, class: 'btn btn-primary' %>
+  <%= link_to 'Edit', edit_sport_path(@sport), class: 'btn btn-primary' %> |
+  <%= link_to 'Back', sports_path, class: 'btn btn-primary' %>
+</div>
