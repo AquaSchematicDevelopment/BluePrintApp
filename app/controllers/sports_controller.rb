@@ -45,13 +45,17 @@ class SportsController < ApplicationController
   # PATCH/PUT /sports/1
   # PATCH/PUT /sports/1.json
   def update
-    respond_to do |format|
-      if @sport.update(sport_params)
-        format.html { redirect_to show_sport_path(id: @sport.id), notice: 'Sport was successfully updated.' }
-        format.json { render :show, status: :ok, location: @sport }
-      else
-        format.html { render :edit }
-        format.json { render json: @sport.errors, status: :unprocessable_entity }
+    if Sport.find_by(name: sport_params[:name])
+      @errors =['A sport with that name already exists']
+    else
+      respond_to do |format|
+        if @sport.update(sport_params)
+          format.html { redirect_to show_sport_path(id: @sport.id), notice: 'Sport was successfully updated.' }
+          format.json { render :show, status: :ok, location: @sport }
+        else
+          format.html { render :edit }
+          format.json { render json: @sport.errors, status: :unprocessable_entity }
+        end
       end
     end
   end
