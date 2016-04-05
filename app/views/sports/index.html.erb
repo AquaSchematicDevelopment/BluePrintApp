@@ -27,13 +27,9 @@ div.col-xs-1 {
       <p><%= sport.name %></p>
     </div>
 	<div class="col-xs-1">
-      <p><%= link_to 'Show', show_sport_path(sport), class: 'btn btn-primary' %></p>
-    </div>
-	<div class="col-xs-1">
-      <p><%= link_to 'Edit', edit_sport_path(sport), class: 'btn btn-primary' %></p>
-    </div>
-    <div class="col-xs-1">
-      <p><%= link_to 'Destroy', delete_sport_path(sport), method: :delete, class: 'btn btn-primary', data: { confirm: 'Are you sure?' } %></p>
+      		<p><%= link_to 'Show', show_sport_path(sport), class: 'btn btn-primary' %>
+      		<%= link_to 'Edit', edit_sport_path(sport), class: 'btn btn-primary' %>
+      		<%= link_to 'Destroy', delete_sport_path(sport), method: :delete, class: 'btn btn-primary', data: { confirm: 'Are you sure?' } %></p>
     </div>
   </div>
   <% end %>
