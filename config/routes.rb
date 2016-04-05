@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy', as: :logout
   
-  get 'players', to: 'players#index', as: :player_index
+  get 'players', to: 'players#index', as: :players
   get 'player/new', to: 'players#new', as: :new_player
   post 'player/new', to: 'players#create'
   delete 'player/:id/delete', to: 'players#destroy', as: :delete_player
@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   get 'profile/change_password' => 'profiles#change_password', as: :change_password
   post 'profile/change_password' => 'profiles#update_password'
   
-  get 'sports', to: 'sports#index', as: :sport_index
+  get 'sports', to: 'sports#index', as: :sports
   get 'sport/new', to: 'sports#new', as: :new_sport
   post 'sport/new', to: 'sports#create'
   get 'sport/:id', to: 'sports#show', as: :show_sport
