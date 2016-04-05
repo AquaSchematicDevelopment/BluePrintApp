@@ -6,5 +6,6 @@ class CreateLeagues < ActiveRecord::Migration
 
       t.timestamps null: false
     end
+    add_index :leagues, :sport_id
   end
 end
