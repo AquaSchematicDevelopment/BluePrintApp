@@ -26,7 +26,7 @@ class SportsController < ApplicationController
   def create
     if Sport.find_by(name: sport_params[:name])
       @errors = ['A sport with that name already exists']
-      reneder :new
+      render :new
     else
       @sport = Sport.new(sport_params)
   
@@ -47,6 +47,7 @@ class SportsController < ApplicationController
   def update
     if Sport.find_by(name: sport_params[:name])
       @errors =['A sport with that name already exists']
+      render :edit
     else
       respond_to do |format|
         if @sport.update(sport_params)
@@ -65,7 +66,7 @@ class SportsController < ApplicationController
   def destroy
     @sport.destroy
     respond_to do |format|
-      format.html { redirect_to sports_url, notice: 'Sport was successfully destroyed.' }
+      format.html { redirect_to sports_path, notice: 'Sport was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
