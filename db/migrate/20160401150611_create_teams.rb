@@ -3,7 +3,6 @@ class CreateTeams < ActiveRecord::Migration
     create_table :teams do |t|
       t.string :name
       t.integer :league_id
-      t.decimal :value, precision: 12, scale: 4
 
       t.timestamps null: false
     end
