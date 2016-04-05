@@ -33,7 +33,7 @@ div.col-xs-4 {
       <p><%= player.email %></p>
     </div>
     <div class="col-xs-3">
-      <%= link_to 'Delete', delete_player_path(player.id), method: 'delete', class: 'btn btn-primary' %>
+      <%= link_to 'Delete', delete_player_path(player), method: 'delete', class: 'btn btn-primary' %>
     </div>
   </div>
   <% end %>
