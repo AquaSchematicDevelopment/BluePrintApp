@@ -1,7 +1,6 @@
 <table>
   <thead>
     <tr>
-      <th>League</th>
       <th>Name</th>
       <th colspan="3"></th>
     </tr>
@@ -10,7 +9,6 @@
   <tbody>
     <% @seasons.each do |season| %>
       <tr>
-        <td><%= season.league_id %></td>
         <td><%= season.name %></td>
         <td><%= link_to 'Show', show_season_path(season) %></td>
         <td><%= link_to 'Edit', edit_season_path(season) %></td>
