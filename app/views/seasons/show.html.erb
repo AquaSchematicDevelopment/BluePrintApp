@@ -14,3 +14,9 @@
 
 <%= link_to 'Edit', edit_season_path(@season) %> |
 <%= link_to 'Back', show_league_path(@season.league) %>
+
+<h3>Teams</h3>
+
+<%= render 'teams/index' %>
+
+<%= link_to 'Add Team', add_team_path(@season) %>
