@@ -26,15 +26,18 @@
   
   <h2>League</h2>
   
-  <p>
-    <strong>Name:</strong>
-    <%= @league.name %>
-  </p>
-  
-  <p>
-    <strong>Sport:</strong>
-    <%= @league.sport.name %>
-  </p>
+  <div class="row">
+    <p>
+      <strong>Name:</strong>
+      <%= @league.name %>
+    </p>
+  </div>
+  <div class="row">
+    <p>
+      <strong>Sport:</strong>
+      <%= @league.sport.name %>
+    </p>
+  </div>
   
   <%= link_to 'Edit', edit_league_path(@league), class: 'btn btn-primary' %> |
   <%= link_to 'Back', show_sport_path(@league.sport), class: 'btn btn-primary' %>
