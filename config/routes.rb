@@ -33,7 +33,7 @@ Rails.application.routes.draw do
   get 'league/:id', to: 'leagues#show', as: :show_league
   get 'league/:id/edit', to: 'leagues#edit', as: :edit_league
   post 'league/:id/edit', to: 'leagues#update'
-  delete 'league/:id/delete', to: 'leagues#delete', as: :delete_league
+  delete 'league/:id/delete', to: 'leagues#destroy', as: :delete_league
   get 'league/:league_id/addSeason', to: 'seasons#new', as: :add_season
   post 'league/:league_id/addSeason', to: 'seasons#create'
   
@@ -41,7 +41,7 @@ Rails.application.routes.draw do
   get 'season/:id', to: 'seasons#show', as: :show_season
   get 'season/:id/edit', to: 'seasons#edit', as: :edit_season
   post 'season/:id/edit', to: 'seasons#update'
-  delete 'season/:id/delete', to: 'seasons#delete', as: :delete_season
+  delete 'season/:id/delete', to: 'seasons#destroy', as: :delete_season
   get 'season/:season_id/addTeam', to: 'teams#new', as: :add_team
   post 'season/:season_id/addTeam', to: 'teams#create'
   
@@ -49,7 +49,7 @@ Rails.application.routes.draw do
   get 'team/:id', to: 'teams#show', as: :show_team
   get 'team/:id/edit', to: 'teams#edit', as: :edit_team
   post 'team/:id/edit', to: 'teams#update'
-  delete 'team/:id/delete', to: 'teams#delete', as: :delete_team
+  delete 'team/:id/delete', to: 'teams#destroy', as: :delete_team
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
