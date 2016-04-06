@@ -1,20 +1,22 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>League:</strong>
-  <%= @portfolio.season.league.name %>
-</p>
-
-<p>
-  <strong>Season:</strong>
-  <%= @portfolio.season.name %>
-</p>
-
-<p>
-  <strong>Funds:</strong>
-  <%= @portfolio.funds %>
-</p>
-
-<h3>Current Holdings</h3>
-
-<%= render 'holdings/index' %>
+<div class="container">
+  <p id="notice"><%= notice %></p>
+  
+  <p>
+    <strong>League:</strong>
+    <%= @portfolio.season.league.name %>
+  </p>
+  
+  <p>
+    <strong>Season:</strong>
+    <%= @portfolio.season.name %>
+  </p>
+  
+  <p>
+    <strong>Funds:</strong>
+    <%= @portfolio.funds %>
+  </p>
+  
+  <h3>Current Holdings</h3>
+  
+  <%= render 'holdings/index' %>
+</div>
