@@ -1,26 +1,26 @@
 <div class="container">
-
-<p id="notice"><%= notice %></p>
-
-<h2>League</h2>
-
-<p>
-  <strong>Name:</strong>
-  <%= @league.name %>
-</p>
-
-<p>
-  <strong>Sport:</strong>
-  <%= @league.sport.name %>
-</p>
-
-<%= link_to 'Edit', edit_league_path(@league) %> |
-<%= link_to 'Back', show_sport_path(@league.sport) %>
-
-<h3>Seasons</h3>
-
-<%= render 'seasons/index' %>
-
-<%= link_to 'Add Season', add_season_path(@league) %>
-
+  
+  <p id="notice"><%= notice %></p>
+  
+  <h2>League</h2>
+  
+  <p>
+    <strong>Name:</strong>
+    <%= @league.name %>
+  </p>
+  
+  <p>
+    <strong>Sport:</strong>
+    <%= @league.sport.name %>
+  </p>
+  
+  <%= link_to 'Edit', edit_league_path(@league) %> |
+  <%= link_to 'Back', show_sport_path(@league.sport) %>
+  
+  <h3>Seasons</h3>
+  
+  <%= render 'seasons/index' %>
+  
+  <%= link_to 'Add Season', add_season_path(@league) %>
+  
 </div>
