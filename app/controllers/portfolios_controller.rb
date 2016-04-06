@@ -1,5 +1,5 @@
 class PortfoliosController < ApplicationController
-  before_action :set_portfolio, only: [:show, :edit, :update, :destroy]
+  before_action :set_portfolio, only: [:edit, :update, :destroy]
   before_action :redirect_non_user
   before_action :redirect_non_player, only: [:show]
 
