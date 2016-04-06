@@ -1,5 +1,7 @@
 class SeasonsController < ApplicationController
   before_action :set_season, only: [:show, :edit, :update, :destroy]
+  before_action :redirect_non_user
+  before_action :redirect_non_admin, only: [:index, :show, :new, :create, :edit, :update, :destroy]
 
   # GET /seasons
   # GET /seasons.json
