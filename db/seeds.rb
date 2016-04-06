@@ -37,28 +37,28 @@ saints = Team.create(name: 'New Orleans Saints', season: nfl_season_2016)
 buccaneers = Team.create(name: 'Tampa Bay Buccaneers', season: nfl_season_2016)
 
 #AFC-EAST
-bills = Team.create(name: ‘Buffalo Bills’, season: nfl_season_2016)
-dolphins = Team.create(name: ‘Miami Dolphins’, season: nfl_season_2016)
-patriots = Team.create(name: ‘New England Patriots’, season: nfl_season_2016)
-jets = Team.create(name: ‘New York Jets’, season: nfl_season_2016)
+bills = Team.create(name: 'Buffalo Bills', season: nfl_season_2016)
+dolphins = Team.create(name: 'Miami Dolphins', season: nfl_season_2016)
+patriots = Team.create(name: 'New England Patriots', season: nfl_season_2016)
+jets = Team.create(name: 'New York Jets', season: nfl_season_2016)
 
 #NFC-EAST
-cowboys = Team.create(name: ‘Dallas Cowboys’, season: nfl_season_2016)
-giants = Team.create(name: ‘New York Giants’, season: nfl_season_2016)
-eagles = Team.create(name: ‘Philadelphia Eagles’, season: nfl_season_2016)
-redskins = Team.create(name: ‘Washington Redskins’, season: nfl_season_2016)
+cowboys = Team.create(name: 'Dallas Cowboys', season: nfl_season_2016)
+giants = Team.create(name: 'New York Giants', season: nfl_season_2016)
+eagles = Team.create(name: 'Philadelphia Eagles', season: nfl_season_2016)
+redskins = Team.create(name: 'Washington Redskins', season: nfl_season_2016)
 
 #AFC-WEST
-broncos = Team.create(name: ‘Denver Broncos’, season: nfl_season_2016)
-chiefs = Team.create(name: ‘Kansas City Chiefs’, season: nfl_season_2016)
-raiders = Team.create(name: ‘Oakland Raiders’, season: nfl_season_2016)
-chargers = Team.create(name: ‘San Diego Chargers’, season: nfl_season_2016)
+broncos = Team.create(name: 'Denver Broncos', season: nfl_season_2016)
+chiefs = Team.create(name: 'Kansas City Chiefs', season: nfl_season_2016)
+raiders = Team.create(name: 'Oakland Raiders', season: nfl_season_2016)
+chargers = Team.create(name: 'San Diego Chargers', season: nfl_season_2016)
 
 #NFC-WEST
-cardinals = Team.create(name: ‘Arizona Cardinals’, season: nfl_season_2016)
-rams = Team.create(name: ‘Los Angeles Rams’, season: nfl_season_2016)
-49ers = Team.create(name: ‘San Fransisco 49ers’, season: nfl_season_2016)
-seahawks = Team.create(name: ‘Seattle Seahawks’, season: nfl_season_2016)
+cardinals = Team.create(name: 'Arizona Cardinals', season: nfl_season_2016)
+rams = Team.create(name: 'Los Angeles Rams', season: nfl_season_2016)
+49ers = Team.create(name: 'San Fransisco 49ers', season: nfl_season_2016)
+seahawks = Team.create(name: 'Seattle Seahawks', season: nfl_season_2016)
 
 #Andrew's Info
 andrew = User.create(name: 'andrew', password: 'furmancs', email: 'aqua.schematic@gmail.com', role: 'player')
