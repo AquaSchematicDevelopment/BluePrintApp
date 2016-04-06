@@ -48,7 +48,7 @@ class LeaguesController < ApplicationController
   # PATCH/PUT /leagues/1
   # PATCH/PUT /leagues/1.json
   def update
-    if League.find_by(name: league_params[:name])
+    if League.find_by(name: league_params[:name]) && @league.name != league_params[:name]
       @errors = ['A Leaugue with that name already exists']
       render :edit
     else
