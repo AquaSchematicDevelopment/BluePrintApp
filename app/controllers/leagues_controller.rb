@@ -54,7 +54,7 @@ class LeaguesController < ApplicationController
     else
       respond_to do |format|
         if @league.update(league_params)
-          format.html { redirect_to @league, notice: 'League was successfully updated.' }
+          format.html { redirect_to show_league_path(@league), notice: 'League was successfully updated.' }
           format.json { render :show, status: :ok, location: @league }
         else
           format.html { render :edit }
