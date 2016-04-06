@@ -48,7 +48,7 @@ class TeamsController < ApplicationController
   # PATCH/PUT /teams/1
   # PATCH/PUT /teams/1.json
   def update
-    if Team.where(season_id: @team.season_id, name: team_params[:name])
+    if Team.where(season_id: @team.season_id, name: team_params[:name]) && @team.name != team_params[:name]
       @errors = ['There already exists a team with that name in the league']
       render :new
     else
