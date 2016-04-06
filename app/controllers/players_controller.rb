@@ -20,19 +20,25 @@ class PlayersController < ApplicationController
   def create
     @player = User.new(player_params)
     @player.role = :player
-
-    respond_to do |format|
-      if !User.find_by_name(@player.name) && @player.save
-        format.html { redirect_to players_path, notice: 'Player was successfully created.' }
-        format.json { render :show, status: :created, location: @user }
-      else
-        format.html { render :new }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
+    
+    if User.find_by_name(@player.name)
+      @errors = ['A user with that name already exists']
+      render :new
+    else
+      respond_to do |format|
+        if !User.find_by_name(@player.name) && @player.save
+          format.html { redirect_to players_path, notice: 'Player was successfully created.' }
+          format.json { render :show, status: :created, location: @user }
+        else
+          format.html { render :new }
+          format.json { render json: @user.errors, status: :unprocessable_entity }
+        end
       end
     end
   end
 
   def update
+    if User.find_by_name(player_params[:name]) && @user.name != player_params[:name]
     respond_to do |format|
       if @player.update(player_params)
         format.html { redirect_to players_path, notice: 'User was successfully updated.' }
