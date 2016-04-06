@@ -10,18 +10,20 @@
 </style>
 
 <div class="container">
-  <div class="row">
-    <p id="notice"><%= notice %></p>
+  <p id="notice"><%= notice %></p>
 
-    <h2>Sport</h2>
+  <h2>Sport</h2>
 
-    <p>
-      <strong>Name:</strong>
-      <%= @sport.name %>
-    </p>
-  </div>
+<div class="col-xs-11">
+  <p>
+    <strong>Name:</strong>
+    <%= @sport.name %>
+  </p>
+</div>
+<div class="col-xs-1">
+  <p><%= link_to 'Edit', edit_sport_path(@sport), class: 'btn btn-primary' %></p>
+</div>
 
-  <%= link_to 'Edit', edit_sport_path(@sport), class: 'btn btn-primary' %> |
   <%= link_to 'Back To Sports', sports_path, class: 'btn btn-primary' %>
   
   <h2>Leagues</h2>
