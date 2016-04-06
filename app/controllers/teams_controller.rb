@@ -26,13 +26,13 @@ class TeamsController < ApplicationController
   # POST /teams
   # POST /teams.json
   def create
+    @team = Team.new(team_params)
+    @team.season_id = params[:season_id]
+    
     if Team.where(season_id: params[:season_id], name: team_params[:name])
       @errors = ['There already exists a team with that name in the league']
       render :new
     else
-      @team = Team.new(team_params)
-      @team.season_id = params[:season_id]
-  
       respond_to do |format|
         if @team.save
           format.html { redirect_to @team, notice: 'Team was successfully created.' }
