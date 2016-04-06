@@ -12,6 +12,7 @@ class SeasonsController < ApplicationController
   # GET /seasons/1
   # GET /seasons/1.json
   def show
+    @teams = @season.teams
   end
 
   # GET /seasons/new
