@@ -2,7 +2,7 @@
 
 <p>
   <strong>League:</strong>
-  <%= @season.league_id %>
+  <%= @season.league.name %>
 </p>
 
 <p>
@@ -11,4 +11,4 @@
 </p>
 
 <%= link_to 'Edit', edit_season_path(@season) %> |
-<%= link_to 'Back', seasons_path %>
+<%= link_to 'Back', show_league_path(@season.league) %>
