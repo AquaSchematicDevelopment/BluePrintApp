@@ -13,7 +13,7 @@ class PortfoliosController < ApplicationController
   # GET /portfolios/1.json
   def show
     @portfolio = Portfolio.where(user: current_user).first
-    @holdings = Portfolio.holdings
+    @holdings = @portfolio.holdings
   end
 
   # GET /portfolios/new
