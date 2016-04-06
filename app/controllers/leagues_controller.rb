@@ -26,13 +26,13 @@ class LeaguesController < ApplicationController
   # POST /leagues
   # POST /leagues.json
   def create
+    @league = League.new(league_params)
+    @league.sport_id = params[:sport_id]
+    
     if League.find_by(name: league_params[:name])
       @errors = ['A League with that name already exists']
       render :new
     else
-      @league = League.new(league_params)
-      @league.sport_id = params[:sport_id]
-  
       respond_to do |format|
         if @league.save
           format.html { redirect_to @league, notice: 'League was successfully created.' }
