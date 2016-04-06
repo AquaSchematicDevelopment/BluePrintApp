@@ -68,9 +68,10 @@ class LeaguesController < ApplicationController
   # DELETE /leagues/1
   # DELETE /leagues/1.json
   def destroy
+    sport = @league.sport
     @league.destroy
     respond_to do |format|
-      format.html { redirect_to leagues_url, notice: 'League was successfully destroyed.' }
+      format.html { redirect_to show_sport_path(sport), notice: 'League was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
