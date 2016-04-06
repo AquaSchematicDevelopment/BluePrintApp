@@ -10,14 +10,16 @@
 </style>
 
 <div class="container">
-  <p id="notice"><%= notice %></p>
+  <div class="row">
+    <p id="notice"><%= notice %></p>
 
-  <h2>Sport</h2>
+    <h2>Sport</h2>
 
-  <p>
-    <strong>Name:</strong>
-    <%= @sport.name %>
-  </p>
+    <p>
+      <strong>Name:</strong>
+      <%= @sport.name %>
+    </p>
+  </div>
 
   <%= link_to 'Edit', edit_sport_path(@sport), class: 'btn btn-primary' %> |
   <%= link_to 'Back To Sports', sports_path, class: 'btn btn-primary' %>
