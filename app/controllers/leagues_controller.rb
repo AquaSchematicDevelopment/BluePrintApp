@@ -31,7 +31,7 @@ class LeaguesController < ApplicationController
       render :new
     else
       @league = League.new(league_params)
-      @league.sport_id = params[:sport_id])
+      @league.sport_id = params[:sport_id]
   
       respond_to do |format|
         if @league.save
