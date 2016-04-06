@@ -48,7 +48,7 @@ class SportsController < ApplicationController
   # PATCH/PUT /sports/1
   # PATCH/PUT /sports/1.json
   def update
-    if Sport.find_by(name: sport_params[:name])
+    if Sport.find_by(name: sport_params[:name]) && @sport.name != sport_params[:name]
       @errors =['A sport with that name already exists']
       render :edit
     else
