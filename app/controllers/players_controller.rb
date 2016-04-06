@@ -39,13 +39,14 @@ class PlayersController < ApplicationController
 
   def update
     if User.find_by_name(player_params[:name]) && @user.name != player_params[:name]
-    respond_to do |format|
-      if @player.update(player_params)
-        format.html { redirect_to players_path, notice: 'User was successfully updated.' }
-        format.json { render :show, status: :ok, location: @user }
-      else
-        format.html { render :edit }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
+      respond_to do |format|
+        if @player.update(player_params)
+          format.html { redirect_to players_path, notice: 'User was successfully updated.' }
+          format.json { render :show, status: :ok, location: @user }
+        else
+          format.html { render :edit }
+          format.json { render json: @user.errors, status: :unprocessable_entity }
+        end
       end
     end
   end
