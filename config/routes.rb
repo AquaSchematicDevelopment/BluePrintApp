@@ -21,7 +21,7 @@ Rails.application.routes.draw do
   get 'sport/new', to: 'sports#new', as: :new_sport
   post 'sport/new', to: 'sports#create'
   get 'sport/:id', to: 'sports#show', as: :show_sport
-  get 'sport/:id/edit', to: 'sports#show', as: :edit_sport
+  get 'sport/:id/edit', to: 'sports#edit', as: :edit_sport
   post 'sport/:id/edit', to: 'sports#update'
   delete 'sport/:id/delete', to: 'sports#destroy', as: :delete_sport
   get 'sport/:sport_id/addLeague', to: 'leagues#new', as: :add_league
