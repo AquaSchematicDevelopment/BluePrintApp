@@ -1,6 +1,26 @@
 <h1>Editing League</h1>
 
-<%= render 'form' %>
+<%= form_for(@league, url: edit_league_path(@league)) do |f| %>
+  <% if @league.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@league.errors.count, "error") %> prohibited this league from being saved:</h2>
 
-<%= link_to 'Show', @league %> |
-<%= link_to 'Back', leagues_path %>
+      <ul>
+      <% @league.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+<%= link_to 'Show', show_league(@league) %> |
+<%= link_to 'Back', leagues_path(@league.sport_id) %>
