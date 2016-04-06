@@ -22,7 +22,7 @@ div.col-xs-1 {
   <% @leagues.each do |league| %>
     <div class="row">
       <div class="col-sx-9">
-        <%= league.name %>
+        <p><%= league.name %></p>
       </div>
       <div class="col-xs-1">
         <%= link_to 'Show', show_league_path(league), class: 'btn btn-primary' %>
