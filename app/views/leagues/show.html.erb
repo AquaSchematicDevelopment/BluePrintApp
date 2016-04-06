@@ -1,12 +1,12 @@
 <style>
 
-  div.col-md-3 {
+  div.col-md-11 {
     margin-top:50px;
     border-style: solid;
     border-width: 1px;
   }
   
-  div.col-md-9 {
+  div.col-md-1 {
     margin-top:50px;
     border-style: solid;
     border-width: 1px;
@@ -32,14 +32,14 @@
     </p>
   </div>
   
-  <div class="col-xs-11>
+  <div class="col-md-11>
     <p>
       <strong>Sport:</strong>
       <%= @league.sport.name %>
     </p>
   </div>
   
-  <div class="col-xs-1>
+  <div class="col-md-1">
     <%= link_to 'Edit', edit_league_path(@league), class: 'btn btn-primary' %>
   </div>
   
@@ -52,3 +52,4 @@
   <%= link_to 'Add Season', add_season_path(@league) %>
   
 </div>
+
