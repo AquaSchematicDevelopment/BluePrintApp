@@ -14,8 +14,8 @@
     <%= @league.sport.name %>
   </p>
   
-  <%= link_to 'Edit', edit_league_path(@league) %> |
-  <%= link_to 'Back', show_sport_path(@league.sport) %>
+  <%= link_to 'Edit', edit_league_path(@league), class: 'btn btn-default' %> |
+  <%= link_to 'Back', show_sport_path(@league.sport), class: 'btn btn-default' %>
   
   <h3>Seasons</h3>
   
