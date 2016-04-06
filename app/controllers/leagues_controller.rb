@@ -35,7 +35,7 @@ class LeaguesController < ApplicationController
     else
       respond_to do |format|
         if @league.save
-          format.html { redirect_to @league, notice: 'League was successfully created.' }
+          format.html { redirect_to show_league_path(@league), notice: 'League was successfully created.' }
           format.json { render :show, status: :created, location: @league }
         else
           format.html { render :new }
