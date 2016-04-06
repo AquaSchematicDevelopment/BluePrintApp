@@ -26,13 +26,13 @@ class SeasonsController < ApplicationController
   # POST /seasons
   # POST /seasons.json
   def create
+    @season = Season.new(season_params)
+    @season.league_id = params[:league_id]
+    
     if Season.where(league_id: params[:league_id], name: season_params[:name]).first
       @errors = ['A season with that name already exists for the league']
       render :new
     else
-      @season = Season.new(season_params)
-      @season.league_id = params[:league_id]
-  
       respond_to do |format|
         if @season.save
           format.html { redirect_to @season, notice: 'Season was successfully created.' }
