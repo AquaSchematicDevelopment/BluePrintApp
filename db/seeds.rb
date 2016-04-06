@@ -16,6 +16,6 @@ team2 = Team.create(name: 'team1', season: season_2016)
 
 andrew = User.create(name: 'andrew', password: 'furmancs', email: 'aqua.schematic@gmail.com', role: 'player')
 
-andrew_no_profolio = Profolio.create(user: andrew, season: season_2016, funds: 200.15)
-Holding.create(profolio: andrew_no_profolio, team: team1, blue_prints: 100)
-Holding.create(profolio: andrew_no_profolio, team: team2, blue_prints: 20)
+andrew_no_portfolio = Portfolio.create(user: andrew, season: season_2016, funds: 200.15)
+Holding.create(portfolio: andrew_no_portfolio, team: team1, blue_prints: 100)
+Holding.create(portfolio: andrew_no_portfolio, team: team2, blue_prints: 20)
