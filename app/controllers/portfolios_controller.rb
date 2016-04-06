@@ -1,5 +1,7 @@
 class PortfoliosController < ApplicationController
   before_action :set_portfolio, only: [:show, :edit, :update, :destroy]
+  before_action :redirect_non_user
+  before_action :redirect_non_player, only: [:show]
 
   # GET /portfolios
   # GET /portfolios.json
@@ -10,7 +12,7 @@ class PortfoliosController < ApplicationController
   # GET /portfolios/1
   # GET /portfolios/1.json
   def show
-    @portfolio = Portfolio.where(user: current_user)
+    @portfolio = Portfolio.where(user: current_user).first
   end
 
   # GET /portfolios/new
