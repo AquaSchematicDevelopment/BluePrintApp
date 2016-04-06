@@ -2,25 +2,7 @@
 
 <h1>Listing Leagues in <%= Sport.find(params[:sport_id]).name %></h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @leagues.each do |league| %>
-      <tr>
-        <td><%= league.name %></td>
-        <td><%= link_to 'Show', show_league_path(league) %></td>
-        <td><%= link_to 'Edit', edit_league_path(league) %></td>
-        <td><%= link_to 'Delete', delete_league_path(league), data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<%= render 'index' %>
 
 <br>
 
