@@ -36,8 +36,36 @@ panthers = Team.create(name: 'Carolina Panthers', season: nfl_season_2016)
 saints = Team.create(name: 'New Orleans Saints', season: nfl_season_2016)
 buccaneers = Team.create(name: 'Tampa Bay Buccaneers', season: nfl_season_2016)
 
+#AFC-EAST
+bills = Team.create(name: ‘Buffalo Bills’, season: nfl_season_2016)
+dolphins = Team.create(name: ‘Miami Dolphins’, season: nfl_season_2016)
+patriots = Team.create(name: ‘New England Patriots’, season: nfl_season_2016)
+jets = Team.create(name: ‘New York Jets’, season: nfl_season_2016)
+
+#NFC-EAST
+cowboys = Team.create(name: ‘Dallas Cowboys’, season: nfl_season_2016)
+giants = Team.create(name: ‘New York Giants’, season: nfl_season_2016)
+eagles = Team.create(name: ‘Philadelphia Eagles’, season: nfl_season_2016)
+redskins = Team.create(name: ‘Washington Redskins’, season: nfl_season_2016)
+
+#AFC-WEST
+broncos = Team.create(name: ‘Denver Broncos’, season: nfl_season_2016)
+chiefs = Team.create(name: ‘Kansas City Chiefs’, season: nfl_season_2016)
+raiders = Team.create(name: ‘Oakland Raiders’, season: nfl_season_2016)
+chargers = Team.create(name: ‘San Diego Chargers’, season: nfl_season_2016)
+
+#NFC-WEST
+cardinals = Team.create(name: ‘Arizona Cardinals’, season: nfl_season_2016)
+rams = Team.create(name: ‘Los Angeles Rams’, season: nfl_season_2016)
+49ers = Team.create(name: ‘San Fransisco 49ers’, season: nfl_season_2016)
+seahawks = Team.create(name: ‘Seattle Seahawks’, season: nfl_season_2016)
+
+#Andrew's Info
 andrew = User.create(name: 'andrew', password: 'furmancs', email: 'aqua.schematic@gmail.com', role: 'player')
 
-andrew_no_portfolio = Portfolio.create(user: andrew, season: season_2016, funds: 200.15)
-Holding.create(portfolio: andrew_no_portfolio, team: team1, blue_prints: 100)
-Holding.create(portfolio: andrew_no_portfolio, team: team2, blue_prints: 20)
+andrew_nfl_portfolio = Portfolio.create(user: andrew, season: nfl_season_2016, funds: 200.15)
+Holding.create(portfolio: andrew_no_portfolio, team: bears, blue_prints: 100)
+Holding.create(portfolio: andrew_no_portfolio, team: colts, blue_prints: 20)
+Holding.create(portfolio: andrew_no_portfolio, team: titans, blue_prints: 30)
+Holding.create(portfolio: andrew_no_portfolio, team: broncos, blue_prints: 5)
+Holding.create(portfolio: andrew_no_portfolio, team: cardinals, blue_prints: 50)
