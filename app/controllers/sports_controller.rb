@@ -27,12 +27,12 @@ class SportsController < ApplicationController
   # POST /sports
   # POST /sports.json
   def create
+    @sport = Sport.new(sport_params)
+    
     if Sport.find_by(name: sport_params[:name])
       @errors = ['A sport with that name already exists']
       render :new
     else
-      @sport = Sport.new(sport_params)
-  
       respond_to do |format|
         if @sport.save
           format.html { redirect_to show_sport_path(id: @sport.id), notice: 'Sport was successfully created.' }
