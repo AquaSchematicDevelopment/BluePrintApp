@@ -57,7 +57,7 @@ chargers = Team.create(name: 'San Diego Chargers', season: nfl_season_2016)
 #NFC-WEST
 cardinals = Team.create(name: 'Arizona Cardinals', season: nfl_season_2016)
 rams = Team.create(name: 'Los Angeles Rams', season: nfl_season_2016)
-49ers = Team.create(name: 'San Fransisco 49ers', season: nfl_season_2016)
+_49ers = Team.create(name: 'San Fransisco 49ers', season: nfl_season_2016)
 seahawks = Team.create(name: 'Seattle Seahawks', season: nfl_season_2016)
 
 #Andrew's Info
