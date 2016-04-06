@@ -25,13 +25,13 @@ div.col-xs-1 {
         <%= league.name %>
       </div>
       <div class="col-xs-1">
-        <%= link_to 'Show', show_league_path(league) %>
+        <%= link_to 'Show', show_league_path(league), class: 'btn btn-primary' %>
       </div>
       <div class="col-xs-1">
-        <%= link_to 'Edit', edit_league_path(league) %>
+        <%= link_to 'Edit', edit_league_path(league), class: 'btn btn-primary' %>
       </div>
       <div class="col-xs-1">
-        <%= link_to 'Delete', delete_league_path(league),  method: :delete, data: { confirm: 'Are you sure?' } %>
+        <%= link_to 'Delete', delete_league_path(league),  method: :delete, class: 'btn btn-primary', data: { confirm: 'Are you sure?' } %>
       </div>
   <% end %>
 </div>
