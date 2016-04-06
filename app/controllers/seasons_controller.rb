@@ -48,7 +48,7 @@ class SeasonsController < ApplicationController
   # PATCH/PUT /seasons/1
   # PATCH/PUT /seasons/1.json
   def update
-    if Season.where(league_id: @season.league_id, name: season_params[:name]).first
+    if Season.where(league_id: @season.league_id, name: season_params[:name]).first && @season.name != season_params[:name]
       @errors = ['A season with that name already exists for the league']
       render :edit
     else
