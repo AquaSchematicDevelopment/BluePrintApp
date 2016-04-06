@@ -1,3 +1,25 @@
+<style>
+
+  div.col-md-3 {
+    margin-top:50px;
+    border-style: solid;
+    border-width: 1px;
+  }
+  
+  div.col-md-9 {
+    margin-top:50px;
+    border-style: solid;
+    border-width: 1px;
+  }
+  
+  .btn-primary {
+    background: #0099cc;
+    color: #ffffff;
+    border-radius:0;
+}
+
+</style>
+
 <div class="container">
   
   <p id="notice"><%= notice %></p>
@@ -14,8 +36,8 @@
     <%= @league.sport.name %>
   </p>
   
-  <%= link_to 'Edit', edit_league_path(@league), class: 'btn btn-default' %> |
-  <%= link_to 'Back', show_sport_path(@league.sport), class: 'btn btn-default' %>
+  <%= link_to 'Edit', edit_league_path(@league), class: 'btn btn-primary' %> |
+  <%= link_to 'Back', show_sport_path(@league.sport), class: 'btn btn-primary' %>
   
   <h3>Seasons</h3>
   
