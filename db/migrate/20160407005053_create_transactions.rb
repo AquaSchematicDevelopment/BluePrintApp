@@ -6,7 +6,7 @@ class CreateTransactions < ActiveRecord::Migration
       t.integer :team_id
       
       t.decimal :price
-      t.int :amount
+      t.integer :amount
 
       t.timestamps null: false
     end
