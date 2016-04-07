@@ -1,9 +1,9 @@
 <style>
-div.col-xs-11 {
+div.col-xs-2 {
   border-style: solid;
   border-width: 1px;
 }
-div.col-xs-1 {
+div.col-xs-10 {
   border-style: solid;
   border-width: 0px;
 }
@@ -31,8 +31,12 @@ div.col-xs-1 {
     <% end %>
   
     <div class="field">
-      <%= f.label :name %><br>
-      <%= f.text_field :name %>
+      <div class="col-xs-2">
+        <%= f.label :name %><br>
+      </div>
+      <div class="col-xs-10">
+        <%= f.text_field :name %>
+      </div>
     </div>
     <div class="actions">
       <%= f.submit %>
