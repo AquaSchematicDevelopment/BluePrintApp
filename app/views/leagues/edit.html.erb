@@ -1,3 +1,19 @@
+<style>
+div.col-xs-11 {
+  border-style: solid;
+  border-width: 1px;
+}
+div.col-xs-1 {
+  border-style: solid;
+  border-width: 0px;
+}
+.btn-primary {
+  background: #0099cc;
+  color: #ffffff;
+  border-radius:0;
+}
+</style>
+
 <div class="container">  
   <h1>Editing League</h1>
   
@@ -23,6 +39,6 @@
     </div>
   <% end %>
   
-  <%= link_to 'Show', show_league_path(@league) %> |
-  <%= link_to 'Back', show_sport_path(@league.sport) %>
+  <%= link_to 'Show', show_league_path(@league), class: 'btn btn-primary' %> |
+  <%= link_to 'Back', show_sport_path(@league.sport), class 'btn btn-primary' %>
 </div>
