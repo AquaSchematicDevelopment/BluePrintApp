@@ -1,0 +1,23 @@
+<div class="container">
+  <h2> Portfolio Profile </h2>
+  <p id="notice"><%= notice %></p>
+  
+  <p>
+    <strong>League:</strong>
+    <%= @portfolio.season.league.name %>
+  </p>
+  
+  <p>
+    <strong>Season:</strong>
+    <%= @portfolio.season.name %>
+  </p>
+  
+  <p>
+    <strong>Funds:</strong>
+    <%= @portfolio.funds %>
+  </p>
+  
+  <h2>Current Holdings</h2>
+  
+  <%= render 'holdings/index' %>
+</div>

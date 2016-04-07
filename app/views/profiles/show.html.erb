@@ -1,0 +1,36 @@
+<style>
+
+  div.col-md-3 {
+    margin-top:50px;
+    border-style: solid;
+    border-width: 1px;
+  }
+  
+  div.col-md-9 {
+    margin-top:50px;
+    border-style: solid;
+    border-width: 1px;
+  }
+  
+  .btn-primary {
+    background: #0099cc;
+    color: #ffffff;
+    border-radius:0;
+}
+
+</style>
+
+<div class="container">
+  <div class="row">
+    <h2> Profile Information </h2>
+    <div class="col-md-3">
+      <p>Email:</p>
+    </div>
+    <div class="col-md-9">
+      <p><%= current_user.email %></p>
+    </div>
+  </div>
+  <div style="padding-top:20px;" class="row">
+    <%= link_to 'Change Your Password', change_password_path, class: 'btn btn-primary' %>
+  </div>
+</div>

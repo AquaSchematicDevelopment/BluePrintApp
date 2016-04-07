@@ -1,0 +1,15 @@
+<h1>New League</h1>
+
+<%= form_for(@league, url: add_league_path(params[:sport_id])) do |f| %>
+
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="actions">
+    <%= f.submit 'Add League'%>
+  </div>
+<% end %>
+
+<%= link_to 'Back', show_sport_path(params[:sport_id]) %>

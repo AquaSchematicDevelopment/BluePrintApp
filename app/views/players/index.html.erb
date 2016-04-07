@@ -1,0 +1,45 @@
+<style>
+
+div.col-xs-5 {
+  border-style: solid;
+  border-width: 1px;
+}
+
+div.col-xs-4 {
+  border-style: solid;
+  border-width: 1px;
+}
+
+.btn-primary {
+  background: #0099cc;
+  color: #ffffff;
+  border-radius:0;
+}
+
+</style>
+
+<div class="container">
+  <div class="row">
+    <h2>Player List</h2>
+    <h3>Username</h3>
+  </div>
+
+  <% @players.each do |player| %>
+  <div class="row">  
+    <div class="col-xs-4">
+      <p><%= player.name %></p>
+    </div>
+    <div class="col-xs-5">
+      <p><%= player.email %></p>
+    </div>
+    <div class="col-xs-3">
+      <%= link_to 'Delete', delete_player_path(player.id), method: 'delete', class: 'btn btn-primary' %>
+    </div>
+  </div>
+  <% end %>
+  
+  <div class="row">
+    <%= link_to 'Register Player', new_player_path, class: 'btn btn-primary' %>
+  </div>
+
+</div>

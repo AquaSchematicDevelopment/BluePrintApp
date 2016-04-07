@@ -1,0 +1,26 @@
+<h1>Editing Sport</h1>
+
+<%= form_for(@sport, url: edit_sport_path(@sport.id), method: 'post') do |f| %>
+  <% if @sport.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@sport.errors.count, "error") %> prohibited this sport from being saved:</h2>
+
+      <ul>
+      <% @sport.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+<%= link_to 'Show', show_sport_path(@sport) %> |
+<%= link_to 'Back', sports_path %>

@@ -1,0 +1,35 @@
+<style>
+
+  form {
+    
+    font-size: 20px;
+    
+  }
+  
+  .btn-default {
+  
+    font-size: 100px;
+  
+  }
+
+</style>
+
+<div class="container">
+  
+  <h2>Add New Sport</h2>
+  
+  <%= form_for(@sport, url: new_sport_path) do |form| %>
+   	<div class="form-group">
+   	  <%= form.label 'Sport', class: 'col-lg-2 control-label' %>
+   		<div class="col-lg-10">
+   		  <%= form.text_field :name, class: 'form-control' %>
+   		</div>
+   	</div>
+   	<div class="form-group">
+   		<div class="col-lg-offset-2 col-lg-10">
+   		  <%= form.submit 'Add Sport', class: 'btn btn-defualt' %>
+   		</div>
+   	</div>
+  <% end %>
+  
+</div>

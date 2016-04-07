@@ -1,0 +1,22 @@
+<p id="notice"><%= notice %></p>
+
+<h2>Season</h2>
+
+<p>
+  <strong>League:</strong>
+  <%= @season.league.name %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @season.name %>
+</p>
+
+<%= link_to 'Edit', edit_season_path(@season) %> |
+<%= link_to 'Back', show_league_path(@season.league) %>
+
+<h3>Teams</h3>
+
+<%= render 'teams/index' %>
+
+<%= link_to 'Add Team', add_team_path(@season) %>

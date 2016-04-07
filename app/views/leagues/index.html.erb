@@ -1,0 +1,10 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Leagues in <%= Sport.find(params[:sport_id]).name %></h1>
+
+<%= render 'index' %>
+
+<br>
+
+<%= link_to 'Add League', add_league_path(params[:sport_id]) %><br/>
+<%= link_to 'Back To Sport', show_sport_path(params[:sport_id]) %>

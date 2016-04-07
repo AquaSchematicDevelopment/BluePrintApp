@@ -1,0 +1,16 @@
+<p id="notice"><%= notice %></p>
+
+<h2>Team</h2>
+
+<p>
+  <strong>Name:</strong>
+  <%= @team.name %>
+</p>
+
+<p>
+  <strong>Season:</strong>
+  <%= @team.season.name %>
+</p>
+
+<%= link_to 'Edit', edit_team_path(@team) %> |
+<%= link_to 'Back', show_season_path(@team.season) %>
