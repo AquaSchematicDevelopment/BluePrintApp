@@ -11,7 +11,45 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160401150611) do
+ActiveRecord::Schema.define(version: 20160405004145) do
+
+  create_table "holdings", force: :cascade do |t|
+    t.integer  "portfolio_id", limit: 4
+    t.integer  "team_id",      limit: 4
+    t.integer  "blue_prints",  limit: 4
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  add_index "holdings", ["portfolio_id"], name: "index_holdings_on_portfolio_id", using: :btree
+  add_index "holdings", ["team_id"], name: "index_holdings_on_team_id", using: :btree
+
+  create_table "leagues", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.integer  "sport_id",   limit: 4
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  add_index "leagues", ["sport_id"], name: "index_leagues_on_sport_id", using: :btree
+
+  create_table "portfolios", force: :cascade do |t|
+    t.integer  "user_id",    limit: 4
+    t.integer  "season_id",  limit: 4
+    t.decimal  "funds",                precision: 10
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+  end
+
+  add_index "portfolios", ["season_id"], name: "index_portfolios_on_season_id", using: :btree
+  add_index "portfolios", ["user_id"], name: "index_portfolios_on_user_id", using: :btree
+
+  create_table "seasons", force: :cascade do |t|
+    t.integer  "league_id",  limit: 4
+    t.string   "name",       limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
 
   create_table "sports", force: :cascade do |t|
     t.string   "name",       limit: 255
@@ -21,12 +59,13 @@ ActiveRecord::Schema.define(version: 20160401150611) do
 
   create_table "teams", force: :cascade do |t|
     t.string   "name",       limit: 255
-    t.integer  "sport_id",   limit: 4
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.decimal  "book_value",             precision: 12, scale: 4
+    t.integer  "season_id",  limit: 4
+    t.datetime "created_at",                                      null: false
+    t.datetime "updated_at",                                      null: false
   end
 
-  add_index "teams", ["sport_id"], name: "index_teams_on_sport_id", using: :btree
+  add_index "teams", ["season_id"], name: "index_teams_on_season_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "name",            limit: 255

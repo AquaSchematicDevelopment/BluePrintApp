@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @sell_request.price %>
+</p>
+
+<p>
+  <strong>Amount:</strong>
+  <%= @sell_request.amount %>
+</p>
+
+<%= link_to 'Edit', edit_sell_request_path(@sell_request) %> |
+<%= link_to 'Back', sell_requests_path %>

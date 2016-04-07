@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :sell_requests
   root 'pages#home'
   
   #resources :users
