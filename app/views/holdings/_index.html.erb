@@ -12,6 +12,7 @@
       <tr>
         <td><%= holding.team.name %></td>
         <td><%= holding.blue_prints %></td>
+        <tf><%= link_to 'sell', sell_holding_path(holding.name) %></td>
       </tr>
     <% end %>
   </tbody>
