@@ -14,21 +14,19 @@ div.col-xs-1 {
 }
 </style>
 
-<div style="container">
-  <% @seasons.each do |season| %>
-    <div class="row">
-      <div class="col-xs-9">
-        <p>Season Name: <%= season.name %></p>
-      </div>
-      <div class="col-xs-1">
-        <p><%= link_to 'Show', show_season_path(season), class: 'btn btn-primary' %></p>
-      </div>
-      <div class="col-xs-1">
-        <p><%= link_to 'Edit', edit_season_path(season), class: 'btn btn-primary' %></p>
-      </div>
-      <div class="col-xs-1">
-        <p><%= link_to 'Delete', delete_season_path(season), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-primary' %></p>
-      </div>
+<% @seasons.each do |season| %>
+  <div class="row">
+    <div class="col-xs-9">
+      <p>Season Name: <%= season.name %></p>
     </div>
-  <% end %>
-</div>
+    <div class="col-xs-1">
+      <p><%= link_to 'Show', show_season_path(season), class: 'btn btn-primary' %></p>
+    </div>
+    <div class="col-xs-1">
+      <p><%= link_to 'Edit', edit_season_path(season), class: 'btn btn-primary' %></p>
+    </div>
+    <div class="col-xs-1">
+      <p><%= link_to 'Delete', delete_season_path(season), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-primary' %></p>
+    </div>
+  </div>
+<% end %>
