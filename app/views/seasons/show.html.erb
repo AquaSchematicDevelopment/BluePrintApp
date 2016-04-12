@@ -1,19 +1,39 @@
+<style>
+div.col-xs-9 {
+  border-style: solid;
+  border-width: 1px;
+}
+div.col-xs-1 {
+  border-style: solid;
+  border-width: 0px;
+}
+.btn-primary {
+  background: #0099cc;
+  color: #ffffff;
+  border-radius:0;
+}
+</style>
+
 <div class="container">
   <p id="notice"><%= notice %></p>
   <h2>Season</h2>
   
-  <p>
-    <strong>League:</strong>
-    <%= @season.league.name %>
-  </p>
+  <div class="row">
+    <p>
+      <strong>League:</strong>
+      <%= @season.league.name %>
+    </p>
+  </div>
   
-  <p>
-    <strong>Name:</strong>
-    <%= @season.name %>
-  </p>
+  <div class="row">
+    <p>
+      <strong>Name:</strong>
+      <%= @season.name %>
+    </p>
+  </div>
   
-  <%= link_to 'Edit', edit_season_path(@season) %> |
-  <%= link_to 'Back', show_league_path(@season.league) %>
+  <%= link_to 'Edit', edit_season_path(@season), class: 'btn btn-primary' %> |
+  <%= link_to 'Back', show_league_path(@season.league), class: 'btn btn-primary' %>
   
   <h3>Teams</h3>
   
