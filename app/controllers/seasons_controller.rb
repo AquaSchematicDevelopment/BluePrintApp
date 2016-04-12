@@ -1,5 +1,5 @@
 class SeasonsController < ApplicationController
-  before_action :set_season, only: [:show, :edit, :update, :destroy]
+  before_action :set_season, only: [:show, :edit, :update, :destroy, :sell_request_index]
   before_action :redirect_non_user
   before_action :redirect_non_admin, only: [:index, :show, :new, :create, :edit, :update, :destroy]
 
@@ -74,6 +74,10 @@ class SeasonsController < ApplicationController
       format.html { redirect_to show_league_path(league), notice: 'Season was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+  
+  def sell_request_index
+    @teams = @season.teams
   end
 
   private
