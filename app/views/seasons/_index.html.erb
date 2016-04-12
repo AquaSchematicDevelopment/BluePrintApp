@@ -21,13 +21,13 @@ div.col-xs-1 {
         <td><%= season.name %></td>
       </div>
       <div class="col-xs-1">
-        <p><%= link_to 'Show', show_season_path(season) %></p>
+        <p><%= link_to 'Show', show_season_path(season), class: 'btn btn-primary' %></p>
       </div>
       <div class="col-xs-1">
-        <p><%= link_to 'Edit', edit_season_path(season) %></p>
+        <p><%= link_to 'Edit', edit_season_path(season), class: 'btn btn-primary' %></p>
       </div>
       <div class="col-xs-1">
-        <p><%= link_to 'Delete', delete_season_path(season), method: :delete, data: { confirm: 'Are you sure?' } %></p>
+        <p><%= link_to 'Delete', delete_season_path(season), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-primary' %></p>
       </div>
     </div>
   <% end %>
