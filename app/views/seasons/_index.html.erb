@@ -18,8 +18,7 @@ div.col-xs-1 {
   <% @seasons.each do |season| %>
     <div class="row">
       <div class="col-xs-9">
-        <p>Season Name: </p>
-        <p><%= season.name %></p>
+        <p>Season Name: <%= season.name %></p>
       </div>
       <div class="col-xs-1">
         <p><%= link_to 'Show', show_season_path(season), class: 'btn btn-primary' %></p>
