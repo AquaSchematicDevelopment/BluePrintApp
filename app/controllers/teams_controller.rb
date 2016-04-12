@@ -74,6 +74,10 @@ class TeamsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  def sell_request_index
+    @sell_requests = @team.sell_requests.sort_by {|sell_request| sell_request.price}
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
