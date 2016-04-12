@@ -19,12 +19,12 @@ div.col-xs-1 {
     <p><%= team.name %></p>
   </div>
   <div class="col-xs-1">
-    <p><%= link_to 'Show', show_team_path(team) %></p>
+    <p><%= link_to 'Show', show_team_path(team), class: 'btn btn-primary' %></p>
   </div>
   <div class="col-xs-1">
-    <p><%= link_to 'Edit', edit_team_path(team) %></p>
+    <p><%= link_to 'Edit', edit_team_path(team), class: 'btn btn-primary' %></p>
   </div>
   <div class="col-xs-1">
-    <p><%= link_to 'Delete', delete_team_path(team), method: :delete, data: { confirm: 'Are you sure?' } %></p>
+    <p><%= link_to 'Delete', delete_team_path(team), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-primary' %></p>
   </div>
 <% end %>
