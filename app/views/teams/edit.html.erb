@@ -31,6 +31,8 @@
     </div>
   <% end %>
   
-  <%= link_to 'Show', show_team_path(@team), class: 'btn btn-primary' %> |
-  <%= link_to 'Back', show_season_path(@team.season), class: 'btn btn-primary' %>
+  <div class="row">
+    <%= link_to 'Show', show_team_path(@team), class: 'btn btn-primary' %> |
+    <%= link_to 'Back', show_season_path(@team.season), class: 'btn btn-primary' %>
+  </div>
 </div>
