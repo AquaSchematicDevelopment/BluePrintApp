@@ -8,12 +8,12 @@ class Team < ActiveRecord::Base
     self.sell_requests.inject([]) do |map, sell_request|
         if map.empty? || map.first.price == sell_request.price
           map[] = sell_request
-        else if sell_request.price < map.first.price
+        elsif sell_request.price < map.first.price
           map = [sell_request]
         else
           map
         end
-    end
+      end
   end
   
 end
