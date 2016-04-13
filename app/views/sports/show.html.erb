@@ -17,11 +17,11 @@ div.col-xs-1 {
 <div class="container">
   <p id="notice"><%= notice %></p>
   
-  <div row="container">
+  <div class="row">
     <h2>Sport</h2>
   </div>
 
-  <div row="container">
+  <div class="row">
     <div class="col-xs-11">
       <p>
         <%= @sport.name %>
@@ -32,19 +32,19 @@ div.col-xs-1 {
     </div>
   </div>
   
-  <div row="container">
+  <div class="row">
     <%= link_to 'Back To Sports', sports_path, class: 'btn btn-primary' %>
   </div>
 
-  <div row="container">
+  <div class="row">
     <h2>Leagues</h2>
   </div>
 
-  <div row="container">
+  <div class="row">
     <%= render 'leagues/index' %>
   </div>
 
-  <div row="container">
+  <div class="row">
     <%= link_to 'Add League', add_league_path(@sport), class: 'btn btn-primary' %>
   </div>
 
