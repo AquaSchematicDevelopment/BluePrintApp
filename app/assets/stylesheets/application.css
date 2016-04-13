@@ -21,5 +21,6 @@
  }
  
  .nav.navbar-nav li a {
-     color: white !important; 
+  color: white !important;
+  background-color: #2a67a4 !important;
  }
