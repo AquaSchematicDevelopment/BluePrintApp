@@ -35,6 +35,9 @@
         <%= @league.name %>
       </p>
     </div>
+    <div class="col-xs-1">
+      <%= link_to 'Edit', edit_league_path(@league), class: 'btn btn-primary' %>
+    </div>
   </div>
   
   <div class="row">
@@ -43,9 +46,6 @@
         <strong>Sport:</strong>
         <%= @league.sport.name %>
       </p>
-    </div>
-    <div class="col-xs-1">
-      <%= link_to 'Edit', edit_league_path(@league), class: 'btn btn-primary' %>
     </div>
   </div>
   
