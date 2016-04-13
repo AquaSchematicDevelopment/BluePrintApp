@@ -14,7 +14,8 @@ div.col-xs-1 {
 }
 </style>
 
-<% @teams.each do |team| %>
+<% @teams.each_with_index do |team, index| %>
+<div class="row <%= index.even? ? 'even-row' : 'odd-row' %>">
   <div class="col-xs-9">
     <p><%= team.name %></p>
   </div>
@@ -27,4 +28,5 @@ div.col-xs-1 {
   <div class="col-xs-1">
     <p><%= link_to 'Delete', delete_team_path(team), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-primary' %></p>
   </div>
+</div>
 <% end %>
