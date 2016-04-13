@@ -35,6 +35,8 @@
   .btn-primary {
   color: white !important;
   background: #2a67a4 !important;
+  height: 60px;
+  border-radius:0;
  }
  
 .even-row {
