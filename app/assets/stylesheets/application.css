@@ -21,5 +21,9 @@
  }
  
  .nav.navbar-nav li a {
-     color: #2a67a4 !important; 
+     color: #ffffff !important; 
+ }
+ 
+  .nav .navbar-nav li a:hover { 
+     color: #2a67a4 !important;
  }
