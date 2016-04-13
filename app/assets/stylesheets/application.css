@@ -36,3 +36,7 @@
   color: white !important;
   background: #2a67a4 !important;
  }
+ 
+.even-row {
+  background-color: grey;  
+}
