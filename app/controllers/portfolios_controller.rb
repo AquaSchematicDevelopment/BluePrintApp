@@ -14,6 +14,7 @@ class PortfoliosController < ApplicationController
   def show
     @portfolio = Portfolio.where(user: current_user).first
     @holdings = @portfolio.holdings
+    @sell_requests = @portfolio.sell_requests
   end
 
   # GET /portfolios/new
