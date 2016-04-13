@@ -16,4 +16,8 @@ class Team < ActiveRecord::Base
       end
   end
   
+  def lowest_price
+    self.sell_requests.map { |sell_request| sell_request.price }.min
+  end
+  
 end
