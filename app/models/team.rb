@@ -5,7 +5,7 @@ class Team < ActiveRecord::Base
   has_many :transactions
   
   def lowest_priced_sell_requests
-    self.sell_requests.inject([]) |map, sell_request| do
+    self.sell_requests.inject([]) do |map, sell_request|
         if map.empty? || map.first.price == sell_request.price
           map[] = sell_request
         else if sell_request.price < map.first.price
