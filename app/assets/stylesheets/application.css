@@ -24,6 +24,6 @@
      color: #ffffff !important; 
  }
  
-  .nav .navbar-nav li a:hover { 
-     color: #2a67a4 !important;
- }
+ .navbar-custom {
+    background-color: #2a67a4 !important;
+}
