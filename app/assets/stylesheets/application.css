@@ -14,10 +14,10 @@
  = require_self
  */
  .btn-primary {
-  color: #ffffff !important;
-  background: #2a67a4 !important;
+  color: #ffffff;
+  background: #2a67a4;
  }
  .navbar-custom {
-  color: #ffffff !important; 
-  background-color: #2a67a4 !important;
+  color: #ffffff; 
+  background-color: #2a67a4;
 }
