@@ -18,6 +18,6 @@
   background: #2a67a4;
  }
  .navbar-custom {
-  color: #ffffff; 
-  background-color: #2a67a4;
+  color: #ffffff !important!; 
+  background-color: #2a67a4 !important;
 }
