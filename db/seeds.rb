@@ -71,4 +71,4 @@ Holding.create(portfolio: andrew_nfl_portfolio, team: titans, blue_prints: 30)
 Holding.create(portfolio: andrew_nfl_portfolio, team: broncos, blue_prints: 5)
 Holding.create(portfolio: andrew_nfl_portfolio, team: cardinals, blue_prints: 50)
 
-Sell_request.create(portfolio: andrew_nfl_portfolio, team: titans, amount: 10, price: 10.00)
+SellRequest.create(portfolio: andrew_nfl_portfolio, team: titans, amount: 10, price: 10.00)
