@@ -27,3 +27,8 @@
  .navbar-custom {
   background-color: #2a67a4 !important;
  }
+ 
+  .btn-primary {
+  color: white !important;
+  background: #2a67a4 !important;
+ }
