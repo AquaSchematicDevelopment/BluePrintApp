@@ -17,16 +17,16 @@ div.col-xs-1 {
 <div class="container">
   <p id="notice"><%= notice %></p>
 
-  <h2>Sports</h2>
+  <h2>Sport</h2>
 
-<div class="col-xs-11">
-  <p>
-    <%= @sport.name %>
-  </p>
-</div>
-<div class="col-xs-1">
-  <p><%= link_to 'Edit', edit_sport_path(@sport), class: 'btn btn-primary' %></p>
-</div>
+  <div class="col-xs-11">
+    <p>
+      <%= @sport.name %>
+    </p>
+  </div>
+  <div class="col-xs-1">
+    <p><%= link_to 'Edit', edit_sport_path(@sport), class: 'btn btn-primary' %></p>
+  </div>
 
   <%= link_to 'Back To Sports', sports_path, class: 'btn btn-primary' %>
   
