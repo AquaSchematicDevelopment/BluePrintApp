@@ -13,11 +13,13 @@
  = require_tree .
  = require_self
  */
- .navbar-custom {
-  color: white !important; 
-  background-color: #2a67a4 !important;
-}
- .btn-primary {
-  color: #ffffff !important;
-  background: #2a67a4 !important;
+ .colored_row_1 {
+  background-color:gray;
+ }
+ .colored_row_2 {
+  background-color:0x999;
+ }
+ 
+ .nav.navbar-nav li a {
+     color: white !important; 
  }
