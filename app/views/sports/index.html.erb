@@ -19,8 +19,8 @@ div.col-xs-1 {
     <h2>Sports</h2>
   </div>
 
-  <% @sports.each do |sport| %>
-  <div class="row">  
+  <% @sports.each_with_index do |sport, index| %>
+  <div class="row <%= index.even? ? 'even-row' : 'odd-row' %>">  
     <div class="col-xs-9">
       <p><%= sport.name %></p>
     </div>
