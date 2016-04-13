@@ -20,7 +20,7 @@
   background-color:0x999;
  }
  
- .nav.navbar-nav li a {
+ .navbar-custom {
   color: white !important;
   background-color: #2a67a4 !important;
  }
