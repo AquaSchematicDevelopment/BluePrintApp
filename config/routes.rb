@@ -56,6 +56,7 @@ Rails.application.routes.draw do
   get 'MyPortfolio', to: 'portfolios#show', as: :show_portfolio
   
   get 'sell/:holding_id', to: 'sell_requests#new', as: :sell_holding
+  delete 'sell_request/:id/delete', to: 'sell_requests#destroy', as: :delete_sell_request
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
