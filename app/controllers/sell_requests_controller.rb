@@ -24,15 +24,22 @@ class SellRequestsController < ApplicationController
   # POST /sell_requests
   # POST /sell_requests.json
   def create
+    holding = Holding.find(params[:holding_id])
     @sell_request = SellRequest.new(sell_request_params)
-
-    respond_to do |format|
+    @sell_request.team = holding.team
+    @sell_request.portfolio = holding.portfolio
+    
+    if holding.portfolio.user != current_user
+      @errors = ["Request from wrong user."]
+      redirect_to root
+    elsif holding.amount < @sell_request.amount
+      @errors = ["You don't hold that many BluePrints in that team."]
+      render :new
+    else
       if @sell_request.save
-        format.html { redirect_to @sell_request, notice: 'Sell request was successfully created.' }
-        format.json { render :show, status: :created, location: @sell_request }
+        redirect_to view_portfolio_path, notice: 'Sell request was successfully created.'
       else
-        format.html { render :new }
-        format.json { render json: @sell_request.errors, status: :unprocessable_entity }
+        render :new
       end
     end
   end
@@ -40,14 +47,10 @@ class SellRequestsController < ApplicationController
   # PATCH/PUT /sell_requests/1
   # PATCH/PUT /sell_requests/1.json
   def update
-    respond_to do |format|
-      if @sell_request.update(sell_request_params)
-        format.html { redirect_to @sell_request, notice: 'Sell request was successfully updated.' }
-        format.json { render :show, status: :ok, location: @sell_request }
-      else
-        format.html { render :edit }
-        format.json { render json: @sell_request.errors, status: :unprocessable_entity }
-      end
+    if @sell_request.update(sell_request_params)
+      redirect_to @sell_request, notice: 'Sell request was successfully updated.'
+    else
+      render :edit
     end
   end
 
