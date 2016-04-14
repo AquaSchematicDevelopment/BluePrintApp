@@ -33,8 +33,8 @@ class SellRequestsController < ApplicationController
     if @holding.portfolio.user != current_user
       @errors = ["Request from wrong user."]
       redirect_to root
-    elsif @holding.amount < @sell_request.amount
-      @errors = ["You don't hold that many BluePrints in that team."]
+    elsif @holding.available_blueprints < @sell_request.amount
+      @errors = ["You don't have that many BluePrints available for that team."]
       render :new
     else
       if @sell_request.save
