@@ -174,22 +174,22 @@ private
       end)
     end
     
-    @from_holding = @from.holdings.find_by(team: @transaction.team)
+    @from_holding = @from_portfolio.holdings.find_by(team: @transaction.team)
     raise DatabaseException unless @from_holding
     
-    to_holding.amount += @transaction.amount
-    from_holding.amount -= @transaction.amount
+    @to_holding.amount += @transaction.amount
+    @from_holding.amount -= @transaction.amount
     
-    raise DatabaseException unless to_holding.save
+    raise DatabaseException unless @to_holding.save
     undos.push( lambda do ||
-      to_holding.amount -= @transaction.amount
-      raise DatabaseException unless to_holding.save
+      @to_holding.amount -= @transaction.amount
+      raise DatabaseException unless @to_holding.save
     end)
     
-    raise DatabaseException unless from_holding.save
+    raise DatabaseException unless @from_holding.save
     undos.push( lambda do ||
-      from_holding.amount += @transaction.amount
-      raise DatabaseException unless from_holding.save
+      @from_holding.amount += @transaction.amount
+      raise DatabaseException unless @from_holding.save
     end)
     
     # add transaction to data base
