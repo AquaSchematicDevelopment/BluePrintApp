@@ -1,5 +1,5 @@
 class SellRequestsController < ApplicationController
-  before_action :redirect_non_users
+  before_action :redirect_non_user
   before_action :redirect_non_players, only: [:new, :create, :initiate_buy, :process_buy]
   before_action :set_sell_request, only: [:show, :edit, :update, :initiate_buy, :process_buy, :destroy]
 
