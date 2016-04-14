@@ -59,10 +59,7 @@ class SellRequestsController < ApplicationController
   # DELETE /sell_requests/1.json
   def destroy
     @sell_request.destroy
-    respond_to do |format|
-      format.html { redirect_to sell_requests_url, notice: 'Sell request was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    redirect_to sell_requests_url, notice: 'Sell request was successfully destroyed.'
   end
 
   private
