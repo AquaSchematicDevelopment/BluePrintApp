@@ -230,7 +230,7 @@ private
       if undos
         undos.reverse.each { |undo| undo.call }
       end
-      @errors = [error_message]
+      @errors = [error_message, error.message + ': ' + error.backtrace.to_s]
       render :initiate_buy
     rescue => critical_error
       @errors = [critical_error_message]
