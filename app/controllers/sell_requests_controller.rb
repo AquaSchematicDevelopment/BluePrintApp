@@ -126,6 +126,9 @@ private
     params.require(:transaction).permit(:amount)
   end
   
+  class DatabaseException < Exception
+  end
+  
   def handle_buy
     # This is a generic message for when there is an error in processing the transaction
     # but all the changes to the database were able to be undone.
@@ -146,16 +149,16 @@ private
     @to.funds -= total
     @from.funds += total
     
-    @to.update
+    raise DatabaseException unless @to.update
     undos[] = lambda do
       @to.funds += total
-      @to.update
+      raise DatabaseException unless @to.update
     end
     
-    @from.update 
+    raise DatabaseException unless @from.update
     undos[] = lambda do
       @from.funds -= total
-      @from.update 
+      raise DatabaseException unless @from.update
     end
     
     # move holdings
@@ -166,23 +169,30 @@ private
     end
     
     from_holding = @from.holdings.find_by(team: @transaction.team)
+    raise DatabaseException unless from_holding
     
     to_holding.amount += @transaction.amount
     from_holding.amount -= @transaction.amount
     
-    to_holding.update
+    raise DatabaseException unless to_holding.update
     undos[] = lambda do
       to_holding.amount -= @transaction.amount
+      raise DatabaseException unless to_holding.update
     end
     
-    from_holding.update
+    raise DatabaseException unless from_holding.update
     undos[] = lambda do
       from_holding.amount += @transaction.amount
+      raise DatabaseException unless from_holding.update
     end
     
     # add transaction to data base
     
-    @transaction.update
+    raise DatabaseException unless @transaction.update
+    
+    # everything is now safe
+    undos = nil
+    
     redirect_to show_portfolio, notice: "Your transaction was successfully processed."
     
   rescue => error
