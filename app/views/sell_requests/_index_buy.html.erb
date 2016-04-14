@@ -1,36 +1,17 @@
-<style>
-div.col-xs-9 {
-  border-style: solid;
-  border-width: 1px;
-}
-div.col-xs-1 {
-  border-style: solid;
-  border-width: 0px;
-}
-.btn-primary {
-  background: #0099cc;
-  color: #ffffff;
-  border-radius:0;
-}
-</style>
-
-<div class="container">
-
-  <% @sell_requests.each do |sell_request| %>
-    <div class="row">
-      <div class="col-xs-9">
-        <p><%= sell_request.team.name %></p>
-      </div>
-      <div class="col-xs-1">
-        <p><strong>Price:</strong> <%= sell_request.price %></p>
-      </div>
-      <div class="col-xs-1">
-        <p><strong>Amount:</Strong> <%= sell_request.amount %></p>
-      </div>
-      <div class="col-xs-1">
-        <p><%= link_to 'Buy', buy_sell_request_path(sell_request), class: 'btn btn-primary' %></p>
-      </div>
+<% @sell_requests.each do |sell_request| %>
+  <div class="row">
+    <div class="col-xs-9">
+      <p><%= sell_request.team.name %></p>
     </div>
-  <% end %>
-</div>
+    <div class="col-xs-1">
+      <p><strong>Price:</strong> <%= sell_request.price %></p>
+    </div>
+    <div class="col-xs-1">
+      <p><strong>Amount:</Strong> <%= sell_request.amount %></p>
+    </div>
+    <div class="col-xs-1">
+      <p><%= link_to 'Buy', buy_sell_request_path(sell_request), class: 'btn btn-primary' %></p>
+    </div>
+  </div>
+<% end %>
 
