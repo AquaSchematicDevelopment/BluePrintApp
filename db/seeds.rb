@@ -71,8 +71,8 @@ Holding.create(portfolio: andrew_nfl_portfolio, team: titans, blue_prints: 30)
 Holding.create(portfolio: andrew_nfl_portfolio, team: broncos, blue_prints: 5)
 Holding.create(portfolio: andrew_nfl_portfolio, team: cardinals, blue_prints: 50)
 
-SellRequest.create(portfolio: andrew_nfl_portfolio, team: titans, blue_prints: 10, price: 10.00)
-SellRequest.create(portfolio: andrew_nfl_portfolio, team: colts, blue_prints: 20, price: 12.00)
+SellRequest.create(portfolio: andrew_nfl_portfolio, team: titans, amount: 10, price: 10.00)
+SellRequest.create(portfolio: andrew_nfl_portfolio, team: colts, amount: 20, price: 12.00)
 
 #Chase's Info
 chase = User.create(name: 'chase', password: 'furmancs', email: 'aqua.schematic@gmail.com', funds: '100.00', role: 'player')
@@ -85,5 +85,5 @@ Holding.create(portfolio: chase_nfl_portfolio, team: raiders, blue_prints: 30)
 Holding.create(portfolio: chase_nfl_portfolio, team: jets, blue_prints: 5)
 Holding.create(portfolio: chase_nfl_portfolio, team: titians, blue_prints: 50)
 
-SellRequest.create(portfolio: andrew_nfl_portfolio, team: giants, blue_prints: 50, price: 5.00)
-SellRequest.create(portfolio: andrew_nfl_portfolio, team: raiders, blue_prints: 20, price: 14.00)
+SellRequest.create(portfolio: andrew_nfl_portfolio, team: giants, amount: 50, price: 5.00)
+SellRequest.create(portfolio: andrew_nfl_portfolio, team: raiders, amount: 20, price: 14.00)
