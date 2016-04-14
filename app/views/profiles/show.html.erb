@@ -3,9 +3,7 @@
     <h2> Profile Information </h2>
   </div>
   <div class="row">
-    <div class="col-xs-12">
-      <p><b>Email: </b><%= current_user.email %></p>
-    </div>
+    <p><b>Email: </b><%= current_user.email %></p>
   </div>
   <div style="padding-top:20px;" class="row">
     <%= link_to 'Change Your Password', change_password_path, class: 'btn btn-primary' %>
