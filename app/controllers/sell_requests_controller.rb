@@ -175,18 +175,18 @@ private
     @from_holding = @from_portfolio.holdings.find_by(team: @transaction.team)
     raise unless @from_holding
     
-    @to_holding.amount += @transaction.amount
-    @from_holding.amount -= @transaction.amount
+    @to_holding.blue_prints += @transaction.amount
+    @from_holding.blue_prints -= @transaction.amount
     
     raise unless @to_holding.save
     undos.push( lambda do ||
-      @to_holding.amount -= @transaction.amount
+      @to_holding.blue_prints -= @transaction.amount
       raise unless @to_holding.save
     end)
     
     raise unless @from_holding.save
     undos.push( lambda do ||
-      @from_holding.amount += @transaction.amount
+      @from_holding.blue_prints += @transaction.amount
       raise DatabaseException unless @from_holding.save
     end)
     
