@@ -59,7 +59,7 @@ class SellRequestsController < ApplicationController
   # DELETE /sell_requests/1.json
   def destroy
     @sell_request.destroy
-    redirect_to sell_requests_url, notice: 'Sell request was successfully destroyed.'
+    redirect_to show_portfolio_path, notice: 'Sell request was successfully destroyed.'
   end
 
   private
