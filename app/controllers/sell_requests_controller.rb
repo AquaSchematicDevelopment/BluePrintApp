@@ -36,6 +36,9 @@ class SellRequestsController < ApplicationController
     elsif @holding.available_blueprints < @sell_request.amount
       @errors = ["You don't have that many BluePrints available for that team."]
       render :new
+    elsif !@sell_request.amount || !@sell_request.price
+      @errors = ['Form was incomplete']
+      render :new
     elsif @sell_request.amount <= 0 || @sell_request.price <= 0
       @errors = ['Either price or amount is zero']
       render :new
