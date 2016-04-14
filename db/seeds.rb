@@ -85,5 +85,5 @@ Holding.create(portfolio: chase_nfl_portfolio, team: raiders, blue_prints: 30)
 Holding.create(portfolio: chase_nfl_portfolio, team: jets, blue_prints: 5)
 Holding.create(portfolio: chase_nfl_portfolio, team: titans, blue_prints: 50)
 
-SellRequest.create(portfolio: andrew_nfl_portfolio, team: giants, amount: 50, price: 5.00)
-SellRequest.create(portfolio: andrew_nfl_portfolio, team: raiders, amount: 20, price: 14.00)
+SellRequest.create(portfolio: chase_nfl_portfolio, team: giants, amount: 50, price: 5.00)
+SellRequest.create(portfolio: chase_nfl_portfolio, team: raiders, amount: 20, price: 14.00)
