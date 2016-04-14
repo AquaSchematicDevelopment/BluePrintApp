@@ -58,8 +58,12 @@ class SellRequestsController < ApplicationController
   # DELETE /sell_requests/1
   # DELETE /sell_requests/1.json
   def destroy
-    @sell_request.destroy
-    redirect_to show_portfolio_path, notice: 'Sell request was successfully destroyed.'
+    if @sell_request.portfolio.user == current_user
+      @sell_request.destroy
+      redirect_to show_portfolio_path, notice: 'Sell request was successfully deleted.'
+    else
+      redirect_to root, notice: 'Wrong User'
+    end
   end
 
   private
