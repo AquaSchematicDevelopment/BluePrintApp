@@ -1,19 +1,13 @@
-<table>
-  <thead>
-    <tr>
-      <th>Team</th>
-      <th>Blue prints</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @holdings.each do |holding| %>
-      <tr>
-        <td><%= holding.team.name %></td>
-        <td><%= holding.blue_prints %></td>
-        <td><%= link_to 'sell', sell_holding_path(holding) %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<% @holdings.each_with_index do |holding, index| %>
+  <div class="row <%= index.even? ? 'even-row' : 'odd-row' %>">
+    <div class="col-xs-4">
+      <p>Team: <%= holding.team.name %></p>
+    </div>
+    <div class="col-xs-4">
+      <p>Blueprints: <%= holding.blue_prints %></p>
+    </div>
+    <div class="col-xs-4">
+      <p><%= link_to 'sell', sell_holding_path(holding) %></p>
+    </div>
+  </div>
+<% end %>
