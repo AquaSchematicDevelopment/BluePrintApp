@@ -15,6 +15,7 @@ class SellRequestsController < ApplicationController
   # GET /sell_requests/new
   def new
     @sell_request = SellRequest.new
+    @holding = Holding.find(params[:holding_id])
   end
 
   # GET /sell_requests/1/edit
@@ -24,15 +25,15 @@ class SellRequestsController < ApplicationController
   # POST /sell_requests
   # POST /sell_requests.json
   def create
-    holding = Holding.find(params[:holding_id])
+    @holding = Holding.find(params[:holding_id])
     @sell_request = SellRequest.new(sell_request_params)
-    @sell_request.team = holding.team
-    @sell_request.portfolio = holding.portfolio
+    @sell_request.team = @holding.team
+    @sell_request.portfolio = @holding.portfolio
     
-    if holding.portfolio.user != current_user
+    if @holding.portfolio.user != current_user
       @errors = ["Request from wrong user."]
       redirect_to root
-    elsif holding.amount < @sell_request.amount
+    elsif @holding.amount < @sell_request.amount
       @errors = ["You don't hold that many BluePrints in that team."]
       render :new
     else
