@@ -22,10 +22,10 @@ div.col-xs-1 {
         <p><%= sell_request.team.name %></p>
       </div>
       <div class="col-xs-1">
-        <p><%= sell_request.price %></p>
+        <p><strong>Price:</strong> <%= sell_request.price %></p>
       </div>
       <div class="col-xs-1">
-        <p><%= sell_request.amount %></p>
+        <p><strong>Amount:</Strong> <%= sell_request.amount %></p>
       </div>
       <div class="col-xs-1">
         <p><%= link_to 'Delete', delete_sell_request_path(sell_request),  method: :delete, class: 'btn btn-primary', data: { confirm: 'Are you sure?' } %></p>
