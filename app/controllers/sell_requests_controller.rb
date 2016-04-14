@@ -196,7 +196,7 @@ private
     @sell_request.amount -= @transaction.amount
     
     if @sell_request.amount == 0
-      raise unless @sell_request.belete
+      raise unless @sell_request.delete
       undos.push( lambda do ||
         raise unless SellRequest.create(@sell_request_save)
       end)
