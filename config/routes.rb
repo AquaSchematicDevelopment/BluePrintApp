@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
   
-  resources :transactions
-  resources :sell_requests
   root 'pages#home'
   
   #resources :users
@@ -56,11 +54,13 @@ Rails.application.routes.draw do
   get 'MyPortfolio', to: 'portfolios#show', as: :show_portfolio
   
   get 'sell/:holding_id', to: 'sell_requests#new', as: :sell_holding
+  post 'sel/:holding_id', to: 'sell_requests#create'
   delete 'sell_request/:id/delete', to: 'sell_requests#destroy', as: :delete_sell_request
   get 'season/:id/sell_requests', to: 'seasons#sell_request_index', as: :season_sell_requests
   get 'team/:id/sell_requests', to: 'teams#sell_request_index', as: :team_sell_requests
   get 'sell_request/:id/buy', to: 'sell_requests#initiate_buy', as: :buy_sell_request
   post 'sell_request/:id/buy', to: 'sell_requests#process_buy'
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
