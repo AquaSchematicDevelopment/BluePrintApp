@@ -61,7 +61,7 @@ _49ers = Team.create(name: 'San Fransisco 49ers', season: nfl_season_2016)
 seahawks = Team.create(name: 'Seattle Seahawks', season: nfl_season_2016)
 
 #Andrew's Info
-andrew = User.create(name: 'andrew', password: 'furmancs', email: 'aqua.schematic@gmail.com', funds: '200.00' role: 'player')
+andrew = User.create(name: 'andrew', password: 'furmancs', email: 'aqua.schematic@gmail.com', funds: '200.00', role: 'player')
 
 andrew_nfl_portfolio = Portfolio.create(user: andrew, season: nfl_season_2016)
 
@@ -75,7 +75,7 @@ SellRequest.create(portfolio: andrew_nfl_portfolio, team: titans, blue_prints: 1
 SellRequest.create(portfolio: andrew_nfl_portfolio, team: colts, blue_prints: 20, price: 12.00)
 
 #Chase's Info
-chase = User.create(name: 'chase', password: 'furmancs', email: 'aqua.schematic@gmail.com', funds: '100.00' role: 'player')
+chase = User.create(name: 'chase', password: 'furmancs', email: 'aqua.schematic@gmail.com', funds: '100.00', role: 'player')
 
 chase_nfl_portfolio = Portfolio.create(user: andrew, season: nfl_season_2016)
 
