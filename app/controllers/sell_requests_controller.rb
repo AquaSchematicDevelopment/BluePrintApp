@@ -36,6 +36,9 @@ class SellRequestsController < ApplicationController
     elsif @holding.available_blueprints < @sell_request.amount
       @errors = ["You don't have that many BluePrints available for that team."]
       render :new
+    elsif @sell_request.amount <= 0 || @sell_request.price <= 0
+      @errors = ['Either pice or amount is zero']
+      render :new
     else
       if @sell_request.save
         redirect_to show_portfolio_path, notice: 'Sell request was successfully created.'
