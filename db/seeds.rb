@@ -77,7 +77,7 @@ SellRequest.create(portfolio: andrew_nfl_portfolio, team: colts, amount: 20, pri
 #Chase's Info
 chase = User.create(name: 'chase', password: 'furmancs', email: 'aqua.schematic@gmail.com', funds: '100.00', role: 'player')
 
-chase_nfl_portfolio = Portfolio.create(user: andrew, season: nfl_season_2016)
+chase_nfl_portfolio = Portfolio.create(user: chase, season: nfl_season_2016)
 
 Holding.create(portfolio: chase_nfl_portfolio, team: giants, blue_prints: 100)
 Holding.create(portfolio: chase_nfl_portfolio, team: eagles, blue_prints: 20)
