@@ -152,7 +152,7 @@ private
     @to_user.funds -= total
     @from_user.funds += total
     
-    raise DatabaseException unless @to_user.update
+    raise DatabaseException unless @to_user.save
     undos[] = lambda do
       @to_user.funds += total
       raise DatabaseException unless @to_user.update
