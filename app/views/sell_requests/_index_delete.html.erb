@@ -1,31 +1,30 @@
-<style>
-div.col-xs-9 {
-  border-style: solid;
-  border-width: 1px;
-}
-div.col-xs-1 {
-  border-style: solid;
-  border-width: 0px;
-}
-.btn-primary {
-  background: #0099cc;
-  color: #ffffff;
-  border-radius:0;
-}
-</style>
+<div class="row">
+  <div class="col-xs-4">
+    <p><b>Team</b></p>
+  </div>
+  <div class="col-xs-3">
+    <p><b>Price</b></p>
+  </div>
+  <div class="col-xs-3">
+    <p><b>Amount</b></p>
+  </div>
+  <div class="col-xs-2">
+    <p><b>Delete</b></p>
+  </div>
+</div>
 
 <% @sell_requests.each_with_index do |sell_request, index| %>
   <div class="row <%= index.even? ? 'even-row' : 'odd-row' %>">
     <div class="col-xs-4">
       <p><%= sell_request.team.name %></p>
     </div>
-    <div class="col-xs-2">
-      <p><strong>Price:</strong> <%= sell_request.price %></p>
+    <div class="col-xs-3">
+      <p><%= sell_request.price %></p>
+    </div>
+    <div class="col-xs-3">
+      <p><%= sell_request.amount %></p>
     </div>
     <div class="col-xs-2">
-      <p><strong>Amount:</Strong> <%= sell_request.amount %></p>
-    </div>
-    <div class="col-xs-4">
       <p><%= link_to 'Delete', delete_sell_request_path(sell_request),  method: :delete, class: 'btn btn-primary', data: { confirm: 'Are you sure?' } %></p>
     </div>
   </div>
