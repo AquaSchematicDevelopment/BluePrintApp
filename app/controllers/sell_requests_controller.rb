@@ -122,7 +122,7 @@ private
   end
   
   # Never trust parameters from the scary internet, only allow the white list through.
-  def sell_request_params
+  def transaction_params
     params.require(:transaction).permit(:amount)
   end
   
