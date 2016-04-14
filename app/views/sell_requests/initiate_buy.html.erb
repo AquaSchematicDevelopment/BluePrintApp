@@ -1,1 +1,32 @@
 
+<div class="container">
+  <h1>Buy</h1>
+  <p><strong>Team:</strong> <%= @sell_request.team.name %></p>
+  <p><strong>Price:</strong> <%= @sell_request.price %></p>
+  <p><strong>Amount Available:</strong> <%= @sell_request.amount %></p>
+  
+  
+  <%= form_for(@transaction, url: buy_sell_request_path(@sell_request), method: 'post') do |f| %>
+    <% if @season.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@season.errors.count, "error") %> prohibited this season from being saved:</h2>
+  
+        <ul>
+        <% @season.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+  
+    <div class="field">
+      <%= f.label 'Amount To Buy' %><br>
+      <%= f.text_field :amount %>
+    </div>
+    <div class="actions">
+      <%= f.submit 'buy' %>
+    </div>
+  <% end %>
+  
+  <%= link_to 'Cancle', team_sell_requests(@sell_request.team) %>
+</div>
