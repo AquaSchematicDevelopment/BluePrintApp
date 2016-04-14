@@ -1,4 +1,7 @@
-<h1>Sell BluePrints in <%= @holding.team.name %></h1>
+<h1>Sell BluePrints</h1>
+
+<p><strong>Team</strong>: <%= @holding.team.name %></p>
+<p><strong>Amount Available</strong>: <%= @holding.amount_available %></p>
 
 <%= form_for(@sell_request, url: sell_holding_path(@holding), method: 'post') do |f| %>
   <% if @sell_request.errors.any? %>
