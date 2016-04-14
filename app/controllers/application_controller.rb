@@ -5,7 +5,11 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
 
   def current_user
-    User.find_by_id(session[:user_id])
+    User.find_by_id(session[:user_id]) if session[:user_id]
+  end
+  
+  def current_portfolio
+    current_user.portfolios.first if current_user && current_user.is_player?
   end
 
   def redirect_non_user(to: '/')
@@ -13,10 +17,10 @@ class ApplicationController < ActionController::Base
   end
 
   def redirect_non_admin(to: '/')
-    redirect_to(to) unless current_user.is_admin?
+    redirect_to(to) unless current_user && current_user.is_admin?
   end
 
   def redirect_non_player(to: '/')
-    redirect_to(to) unless current_user.is_player?
+    redirect_to(to) unless current_user && current_user.is_player?
   end
 end
