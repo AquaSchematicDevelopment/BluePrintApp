@@ -184,7 +184,7 @@ private
       raise unless @to_holding.save
     end)
     
-    if @from_holdings.blue_prints == 0
+    if @from_holding.blue_prints == 0
       @from_holding_save = [portfolio: @from_holding.portfolio, team: @from_holding.team, blue_prints: @from_holding.blue_prints]
       raise unless @from_holding.delete
       undos.push( lambda do ||
