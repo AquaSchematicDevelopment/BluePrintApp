@@ -149,7 +149,7 @@ private
     total = @transaction.amount * @transaction.price
     
     @to_user = @to_portfolio.user
-    @from_user = @form_portfolio.user
+    @from_user = @from_portfolio.user
     
     @to_user.funds -= total
     @from_user.funds += total
