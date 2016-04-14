@@ -1,5 +1,5 @@
 class SellRequestsController < ApplicationController
-  before_action :set_sell_request, only: [:show, :edit, :update, :destroy]
+  before_action :set_sell_request, only: [:show, :edit, :update, :initiate_buy, :process_buy, :destroy]
 
   # GET /sell_requests
   # GET /sell_requests.json
@@ -53,6 +53,14 @@ class SellRequestsController < ApplicationController
     else
       render :edit
     end
+  end
+  
+  def initiate_buy
+    # TODO
+  end
+  
+  def process_buy
+    # TODO
   end
 
   # DELETE /sell_requests/1
