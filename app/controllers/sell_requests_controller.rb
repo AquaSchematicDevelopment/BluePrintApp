@@ -224,10 +224,10 @@ private
       if undos
         undos.reverse.each { |undo| undo.call }
       end
-      @errors = [error_message, error.message + ': ' + error.backtrace]
+      @errors = [error_message, error.message + ': ' + error.backtrace.to_s]
       render :initiate_buy
     rescue => critical_error
-      @errors = [critical_error_message, error.message + ': ' + error.backtrace, critical_error.message + ': ' + critical_error.backtrace]
+      @errors = [critical_error_message, error.message + ': ' + error.backtrace.to_s, critical_error.message + ': ' + critical_error.backtrace.to_s]
       redirect root, notice: 'The following error accured on this site: ' + @errors.to_s
     end
   end
