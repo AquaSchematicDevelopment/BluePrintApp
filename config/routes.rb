@@ -54,7 +54,7 @@ Rails.application.routes.draw do
   get 'MyPortfolio', to: 'portfolios#show', as: :show_portfolio
   
   get 'sell/:holding_id', to: 'sell_requests#new', as: :sell_holding
-  post 'sel/:holding_id', to: 'sell_requests#create'
+  post 'sell/:holding_id', to: 'sell_requests#create'
   delete 'sell_request/:id/delete', to: 'sell_requests#destroy', as: :delete_sell_request
   get 'season/:id/sell_requests', to: 'seasons#sell_request_index', as: :season_sell_requests
   get 'team/:id/sell_requests', to: 'teams#sell_request_index', as: :team_sell_requests
