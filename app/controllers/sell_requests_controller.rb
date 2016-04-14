@@ -37,7 +37,7 @@ class SellRequestsController < ApplicationController
       @errors = ["You don't have that many BluePrints available for that team."]
       render :new
     elsif @sell_request.amount <= 0 || @sell_request.price <= 0
-      @errors = ['Either pice or amount is zero']
+      @errors = ['Either price or amount is zero']
       render :new
     else
       if @sell_request.save
