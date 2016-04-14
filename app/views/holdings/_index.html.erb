@@ -1,7 +1,7 @@
 <% @holdings.each_with_index do |holding, index| %>
   <div class="row <%= index.even? ? 'even-row' : 'odd-row' %>">
     <div class="col-xs-4">
-      <p>Team: <%= holding.team.name %></p>
+      <p><b>Team: </b><%= holding.team.name %></p>
     </div>
     <div class="col-xs-4">
       <p>Blueprints: <%= holding.blue_prints %></p>
