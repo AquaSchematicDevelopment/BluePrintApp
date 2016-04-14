@@ -77,7 +77,7 @@ class SeasonsController < ApplicationController
   end
   
   def sell_request_index
-    @teams = @season.teams
+    @teams = @season.teams.select{|team| team.sell_requests.any?}.sort_by{|team| team.lowest_price }
   end
 
   private
