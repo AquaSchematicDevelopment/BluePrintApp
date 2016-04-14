@@ -89,6 +89,6 @@ SellRequest.create(portfolio: chase_nfl_portfolio, team: giants, amount: 50, pri
 SellRequest.create(portfolio: chase_nfl_portfolio, team: raiders, amount: 20, price: 14.00)
 
 #Rich User
-rich_user = User.create(name: 'richuser', password: 'iamrich' funds: '10000000', role: 'player')
+rich_user = User.create(name: 'richuser', password: 'iamrich', funds: '10000000', role: 'player')
 
 rich_user_portfolio = Portfolio.create(user: rich_user, season: nfl_season_2016)
