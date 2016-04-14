@@ -61,9 +61,9 @@ _49ers = Team.create(name: 'San Fransisco 49ers', season: nfl_season_2016)
 seahawks = Team.create(name: 'Seattle Seahawks', season: nfl_season_2016)
 
 #Andrew's Info
-andrew = User.create(name: 'andrew', password: 'furmancs', email: 'aqua.schematic@gmail.com', role: 'player')
+andrew = User.create(name: 'andrew', password: 'furmancs', email: 'aqua.schematic@gmail.com', funds: '200.00' role: 'player')
 
-andrew_nfl_portfolio = Portfolio.create(user: andrew, season: nfl_season_2016, funds: 200.15)
+andrew_nfl_portfolio = Portfolio.create(user: andrew, season: nfl_season_2016)
 
 Holding.create(portfolio: andrew_nfl_portfolio, team: bears, blue_prints: 100)
 Holding.create(portfolio: andrew_nfl_portfolio, team: colts, blue_prints: 20)
@@ -72,3 +72,18 @@ Holding.create(portfolio: andrew_nfl_portfolio, team: broncos, blue_prints: 5)
 Holding.create(portfolio: andrew_nfl_portfolio, team: cardinals, blue_prints: 50)
 
 SellRequest.create(portfolio: andrew_nfl_portfolio, team: titans, blue_prints: 10, price: 10.00)
+SellRequest.create(portfolio: andrew_nfl_portfolio, team: colts, blue_prints: 20, price: 12.00)
+
+#Chase's Info
+chase = User.create(name: 'chase', password: 'furmancs', email: 'aqua.schematic@gmail.com', funds: '100.00' role: 'player')
+
+chase_nfl_portfolio = Portfolio.create(user: andrew, season: nfl_season_2016)
+
+Holding.create(portfolio: chase_nfl_portfolio, team: giants, blue_prints: 100)
+Holding.create(portfolio: chase_nfl_portfolio, team: eagles, blue_prints: 20)
+Holding.create(portfolio: chase_nfl_portfolio, team: raiders, blue_prints: 30)
+Holding.create(portfolio: chase_nfl_portfolio, team: jets, blue_prints: 5)
+Holding.create(portfolio: chase_nfl_portfolio, team: titians, blue_prints: 50)
+
+SellRequest.create(portfolio: andrew_nfl_portfolio, team: giants, blue_prints: 50, price: 5.00)
+SellRequest.create(portfolio: andrew_nfl_portfolio, team: raiders, blue_prints: 20, price: 14.00)
