@@ -1,10 +1,20 @@
+<div class="row">
+  <div class="col-xs-4">
+    <p><b>Team</b></p>
+  </div>
+  <div class="col-xs-4">
+    <p><b>Blueprints</b></p>
+  </div>
+  <div class="col-xs-4">
+    <p><b>Sell</b></p>
+</div>
 <% @holdings.each_with_index do |holding, index| %>
   <div class="row <%= index.even? ? 'even-row' : 'odd-row' %>">
     <div class="col-xs-4">
-      <p><b>Team: </b><%= holding.team.name %></p>
+      <p><%= holding.team.name %></p>
     </div>
     <div class="col-xs-4">
-      <p>Blueprints: <%= holding.blue_prints %></p>
+      <p><%= holding.blue_prints %></p>
     </div>
     <div class="col-xs-4">
       <p><%= link_to 'sell', sell_holding_path(holding) %></p>
