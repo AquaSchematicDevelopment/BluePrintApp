@@ -95,7 +95,7 @@ class SellRequestsController < ApplicationController
       @errors = ["You don't have enough funds."]
       render :initiate_buy
     else
-     handle_buy
+     self.handle_buy
     end
   end
 
