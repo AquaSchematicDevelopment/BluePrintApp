@@ -77,8 +77,6 @@ class SellRequestsController < ApplicationController
     @from_portfolio = @sell_request.portfolio
     @to_portfolio = current_portfolio
     
-    raise unless @from_portfolio
-    
     @transaction = Transaction.new(transaction_params)
     @transaction.team = @sell_request.team
     @transaction.price = @sell_request.price
