@@ -167,7 +167,7 @@ private
     # move holdings
     
     @to_holding = @to_portfolio.holdings.find_by(team: @transaction.team)
-    unless to_holding
+    unless @to_holding
       @to_holding = Holding.create(portfolio: @to_portfolio, team: @transaction.team, blue_prints: 0)
       undos.push( lambda do ||
         raise DatabaseException unless @to_holding.delete
