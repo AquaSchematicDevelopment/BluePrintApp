@@ -191,7 +191,7 @@ private
     end)
     
     # add transaction to data base
-    @sell_request_save[portfolio: @sell_request.portfolio, amount: @sell_request.amount, price: @sell_request.price, team: @sell_request.team]
+    @sell_request_save = [portfolio: @sell_request.portfolio, amount: @sell_request.amount, price: @sell_request.price, team: @sell_request.team]
     
     @sell_request.amount -= @transaction.amount
     
