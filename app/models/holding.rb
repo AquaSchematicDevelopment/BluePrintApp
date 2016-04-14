@@ -8,6 +8,6 @@ class Holding < ActiveRecord::Base
   end
   
   def available_blueprints
-    self.amount - total_blueprints_currently_being_sold
+    self.amount - self.total_blueprints_currently_being_sold
   end
 end
