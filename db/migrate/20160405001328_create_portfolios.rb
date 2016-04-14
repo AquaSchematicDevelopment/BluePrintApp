@@ -3,7 +3,6 @@ class CreatePortfolios < ActiveRecord::Migration
     create_table :portfolios do |t|
       t.integer :user_id
       t.integer :season_id
-      t.decimal :funds
 
       t.timestamps null: false
     end
