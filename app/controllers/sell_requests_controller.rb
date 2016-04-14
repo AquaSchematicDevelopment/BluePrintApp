@@ -197,11 +197,11 @@ private
     
   rescue => error
     begin
-      if undo
+      if undos
         undos.each { |undo| undo.call }
       end
       @errors = [error_message, error.message]
-      render :initiate_buy(@sell_request)
+      render :initiate_buy
     rescue => critical_error
       @errors = [critical_error_message, error.message, critical_errror.message]
       redirect root, notice: 'The following error accured on this site: ' + @errors.to_s
