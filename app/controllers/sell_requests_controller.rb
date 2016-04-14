@@ -1,4 +1,6 @@
 class SellRequestsController < ApplicationController
+  before_action :redirect_non_users
+  before_action :redirect_non_players, only: [:new, :create, :initiate_buy, :process_buy]
   before_action :set_sell_request, only: [:show, :edit, :update, :initiate_buy, :process_buy, :destroy]
 
   # GET /sell_requests
@@ -63,10 +65,38 @@ class SellRequestsController < ApplicationController
   
   def initiate_buy
     # TODO
+    @transaction = Transaction.new
+    
+    if @sell_request.portfolio.user == current_user
+      redirect_to team_sell_requests_path(@sell_request.team), notice: "You can't buy your own Blueprints."
+    end
   end
   
   def process_buy
     # TODO
+    @from = @sell_requset.portfolio
+    @to = current_portfolio
+    
+    @transaction = Transaction.new(transaction_params)
+    @transaction.team = @sell_request.team
+    @transaction.price = @sell_request.price
+    @transaction.from = from
+    @transaction.to = to
+    
+    if @sell_request.portfolio.user == current_user
+      redirect_to team_sell_requests_path(@sell_request.team), notice: "You can't buy your own Blueprints."
+    elsif !@transaction.amount || @transaction.amount <= 0
+      @errors = ["You didn't input a valid amount."]
+      render :initiate_buy
+    elsif @transaction.amount > @sell_request.amount
+      @errors = ["You can't buy more Blueprints than are being offered."]
+      render :initiate_buy
+    elsif @transaction.amount * @sell_request.price > current_user.funds
+      @errors = ["You don't have enough funds."]
+      render :initiate_buy
+    else
+     handle_buy
+    end
   end
 
   # DELETE /sell_requests/1
@@ -80,14 +110,91 @@ class SellRequestsController < ApplicationController
     end
   end
 
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_sell_request
-      @sell_request = SellRequest.find(params[:id])
-    end
+private
+  # Use callbacks to share common setup or constraints between actions.
+  def set_sell_request
+    @sell_request = SellRequest.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def sell_request_params
-      params.require(:sell_request).permit(:price, :amount)
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def sell_request_params
+    params.require(:sell_request).permit(:price, :amount)
+  end
+  
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def sell_request_params
+    params.require(:transaction).permit(:amount)
+  end
+  
+  def handle_buy
+    # This is a generic message for when there is an error in processing the transaction
+    # but all the changes to the database were able to be undone.
+    error_message = "There was a problem when processing the transaction."
+    
+    # This is a generic message for when there is an error in processing the transaction
+    # but all the changes to the databasse weren't able to be undone.
+    # This is a major problem, because it means that funds or blueprints could be incorrect in the database.
+    critical_error_message = "There was a critical error when processing your transaction. Please contact one of our admins."
+    
+    # an array for storing lambdas that will handle undoing the changes that have been
+    # made to the datebase
+    undos = []
+    
+    # move funds
+    total = @transaction.amount * @transaction.price
+    
+    @to.funds -= total
+    @from.funds += total
+    
+    @to.update
+    undos[] = lambda do
+      @to.funds += total
+      @to.update
     end
+    
+    @from.update 
+    undos[] = lambda do
+      @from.funds -= total
+      @from.update 
+    end
+    
+    # move holdings
+    
+    to_holding = @to.holdings.find_by(team: @transaction.team)
+    unless to_holding
+      to_holding = Holding.new(portfolio: @to, team: @transaction.team, blue_prints: 0)
+    end
+    
+    from_holding = @from.holdings.find_by(team: @transaction.team)
+    
+    to_holding.amount += @transaction.amount
+    from_holding.amount -= @transaction.amount
+    
+    to_holding.update
+    undos[] = lambda do
+      to_holding.amount -= @transaction.amount
+    end
+    
+    from_holding.update
+    undos[] = lambda do
+      from_holding.amount += @transaction.amount
+    end
+    
+    # add transaction to data base
+    
+    @transaction.update
+    redirect_to show_portfolio, notice: "Your transaction was successfully processed."
+    
+  rescue => error
+    begin
+      if undo
+        undos.each { |undo| undo.call }
+      end
+      @errors = [error_message, error.message]
+      render :initiate_buy(@sell_request)
+    rescue => critical_error
+      @errors = [critical_error_message, error.message, critical_errror.message]
+      redirect root, notice: 'The following error accured on this site: ' + @errors.to_s
+    end
+  end
 end
