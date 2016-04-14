@@ -38,7 +38,7 @@ class SellRequestsController < ApplicationController
       render :new
     else
       if @sell_request.save
-        redirect_to view_portfolio_path, notice: 'Sell request was successfully created.'
+        redirect_to show_portfolio_path, notice: 'Sell request was successfully created.'
       else
         render :new
       end
