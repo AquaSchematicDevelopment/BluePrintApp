@@ -95,7 +95,7 @@ class SellRequestsController < ApplicationController
       @errors = ["You don't have enough funds."]
       render :initiate_buy
     else
-     self.handle_buy
+     handle_buy
     end
   end
 
@@ -126,8 +126,6 @@ private
     params.require(:transaction).permit(:amount)
   end
   
-  class DatabaseException < Exception
-  end
   
   def handle_buy
     # This is a generic message for when there is an error in processing the transaction
@@ -152,16 +150,16 @@ private
     @to_user.funds -= total
     @from_user.funds += total
     
-    raise DatabaseException unless @to_user.save
+    raise unless @to_user.save
     undos.push( lambda do ||
       @to_user.funds += total
-      raise DatabaseException unless @to_user.save
+      raise unless @to_user.save
     end)
     
-    raise DatabaseException unless @from_user.save
+    raise unless @from_user.save
     undos.push( lambda do ||
       @from_user.funds -= total
-      raise DatabaseException unless @from_user.save
+      raise unless @from_user.save
     end)
     
     # move holdings
@@ -170,23 +168,23 @@ private
     unless @to_holding
       @to_holding = Holding.create(portfolio: @to_portfolio, team: @transaction.team, blue_prints: 0)
       undos.push( lambda do ||
-        raise DatabaseException unless @to_holding.delete
+        raise unless @to_holding.delete
       end)
     end
     
     @from_holding = @from_portfolio.holdings.find_by(team: @transaction.team)
-    raise DatabaseException unless @from_holding
+    raise unless @from_holding
     
     @to_holding.amount += @transaction.amount
     @from_holding.amount -= @transaction.amount
     
-    raise DatabaseException unless @to_holding.save
+    raise unless @to_holding.save
     undos.push( lambda do ||
       @to_holding.amount -= @transaction.amount
-      raise DatabaseException unless @to_holding.save
+      raise unless @to_holding.save
     end)
     
-    raise DatabaseException unless @from_holding.save
+    raise unless @from_holding.save
     undos.push( lambda do ||
       @from_holding.amount += @transaction.amount
       raise DatabaseException unless @from_holding.save
@@ -198,12 +196,12 @@ private
     @sell_request.amount -= @transaction.amount
     
     if @sell_request.amount == 0
-      raise DatabaseException unless @sell_request.belete
+      raise unless @sell_request.belete
       undos.push( lambda do ||
-        raise DatabaseException unless SellRequest.create(@sell_request_save)
+        raise unless SellRequest.create(@sell_request_save)
       end)
     else
-      raise DatabaseException unless @sell_request.save
+      raise unless @sell_request.save
       undos.push(lambda do ||
         @sell_request.amount += @transaction.amount
         raise DatabaseException unless @sell_request.save
@@ -212,7 +210,7 @@ private
     
     # reduce amount of sell_request
     
-    raise DatabaseException unless @transaction.save
+    raise unless @transaction.save
     
     # everything is now safe
     undos = nil
