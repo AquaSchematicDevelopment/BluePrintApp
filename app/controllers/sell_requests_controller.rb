@@ -155,13 +155,13 @@ private
     raise DatabaseException unless @to_user.save
     undos[] = lambda do
       @to_user.funds += total
-      raise DatabaseException unless @to_user.update
+      raise DatabaseException unless @to_user.save
     end
     
-    raise DatabaseException unless @from_user.update
+    raise DatabaseException unless @from_user.save
     undos[] = lambda do
       @from_user.funds -= total
-      raise DatabaseException unless @from_user.update
+      raise DatabaseException unless @from_user.save
     end
     
     # move holdings
@@ -180,16 +180,16 @@ private
     to_holding.amount += @transaction.amount
     from_holding.amount -= @transaction.amount
     
-    raise DatabaseException unless to_holding.update
+    raise DatabaseException unless to_holding.save
     undos[] = lambda do
       to_holding.amount -= @transaction.amount
-      raise DatabaseException unless to_holding.update
+      raise DatabaseException unless to_holding.save
     end
     
-    raise DatabaseException unless from_holding.update
+    raise DatabaseException unless from_holding.save
     undos[] = lambda do
       from_holding.amount += @transaction.amount
-      raise DatabaseException unless from_holding.update
+      raise DatabaseException unless from_holding.save
     end
     
     # add transaction to data base
@@ -203,16 +203,16 @@ private
         raise DatabaseException unless SellRequest.create(@sell_request_save)
       end
     else
-      raise DatabaseException unless @sell_request.update
+      raise DatabaseException unless @sell_request.save
       undos[] = lambda do
         @sell_request.amount += @transaction.amount
-        raise DatabaseException unless @sell_request.update
+        raise DatabaseException unless @sell_request.save
       end
     end
     
     # reduce amount of sell_request
     
-    raise DatabaseException unless @transaction.update
+    raise DatabaseException unless @transaction.save
     
     # everything is now safe
     undos = nil
