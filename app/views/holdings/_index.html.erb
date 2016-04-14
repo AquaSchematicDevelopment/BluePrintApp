@@ -11,13 +11,13 @@
 </div>
 <% @holdings.each_with_index do |holding, index| %>
   <div class="row <%= index.even? ? 'even-row' : 'odd-row' %>">
-    <div class="col-xs-4">
+    <div class="col-xs-5">
       <p><%= holding.team.name %></p>
     </div>
-    <div class="col-xs-4">
+    <div class="col-xs-5">
       <p><%= holding.blue_prints %></p>
     </div>
-    <div class="col-xs-4">
+    <div class="col-xs-2">
       <p><%= link_to 'sell', sell_holding_path(holding), class: 'btn btn-primary' %></p>
     </div>
   </div>
