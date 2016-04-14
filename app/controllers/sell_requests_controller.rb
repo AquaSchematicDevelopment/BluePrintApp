@@ -153,25 +153,25 @@ private
     @from_user.funds += total
     
     raise DatabaseException unless @to_user.save
-    undos[] = lambda do ||
+    undos.push( lambda do ||
       @to_user.funds += total
       raise DatabaseException unless @to_user.save
-    end
+    end)
     
     raise DatabaseException unless @from_user.save
-    undos[] = lambda do ||
+    undos.push( lambda do ||
       @from_user.funds -= total
       raise DatabaseException unless @from_user.save
-    end
+    end)
     
     # move holdings
     
     @to_holding = @to_portfolio.holdings.find_by(team: @transaction.team)
     unless to_holding
       @to_holding = Holding.create(portfolio: @to_portfolio, team: @transaction.team, blue_prints: 0)
-      undos[] = lambda do ||
+      undos.push( lambda do ||
         raise DatabaseException unless @to_holding.delete
-      end
+      end)
     end
     
     @from_holding = @from.holdings.find_by(team: @transaction.team)
@@ -181,16 +181,16 @@ private
     from_holding.amount -= @transaction.amount
     
     raise DatabaseException unless to_holding.save
-    undos[] = lambda do ||
+    undos.push( lambda do ||
       to_holding.amount -= @transaction.amount
       raise DatabaseException unless to_holding.save
-    end
+    end)
     
     raise DatabaseException unless from_holding.save
-    undos[] = lambda do ||
+    undos.push( lambda do ||
       from_holding.amount += @transaction.amount
       raise DatabaseException unless from_holding.save
-    end
+    end)
     
     # add transaction to data base
     @sell_request_save[portfolio: @sell_request.portfolio, amount: @sell_request.amount, price: @sell_request.price, team: @sell_request.team]
@@ -199,15 +199,15 @@ private
     
     if @sell_request.amount == 0
       raise DatabaseException unless @sell_request.belete
-      undos[] = lambda do ||
+      undos.push( lambda do ||
         raise DatabaseException unless SellRequest.create(@sell_request_save)
-      end
+      end)
     else
       raise DatabaseException unless @sell_request.save
-      undos[] = lambda do ||
+      undos.push(lambda do ||
         @sell_request.amount += @transaction.amount
         raise DatabaseException unless @sell_request.save
-      end
+      end)
     end
     
     # reduce amount of sell_request
