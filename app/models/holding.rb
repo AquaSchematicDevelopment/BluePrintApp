@@ -4,7 +4,7 @@ class Holding < ActiveRecord::Base
   
   def total_blueprints_currently_being_sold
     sell_requests = SellRequest.where(team: self.team, portfolio: self.portfolio)
-    offerings.inject(0) { |total, offering| total + offering.amount }
+    sell_requests.inject(0) { |total, sell_request| total + sell_request.amount }
   end
   
   def available_blueprints
