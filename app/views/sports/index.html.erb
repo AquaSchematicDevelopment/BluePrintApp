@@ -10,20 +10,20 @@
     </div>
     <div class="row">
 	    <div class="col-xs-4">
-	      <p><%= link_to 'Show', show_sport_path(sport), class: 'btn btn-primary btn-lg outline' %></p>
+	      <p><%= link_to 'Show', show_sport_path(sport), class: 'btn btn-primary btn-lg' %></p>
 	    </div>
 	    <div class="col-xs-4">
-      	<p><%= link_to 'Edit', edit_sport_path(sport), class: 'btn btn-primary btn-lg outline' %></p>
+      	<p><%= link_to 'Edit', edit_sport_path(sport), class: 'btn btn-primary btn-lg' %></p>
    		</div>
     	<div class="col-xs-4">
-      	<p><%= link_to 'Delete', delete_sport_path(sport), method: :delete, class: 'btn btn-primary btn-lg outline', data: { confirm: 'Are you sure?' } %></p>
+      	<p><%= link_to 'Delete', delete_sport_path(sport), method: :delete, class: 'btn btn-primary btn-lg', data: { confirm: 'Are you sure?' } %></p>
     	</div>
     </div>
   </div>
   <% end %>
   
 	<div style="padding-top:20px;" class="row">
-    <%= link_to 'New Sport', new_sport_path, class: 'btn btn-primary btn-lg outline' %>
+    <%= link_to 'New Sport', new_sport_path, class: 'btn btn-primary btn-lg' %>
 	</div>
 
 </div>
