@@ -184,11 +184,19 @@ private
       raise unless @to_holding.save
     end)
     
-    raise unless @from_holding.save
-    undos.push( lambda do ||
-      @from_holding.blue_prints += @transaction.amount
-      raise DatabaseException unless @from_holding.save
-    end)
+    if @from_holdings.amount == 0
+      @from_holding_save = [portfolio: @from_holding.portfolio, team: @from_holding.team, blue_prints: @from_holding.blue_prints]
+      raise unless @from_holding.delete
+      undos.push( lambda do ||
+          raise unless Holding.create(@from_holding_save)
+      end)
+    else
+      raise unless @from_holding.save
+      undos.push( lambda do ||
+        @from_holding.blue_prints += @transaction.amount
+        raise DatabaseException unless @from_holding.save
+      end)
+    end
     
     # add transaction to data base
     @sell_request_save = [portfolio: @sell_request.portfolio, amount: @sell_request.amount, price: @sell_request.price, team: @sell_request.team]
@@ -222,10 +230,10 @@ private
       if undos
         undos.reverse.each { |undo| undo.call }
       end
-      @errors = [error_message, error.message + ': ' + error.backtrace.to_s]
+      @errors = [error_message]
       render :initiate_buy
     rescue => critical_error
-      @errors = [critical_error_message, error.message + ': ' + error.backtrace.to_s, critical_error.message + ': ' + critical_error.backtrace.to_s]
+      @errors = [critical_error_message]
       redirect root, notice: 'The following error accured on this site: ' + @errors.to_s
     end
   end
