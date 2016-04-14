@@ -74,7 +74,7 @@ class SellRequestsController < ApplicationController
   
   def process_buy
     # TODO
-    @from = @sell_requset.portfolio
+    @from = @sell_request.portfolio
     @to = current_portfolio
     
     @transaction = Transaction.new(transaction_params)
