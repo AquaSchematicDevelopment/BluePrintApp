@@ -1,6 +1,6 @@
 <div class="container">
 	<div class="" id="loginModal">
-		<div class="modal-header">
+		<div class="row modal-header">
 			<h2>Log In</h2>
 		</div>
 	<div class="modal-body">
@@ -11,9 +11,11 @@
 					
 						<div class="control-group">
 							<!-- Username -->
-							<label class="control-label"  for="username">Username</label>
-							<div class="controls">
-						  	<%= f.text_field :user_name, class: 'input-xlarge' %>
+							<div class="row">
+								<label class="control-label"  for="username">Username</label>
+									<div class="controls">
+						  			<%= f.text_field :user_name, class: 'input-xlarge' %>
+									</div>
 							</div>
 						</div>
 
