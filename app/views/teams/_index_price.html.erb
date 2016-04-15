@@ -1,3 +1,13 @@
+<div class="row">
+  <div class="col-xs-5">
+    <p><b>Team</p></b>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-5">
+    <p><b>Lowest Price</p></b>
+  </div>
+</div>
 
 <% @teams.each_with_index do |team, index| %>
 <div class="row <%= index.even? ? 'even-row' : 'odd-row' %>">
@@ -5,7 +15,7 @@
     <p><%= team.name %></p>
   </div>
   <div class="col-xs-5">
-    <p><strong>lowest price:</strong> <%= team.lowest_price %></p>
+    <p><%= team.lowest_price %></p>
   </div>
   <div class="col-xs-2">
     <p><%= link_to 'buy', team_sell_requests_path(team), class: 'btn btn-primary' %></p>
