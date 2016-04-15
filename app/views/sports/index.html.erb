@@ -4,7 +4,7 @@
   </div>
 
   <% @sports.each_with_index do |sport, index| %>
-  <div class="row <%= index.even? ? 'even-row' : 'odd-row' %>">  
+  <div class="row padding-bottom <%= index.even? ? 'even-row' : 'odd-row' %>">  
     <div class="col-xs-8">
       <p><%= sport.name %></p>
     </div>
@@ -16,7 +16,7 @@
   </div>
   <% end %>
   
-	<div style="padding-top:20px;" class="row">
+	<div class="row padding">
     <%= link_to 'New Sport', new_sport_path, class: 'btn btn-primary' %>
 	</div>
 
