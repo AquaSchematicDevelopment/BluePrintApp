@@ -1,7 +1,7 @@
 <div class="container">
 
-  <% @leagues.each do |league| %>
-    <div class="row">
+  <% @leagues.each_with_index do |league, index| %>
+    <div class="row <%= index.even? ? 'even-row' : 'odd-row' %>">
       <div class="col-xs-9">
         <p><%= league.name %></p>
       </div>
