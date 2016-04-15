@@ -1,16 +1,12 @@
 <% @teams.each_with_index do |team, index| %>
 <div class="row <%= index.even? ? 'even-row' : 'odd-row' %>">
-  <div class="col-xs-9">
+  <div class="col-xs-8">
     <p><%= team.name %></p>
   </div>
-  <div class="col-xs-1">
-    <p><%= link_to 'Show', show_team_path(team), class: 'btn btn-primary' %></p>
-  </div>
-  <div class="col-xs-1">
-    <p><%= link_to 'Edit', edit_team_path(team), class: 'btn btn-primary' %></p>
-  </div>
-  <div class="col-xs-1">
-    <p><%= link_to 'Delete', delete_team_path(team), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-primary' %></p>
+  <div class="col-xs-4">
+    <%= link_to 'Show', show_team_path(team), class: 'btn btn-primary' %> |
+    <%= link_to 'Edit', edit_team_path(team), class: 'btn btn-primary' %> |
+    <%= link_to 'Delete', delete_team_path(team), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-primary' %>
   </div>
 </div>
 <% end %>
