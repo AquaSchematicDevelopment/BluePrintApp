@@ -12,9 +12,8 @@ class PagesController < ApplicationController
   # This used to test functions, mostly library functions
   def test_page
     new_user = User.new
-    new_user.destroy
     
-    @output = 'testing'
+    @output = new_user.destroy
   end
   
 private
