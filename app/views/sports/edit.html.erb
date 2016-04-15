@@ -1,6 +1,8 @@
 <div class="container">
-  <h2>Edit Sport</h2>
-  
+  <div class="row">
+    <h2>Edit Sport</h2>
+  </div>
+
   <%= form_for(@sport, url: edit_sport_path(@sport.id), method: 'post') do |f| %>
     <% if @sport.errors.any? %>
       <div id="error_explanation">
@@ -15,16 +17,21 @@
     <% end %>
   
     <div class="field">
-      <%= f.label :name %>
-      <%= f.text_field :name %>
+      <div class="row">
+        <%= f.label :name %>
+      </div>
+      <div class="row">
+        <%= f.text_field :name %>
+      </div>
     </div>
-    <div class="action">
+    <div class="row">
       <%= f.submit %>
     </div>
   <% end %>
   
-  <div class="padding">
+  <div class="row padding">
     <%= link_to 'Show', show_sport_path(@sport), class: 'btn btn-primary' %> |
     <%= link_to 'Back', sports_path, class: 'btn btn-primary' %>
   </div>
+  
 </div>
