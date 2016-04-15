@@ -1,21 +1,37 @@
 
 <div class="container">
-  <h1>Buy</h1>
-  <p><strong>Team:</strong> <%= @sell_request.team.name %></p>
-  <p><strong>Price:</strong> <%= @sell_request.price %></p>
-  <p><strong>Amount Available:</strong> <%= @sell_request.amount %></p>
-  
+  <div class="row">
+    <h1>Buy</h1>
+  </div>
+  <div class="row">
+    <p><strong>Team:</strong> <%= @sell_request.team.name %></p>
+  </div>
+  <div class="row">
+    <p><strong>Price:</strong> <%= @sell_request.price %></p>
+  </div>
+  <div class="row">
+    <p><strong>Amount Available:</strong> <%= @sell_request.amount %></p>
+  </div>
   
   <%= form_for(@transaction, url: buy_sell_request_path(@sell_request), method: 'post') do |f| %>
   
     <div class="field">
-      <%= f.label 'Amount To Buy' %><br>
-      <%= f.text_field :amount %>
+      <div class="row">
+        <%= f.label 'Amount To Buy' %><br>
+      </div>
+      <div class="row">
+        <%= f.text_field :amount %>
+      </div>
     </div>
     <div class="actions">
-      <%= f.submit 'buy' %>
+      <div class="row">
+        <%= f.submit 'buy' %>
+      </div>
     </div>
   <% end %>
   
-  <%= link_to 'Cancel', team_sell_requests_path(@sell_request.team) %>
+  <div class="row padding">
+    <%= link_to 'Cancel', team_sell_requests_path(@sell_request.team) %>
+  </div>
+  
 </div>
