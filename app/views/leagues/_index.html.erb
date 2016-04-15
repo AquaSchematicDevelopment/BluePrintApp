@@ -1,16 +1,12 @@
 <% @leagues.each_with_index do |league, index| %>
   <div class="row <%= index.even? ? 'even-row' : 'odd-row' %>">
-    <div class="col-xs-9">
+    <div class="col-xs-8">
       <p><%= league.name %></p>
     </div>
-    <div class="col-xs-1">
-      <p><%= link_to 'Show', show_league_path(league), class: 'btn btn-primary' %></p>
-    </div>
-    <div class="col-xs-1">
-      <p><%= link_to 'Edit', edit_league_path(league), class: 'btn btn-primary' %></p>
-    </div>
-    <div class="col-xs-1">
-      <p><%= link_to 'Delete', delete_league_path(league),  method: :delete, class: 'btn btn-primary', data: { confirm: 'Are you sure?' } %></p>
+    <div class="col-xs-4">
+      <%= link_to 'Show', show_league_path(league), class: 'btn btn-primary' %> |
+      <%= link_to 'Edit', edit_league_path(league), class: 'btn btn-primary' %> |
+      <%= link_to 'Delete', delete_league_path(league),  method: :delete, class: 'btn btn-primary', data: { confirm: 'Are you sure?' } %>
     </div>
   </div>
 <% end %>
