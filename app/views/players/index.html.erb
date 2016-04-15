@@ -14,13 +14,13 @@
 
   <% @players.each_with_index do |player, index| %>
   <div class="row <%= index.even? ? 'even-row' : 'odd-row' %>">
-    <div class="col-xs-5">
+    <div class="col-xs-5 vcenter">
       <p><%= player.name %></p>
     </div>
-    <div class="col-xs-5">
+    <div class="col-xs-5 vcenter">
       <p><%= player.email %></p>
     </div>
-    <div class="col-xs-2">
+    <div class="col-xs-2 padding">
       <%= link_to 'Delete', delete_player_path(player.id), method: 'delete', class: 'btn btn-primary' %>
     </div>
   </div>
