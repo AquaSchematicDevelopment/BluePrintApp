@@ -11,7 +11,7 @@
 					
 						<div class="control-group">
 							<!-- Username -->
-							<div class="row">
+							<div class="row padding-bottom">
 								<label class="control-label"  for="username">Username</label>
 									<div class="controls">
 						  			<%= f.text_field :user_name, class: 'input-xlarge' %>
@@ -21,16 +21,20 @@
 
 						<div class="control-group">
 							<!-- Password-->
-							<label class="control-label" for="password">Password</label>
-							<div class="controls">
-						  	<%= f.password_field :password, class: 'input-xlarge' %>
+							<div class="row">
+								<label class="control-label" for="password">Password</label>
+								<div class="controls">
+						  		<%= f.password_field :password, class: 'input-xlarge' %>
+								</div>
 							</div>
 						</div>
 					
 						<div class="control-group">
 							<!-- Button -->
-							<div class="controls">
-						  	<%= f.submit 'Login', class:'btn btn-success' %>
+							<div class="row padding">
+								<div class="controls">
+						  		<%= f.submit 'Login', class:'btn btn-success' %>
+						  	</div>
 							</div>
 						</div>
 					</fieldset>
