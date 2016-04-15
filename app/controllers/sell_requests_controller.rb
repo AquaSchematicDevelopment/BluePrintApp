@@ -80,8 +80,8 @@ class SellRequestsController < ApplicationController
     @transaction = Transaction.new(transaction_params)
     @transaction.team = @sell_request.team
     @transaction.price = @sell_request.price
-    @transaction.from_portfolio = @from_portfolio
-    @transaction.to_portfolio = @to_portfolio
+    @transaction.seller = @from_portfolio
+    @transaction.buyer = @to_portfolio
     
     if @sell_request.portfolio.user == current_user
       redirect_to team_sell_requests_path(@sell_request.team), notice: "You can't buy your own Blueprints."
