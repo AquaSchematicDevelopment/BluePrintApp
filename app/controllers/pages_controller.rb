@@ -13,7 +13,7 @@ class PagesController < ApplicationController
   def test_page
     new_user = User.new
     
-    @output = new_user.destroy
+    @output = !new_user.destroy
   end
   
 private
