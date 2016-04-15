@@ -1,13 +1,22 @@
-<% @sell_requests.each do |sell_request| %>
-  <div class="row">
-    <div class="col-xs-7">
-      <p><strong>Price:</strong> <%= sell_request.price %></p>
+<div class="row">
+  <div class="col-xs-7">
+    <p><b>Price</b></p>
+  </div>
+  <div class="col-xs-4">
+    <p><b>Amount</b></p>
+  </div>
+</div>
+
+<% @sell_requests.each_with_index do |sell_request, index| %>
+  <div class="row <%= index.even? ? 'even-row' : 'odd-row' %>">  
+    <div class="col-xs-7 vcenter">
+      <p><%= sell_request.price %></p>
     </div>
-    <div class="col-xs-4">
-      <p><strong>Amount:</strong> <%= sell_request.amount %></p>
+    <div class="col-xs-4 vcenter">
+      <p><%= sell_request.amount %></p>
     </div>
-    <div class="col-xs-1">
-      <p><%= link_to 'Buy', buy_sell_request_path(sell_request), class: 'btn btn-primary' %></p>
+    <div class="col-xs-1 padding-top padding-bottom">
+      <%= link_to 'Buy', buy_sell_request_path(sell_request), class: 'btn btn-primary' %>
     </div>
   </div>
 <% end %>
