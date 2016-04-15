@@ -79,4 +79,6 @@
  
  .vcenter {
     	vertical-align: middle;
+    	display: flex;
+
  }
