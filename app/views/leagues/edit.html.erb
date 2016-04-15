@@ -1,4 +1,4 @@
-<div class="container">  
+<!--<div class="container">  
   <div class="row">
     <h2>Edit League</h2>
   </div>
@@ -18,7 +18,7 @@
   
     <div class="field">
       <div class="row>
-        <%= f.label :name %><br>
+        <%= f.label :name %>
       </div>
       <div class="row">
         <%= f.text_field :name %>
@@ -34,6 +34,44 @@
   <div class="row padding">
     <%= link_to 'Show', show_league_path(@league), class: 'btn btn-primary' %> |
     <%= link_to 'Back', show_sport_path(@league.sport), class: 'btn btn-primary' %>
+  </div>
+  
+</div>-->
+
+<div class="container">
+  <div class="row">
+    <h2>Edit League</h2>
+  </div>
+
+  <%= form_for(@league, url: edit_league_path(@league), method: 'post') do |f| %>
+    <% if @league.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@league.errors.count, "error") %> prohibited this league from being saved:</h2>
+  
+        <ul>
+        <% @league.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+  
+    <div class="field">
+      <div class="row">
+        <%= f.label :name %>
+      </div>
+      <div class="row">
+        <%= f.text_field :name %>
+      </div>
+    </div>
+    <div class="row">
+      <%= f.submit %>
+    </div>
+  <% end %>
+  
+  <div class="row padding">
+    <%= link_to 'Show', show_league_path(@season), class: 'btn btn-primary' %> |
+    <%= link_to 'Back', show_sport_path(@season.league), class: 'btn btn-primary' %>
   </div>
   
 </div>
