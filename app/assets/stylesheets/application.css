@@ -80,3 +80,7 @@
  .vcenter {
     	padding-top:18px;
  }
+ 
+ p.main {
+    font: 15px arial, sans-serif;
+}
