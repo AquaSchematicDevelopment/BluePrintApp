@@ -2,13 +2,7 @@
   <div class="row">
     <h2>Sports List</h2>
   </div>
-	
-	<div class="row">
-		<div class="col-xs-9">
-			<p><b>Sport</p></b>
-		</div>
-	</div>
-	
+
   <% @sports.each_with_index do |sport, index| %>
   <div class="row <%= index.even? ? 'even-row' : 'odd-row' %>">  
     <div class="col-xs-8">
