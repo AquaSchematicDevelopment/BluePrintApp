@@ -1,23 +1,37 @@
 <div class="container">
+
   <p id="notice"><%= notice %></p>
-  <h2>Season</h2>
   
-  <p>
-    <strong>League:</strong>
-    <%= @season.league.name %>
-  </p>
-
-  <p>
-    <strong>Name:</strong>
-    <%= @season.name %>
-  </p>
-
-  <%= link_to 'Edit', edit_season_path(@season), class: 'btn btn-primary' %> |
-  <%= link_to 'Back', show_league_path(@season.league), class: 'btn btn-primary' %>
+  <div class="row">
+    <h2>Season</h2>
+  </div>
   
-  <h3>Teams</h3>
+  <div class="row">
+    <p>
+      <strong>League:</strong>
+      <%= @season.league.name %>
+    </p>
+  </div>
+  
+  <div class="row">
+    <p>
+      <strong>Name:</strong>
+      <%= @season.name %>
+    </p>
+  </div>
+
+  <div class="row">
+    <%= link_to 'Edit', edit_season_path(@season), class: 'btn btn-primary' %> |
+    <%= link_to 'Back', show_league_path(@season.league), class: 'btn btn-primary' %>
+  </div>
+  
+  <div class="row">
+    <h3>Teams</h3>
+  </div>
   
   <%= render 'teams/index' %>
-  
-  <%= link_to 'Add Team', add_team_path(@season), class: 'btn btn-primary' %>
+
+  <div class="row padding">  
+    <%= link_to 'Add Team', add_team_path(@season), class: 'btn btn-primary' %>
+  </div>
 </div>
