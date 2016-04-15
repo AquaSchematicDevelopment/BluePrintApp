@@ -5,7 +5,7 @@
 
   <% @sports.each_with_index do |sport, index| %>
   <div class="row padding-bottom <%= index.even? ? 'even-row' : 'odd-row' %>">  
-    <div class="col-xs-8 text-center">
+    <div class="col-xs-8 text-position">
       <p><%= sport.name %></p>
     </div>
     <div class="col-xs-4 padding-top">
