@@ -11,10 +11,10 @@
 	
   <% @sports.each_with_index do |sport, index| %>
   <div class="row <%= index.even? ? 'even-row' : 'odd-row' %>">  
-    <div class="col-xs-9">
+    <div class="col-xs-8">
       <p><%= sport.name %></p>
     </div>
-    <div class="col-xs-3">
+    <div class="col-xs-4">
     	<%= link_to 'Show', show_sport_path(sport), class: 'btn btn-primary' %> | 
     	<%= link_to 'Edit', edit_sport_path(sport), class: 'btn btn-primary' %> | 
     	<%= link_to 'Delete', delete_sport_path(sport), method: :delete, class: 'btn btn-primary', data: { confirm: 'Are you sure?' } %>
