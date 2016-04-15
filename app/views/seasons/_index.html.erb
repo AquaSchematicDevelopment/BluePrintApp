@@ -1,30 +1,16 @@
-<style>
-div.col-xs-9 {
-  border-style: solid;
-  border-width: 1px;
-}
-div.col-xs-1 {
-  border-style: solid;
-  border-width: 0px;
-}
-.btn-primary {
-  background: #0099cc;
-  color: #ffffff;
-  border-radius:0;
-}
-</style>
-
-<% @seasons.each do |season| %>
-  <div class="col-xs-9">
-    <p><%= season.name %></p>
-  </div>
-  <div class="col-xs-1">
-    <p><%= link_to 'Show', show_season_path(season), class: 'btn btn-primary' %></p>
-  </div>
-  <div class="col-xs-1">
-    <p><%= link_to 'Edit', edit_season_path(season), class: 'btn btn-primary' %></p>
-  </div>
-  <div class="col-xs-1">
-    <p><%= link_to 'Delete', delete_season_path(season), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-primary' %></p>
+<% @seasons.each_with_index do |season, index| %>
+  <div class="row <%= index.even? ? 'even-row' : 'odd-row' %>">
+    <div class="col-xs-9">
+      <p><%= season.name %></p>
+    </div>
+    <div class="col-xs-1">
+      <p><%= link_to 'Show', show_season_path(season), class: 'btn btn-primary' %></p>
+    </div>
+    <div class="col-xs-1">
+      <p><%= link_to 'Edit', edit_season_path(season), class: 'btn btn-primary' %></p>
+    </div>
+    <div class="col-xs-1">
+      <p><%= link_to 'Delete', delete_season_path(season), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-primary' %></p>
+    </div>
   </div>
 <% end %>
