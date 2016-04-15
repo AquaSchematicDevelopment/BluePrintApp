@@ -1,5 +1,5 @@
 <% @teams.each_with_index do |team, index| %>
-<div class="row padding-below<%= index.even? ? 'even-row' : 'odd-row' %>">
+<div class="row padding-bottom <%= index.even? ? 'even-row' : 'odd-row' %>">
   <div class="col-xs-8">
     <p><%= team.name %></p>
   </div>
