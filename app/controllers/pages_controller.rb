@@ -9,8 +9,12 @@ class PagesController < ApplicationController
     end
   end
   
+  # This used to test functions, mostly library functions
   def test_page
-    @output = 'hello'
+    new_user = User.new
+    new_user.destroy
+    
+    @output = 'testing'
   end
   
 private
