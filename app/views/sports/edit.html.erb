@@ -18,11 +18,13 @@
       <%= f.label :name %>
       <%= f.text_field :name %>
     </div>
-    <div class="actions">
+    <div class="btn btn-primary">
       <%= f.submit %>
     </div>
   <% end %>
   
-  <%= link_to 'Show', show_sport_path(@sport), class: 'btn btn-primary' %> |
-  <%= link_to 'Back', sports_path, class: 'btn btn-primary' %>
+  <div class="row padding">
+    <%= link_to 'Show', show_sport_path(@sport), class: 'btn btn-primary' %> |
+    <%= link_to 'Back', sports_path, class: 'btn btn-primary' %>
+  </div>
 </div>
