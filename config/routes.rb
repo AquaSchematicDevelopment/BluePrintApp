@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :buy_requests
   root 'pages#home'
   
   get 'test_page', to: 'pages#test_page'

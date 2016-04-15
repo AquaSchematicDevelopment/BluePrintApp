@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160405004145) do
+ActiveRecord::Schema.define(version: 20160407005053) do
 
   create_table "holdings", force: :cascade do |t|
     t.integer  "portfolio_id", limit: 4
@@ -36,9 +36,8 @@ ActiveRecord::Schema.define(version: 20160405004145) do
   create_table "portfolios", force: :cascade do |t|
     t.integer  "user_id",    limit: 4
     t.integer  "season_id",  limit: 4
-    t.decimal  "funds",                precision: 10
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
   end
 
   add_index "portfolios", ["season_id"], name: "index_portfolios_on_season_id", using: :btree
@@ -50,6 +49,18 @@ ActiveRecord::Schema.define(version: 20160405004145) do
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end
+
+  create_table "sell_requests", force: :cascade do |t|
+    t.integer  "portfolio_id", limit: 4
+    t.integer  "team_id",      limit: 4
+    t.decimal  "price",                  precision: 10
+    t.integer  "amount",       limit: 4
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
+  end
+
+  add_index "sell_requests", ["portfolio_id"], name: "index_sell_requests_on_portfolio_id", using: :btree
+  add_index "sell_requests", ["team_id"], name: "index_sell_requests_on_team_id", using: :btree
 
   create_table "sports", force: :cascade do |t|
     t.string   "name",       limit: 255
@@ -67,13 +78,26 @@ ActiveRecord::Schema.define(version: 20160405004145) do
 
   add_index "teams", ["season_id"], name: "index_teams_on_season_id", using: :btree
 
+  create_table "transactions", force: :cascade do |t|
+    t.integer  "from_portfolio", limit: 4
+    t.integer  "to_portfolio",   limit: 4
+    t.integer  "team_id",        limit: 4
+    t.decimal  "price",                    precision: 10
+    t.integer  "amount",         limit: 4
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
+  end
+
+  add_index "transactions", ["team_id"], name: "index_transactions_on_team_id", using: :btree
+
   create_table "users", force: :cascade do |t|
     t.string   "name",            limit: 255
     t.string   "password_digest", limit: 255
     t.string   "email",           limit: 255
+    t.decimal  "funds",                       precision: 10
     t.string   "role",            limit: 255
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.datetime "created_at",                                 null: false
+    t.datetime "updated_at",                                 null: false
   end
 
   add_index "users", ["name"], name: "index_users_on_name", unique: true, using: :btree
