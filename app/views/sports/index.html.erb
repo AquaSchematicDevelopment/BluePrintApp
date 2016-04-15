@@ -9,10 +9,10 @@
       <p><%= sport.name %></p>
     </div>
     <div class="col-xs-1">
-	    <p><%= link_to 'Show', show_sport_path(sport), class: 'btn btn-primary' %></p>
+	    <%= link_to 'Show', show_sport_path(sport), class: 'btn btn-primary' %>
 		</div>
 		<div class="col-xs-1">
-    	<p><%= link_to 'Edit', edit_sport_path(sport), class: 'btn btn-primary' %></p>
+    	<%= link_to 'Edit', edit_sport_path(sport), class: 'btn btn-primary' %>
    	</div>
     <div class="col-xs-1">
       <p><%= link_to 'Delete', delete_sport_path(sport), method: :delete, class: 'btn btn-primary', data: { confirm: 'Are you sure?' } %></p>
