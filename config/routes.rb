@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   
   root 'pages#home'
   
+  get 'test_page', to: 'pages#test_page'
+  
   #resources :users
   
   get 'login', to: 'sessions#new', as: :login
