@@ -7,12 +7,10 @@
 
   <div class="even-row">
     <div class="col-xs-9">
-      <p>
-        <%= @sport.name %>
-      </p>
+      <p><%= @sport.name %></p>
     </div>
     <div class="col-xs-3">
-      <p><%= link_to 'Edit', edit_sport_path(@sport), class: 'btn btn-primary' %></p>
+      <%= link_to 'Edit', edit_sport_path(@sport), class: 'btn btn-primary' %>
     </div>
   </div>
   
