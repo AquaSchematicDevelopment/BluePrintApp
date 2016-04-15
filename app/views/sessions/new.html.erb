@@ -1,38 +1,37 @@
 <div class="container">
 	<div class="" id="loginModal">
 		<div class="modal-header">
-			<h2>Sign In</h2>
+			<h2>Log In</h2>
 		</div>
 	<div class="modal-body">
 		<div class="well">
-		<div id="myTabContent" class="tab-content">
-			<div class="tab-pane active in" id="login">
-			  <%= form_for(:session, url: login_path, class:'form-horizontal') do |f| %>
+			<div id="myTabContent" class="tab-content">
+		  	<%= form_for(:session, url: login_path, class:'form-horizontal') do |f| %>
 					<fieldset>
 						<div id="legend">
 							<legend class="">Login</legend>
 						</div>
-						
+					
 						<div class="control-group">
 							<!-- Username -->
 							<label class="control-label"  for="username">Username</label>
 							<div class="controls">
-							  <%= f.text_field :user_name, class: 'input-xlarge' %>
+						  	<%= f.text_field :user_name, class: 'input-xlarge' %>
 							</div>
 						</div>
-	
+
 						<div class="control-group">
 							<!-- Password-->
 							<label class="control-label" for="password">Password</label>
 							<div class="controls">
-							  <%= f.password_field :password, class: 'input-xlarge' %>
+						  	<%= f.password_field :password, class: 'input-xlarge' %>
 							</div>
 						</div>
-						
+					
 						<div class="control-group">
 							<!-- Button -->
 							<div class="controls">
-							  <%= f.submit 'Login', class:'btn btn-success' %>
+						  	<%= f.submit 'Login', class:'btn btn-success' %>
 							</div>
 						</div>
 					</fieldset>
