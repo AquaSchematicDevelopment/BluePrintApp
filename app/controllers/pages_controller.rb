@@ -9,6 +9,10 @@ class PagesController < ApplicationController
     end
   end
   
+  def test_page
+    @output = 'hello'
+  end
+  
 private
 
   def admin_home
