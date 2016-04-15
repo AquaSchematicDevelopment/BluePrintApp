@@ -1,5 +1,5 @@
 <style>
-  .row {
+  .padding {
     padding-top:20px;
   }
 </style>
@@ -11,7 +11,7 @@
   <div class="row">
     <p><b>Email: </b><%= current_user.email %></p>
   </div>
-  <div class="row">
+  <div class="row padding">
     <%= link_to 'Change Your Password', change_password_path, class: 'btn btn-primary' %>
   </div>
 </div>
