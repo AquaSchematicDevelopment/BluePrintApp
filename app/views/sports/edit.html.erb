@@ -1,5 +1,5 @@
 <div class="container">
-  <h1>Editing Sport</h1>
+  <h2>Edit Sport</h2>
   
   <%= form_for(@sport, url: edit_sport_path(@sport.id), method: 'post') do |f| %>
     <% if @sport.errors.any? %>
@@ -23,6 +23,6 @@
     </div>
   <% end %>
   
-  <%= link_to 'Show', show_sport_path(@sport) %> |
-  <%= link_to 'Back', sports_path %>
+  <%= link_to 'Show', show_sport_path(@sport), class: 'btn btn-primary' %> |
+  <%= link_to 'Back', sports_path, class: 'btn btn-primary' %>
 </div>
