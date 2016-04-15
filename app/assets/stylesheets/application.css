@@ -80,5 +80,8 @@
  .vcenter {
     	vertical-align: middle;
     	display: flex;
+    	position: absolute;
+  	top: 50%;
+  	left:50%;
 
  }
