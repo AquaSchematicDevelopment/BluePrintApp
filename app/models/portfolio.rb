@@ -4,6 +4,6 @@ class Portfolio < ActiveRecord::Base
   has_many :holdings
   has_many :sell_requests
   has_many :buy_requests
-  has_many :transactions, as: :seller
-  has_many :transactions, as: :buyer
+  has_many :sellers, :class_name => 'Transaction', :index => 'seller_id'
+  has_many :buyers, :class_name => 'Transaction', :index => 'buyer_id'
 end
