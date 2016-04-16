@@ -12,14 +12,24 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :price %><br>
-    <%= f.text_field :price %>
+    <div class="row">
+      <%= f.label :price %><br>
+    </div>
+    <div class="row">
+      <%= f.text_field :price %>
+    </div>
   </div>
   <div class="field">
-    <%= f.label :amount %><br>
-    <%= f.number_field :amount %>
+    <div class="row">
+      <%= f.label :amount %><br>
+    </div>
+    <div class="row">
+      <%= f.number_field :amount %>
+    </div>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <div class="row">
+      <%= f.submit "Add" , :class => "btn btn-primary outline" %>
+    </div>
   </div>
 <% end %>
