@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <h1>New League</h1>
+    <h2>New League</h2>
   </div>
   
   <%= form_for(@league, url: add_league_path(params[:sport_id])) do |f| %>
@@ -14,14 +14,11 @@
       </div>
     </div>
     <div class="actions">
-      <div class="row">
-        <%= f.submit "Add" , :class => "btn btn-primary outline" %>
+      <div class="row padding">
+        <%= f.submit "Add" , :class => "btn btn-primary outline" %> |
+        <%= link_to 'Back', show_sport_path(params[:sport_id]), class: 'btn btn-primary outline' %>
       </div>
     </div>
   <% end %>
-  
-  <div class="row padding">
-    <%= link_to 'Back', show_sport_path(params[:sport_id]), class: 'btn btn-primary outline' %>
-  </div>
 
 </div>
