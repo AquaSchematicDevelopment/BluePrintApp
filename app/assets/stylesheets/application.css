@@ -92,3 +92,8 @@ p, form, a {
 body { 
     background: url("https://raw.githubusercontent.com/AquaSchematicDevelopment/BluePrintApp/second_iteration/app/assets/images/cream_dust/cream_dust.png") repeat 0 0;
 }
+
+form {
+  font-size: 20px;
+  
+}
