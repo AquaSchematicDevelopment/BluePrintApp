@@ -24,14 +24,12 @@
         <%= f.text_field :name %>
       </div>
     </div>
-    <div class="row padding-top">
-      <%= f.submit "Edit" , :class => "btn btn-primary outline" %>
+    <div class="row padding">
+      <%= f.submit "Edit" , :class => "btn btn-primary outline" %> |
+      <%= link_to 'Back', sports_path, class: 'btn btn-primary outline' %>
     </div>
   <% end %>
   
-  <div class="row padding">
-    <%= link_to 'Show', show_sport_path(@sport), class: 'btn btn-primary outline' %> |
-    <%= link_to 'Back', sports_path, class: 'btn btn-primary outline' %>
-  </div>
-  
+  <!--<%= link_to 'Show', show_sport_path(@sport), class: 'btn btn-primary outline' %>-->
+
 </div>
