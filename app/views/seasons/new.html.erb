@@ -26,7 +26,8 @@
    	<div class="form-group">
    	  <div class="row padding">
    		  <div class="col-xs-offset-2 col-xs-10">
-   		    <%= form.submit 'Add Season', class: 'btn btn-primary outline' %>
+   		    <%= form.submit 'Add Season', class: 'btn btn-primary outline' %> |
+          <%= link_to 'Back', show_league_path(@season.league), class: 'btn btn-primary outline' %>
    		   </div>
    		</div>
    	</div>
