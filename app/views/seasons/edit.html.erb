@@ -25,13 +25,9 @@
       </div>
     </div>
     <div class="row padding-top padding-below">
-      <%= f.submit "Edit" , :class => "btn btn-primary outline" %>
+      <%= f.submit "Edit" , :class => "btn btn-primary outline" %> |
+      <%= link_to 'Back', show_league_path(@season.league), class: 'btn btn-primary outline' %>
     </div>
   <% end %>
-  
-  <div class="row padding">
-    <%= link_to 'Show', show_season_path(@season), class: 'btn btn-primary outline' %> |
-    <%= link_to 'Back', show_league_path(@season.league), class: 'btn btn-primary outline' %>
-  </div>
-  
+
 </div>
