@@ -88,3 +88,7 @@ h1, h2, h3, h4, h5 {
 p, form, a {
 	font-family: 'Lato', sans-serif !important;
 }
+
+body { 
+    background: url("https://raw.githubusercontent.com/AquaSchematicDevelopment/BluePrintApp/second_iteration/app/assets/images/subtle_grunge/subtle_grunge.png") repeat 0 0;
+}
