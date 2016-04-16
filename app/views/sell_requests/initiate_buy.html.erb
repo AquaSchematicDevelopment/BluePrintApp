@@ -17,15 +17,16 @@
   
     <div class="field">
       <div class="row">
-        <%= f.label 'Amount To Buy' %><br>
+        <%= f.label "Amount To Buy" %><br>
       </div>
       <div class="row">
         <%= f.text_field :amount %>
       </div>
     </div>
     <div class="action">
-      <div class="row padding-top">
-        <%= f.submit "Buy" , :class => "btn btn-primary outline" %>
+      <div class="row padding">
+        <%= f.submit "Buy" , :class => "btn btn-primary outline" %> | <%= link_to 'Cancel', team_sell_requests_path(@sell_request.team), class: 'btn btn-primary outline' %>
+        
       </div>
     </div>
   <% end %>
