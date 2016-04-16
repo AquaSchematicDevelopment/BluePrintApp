@@ -10,12 +10,12 @@
       <p><%= @sport.name %></p>
     </div>
     <div class="col-xs-4 padding-top padding-bottom">
-      <%= link_to 'Edit', edit_sport_path(@sport), class: 'btn btn-primary' %>
+      <%= link_to 'Edit', edit_sport_path(@sport), class: 'btn btn-primary outline' %>
     </div>
   </div>
   
   <div class="row padding">
-    <%= link_to 'Back To Sports', sports_path, class: 'btn btn-primary' %>
+    <%= link_to 'Back To Sports', sports_path, class: 'btn btn-primary outline' %>
   </div>
 
   <div class="row">
@@ -25,7 +25,7 @@
   <%= render 'leagues/index' %>
 
   <div class="row padding">
-    <%= link_to 'Add League', add_league_path(@sport), class: 'btn btn-primary' %>
+    <%= link_to 'Add League', add_league_path(@sport), class: 'btn btn-primary outline' %>
   </div>
 
 </div>
