@@ -21,8 +21,8 @@
   </div>
 
   <div class="row">
-    <%= link_to 'Edit', edit_season_path(@season), class: 'btn btn-primary' %> |
-    <%= link_to 'Back', show_league_path(@season.league), class: 'btn btn-primary' %>
+    <%= link_to 'Edit', edit_season_path(@season), class: 'btn btn-primary outline' %> |
+    <%= link_to 'Back', show_league_path(@season.league), class: 'btn btn-primary outline' %>
   </div>
   
   <div class="row padding">
@@ -32,6 +32,6 @@
   <%= render 'teams/index' %>
 
   <div class="row padding">  
-    <%= link_to 'Add Team', add_team_path(@season), class: 'btn btn-primary' %>
+    <%= link_to 'Add Team', add_team_path(@season), class: 'btn btn-primary outline' %>
   </div>
 </div>
