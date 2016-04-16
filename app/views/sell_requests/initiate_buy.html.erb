@@ -1,7 +1,7 @@
 
 <div class="container">
   <div class="row">
-    <h1>Buy</h1>
+    <h2>Buy</h2>
   </div>
   <div class="row">
     <p><strong>Team:</strong> <%= @sell_request.team.name %></p>
@@ -25,7 +25,7 @@
     </div>
     <div class="action">
       <div class="row padding-top">
-        <%= f.submit 'Buy' %>
+        <%= f.submit "Buy" , :class => "btn btn-primary outline" %>
       </div>
     </div>
   <% end %>
