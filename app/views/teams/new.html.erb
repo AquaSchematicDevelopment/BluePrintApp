@@ -1,25 +1,38 @@
-<h1>New Team</h1>
-
-<%= form_for(@team, url: add_team_path(params[:season_id])) do |f| %>
-  <% if @team.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@team.errors.count, "error") %> prohibited this team from being saved:</h2>
-
-      <ul>
-      <% @team.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+<div class=<container">
+  <div class="row">
+    <h1>New Team</h1>
+  </div>
+  
+  <%= form_for(@team, url: add_team_path(params[:season_id])) do |f| %>
+    <% if @team.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@team.errors.count, "error") %> prohibited this team from being saved:</h2>
+  
+        <ul>
+        <% @team.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+  
+    <div class="field">
+      <div class="row">
+        <%= f.label :name %><br>
+      </div>
+      <div class="row">
+        <%= f.text_field :name %>
+      </div>
+    </div>
+    <div class="actions">
+      <div class="row">
+   		    <%= form.submit 'Add', class: 'btn btn-primary outline' %>
+      </div>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+  
+  <div class="row">
+    <%= link_to 'Back', show_season_path(params[:season_id]), class: 'btn btn-primary outline' %>
   </div>
-  <div class="actions">
-    <%= f.submit 'Add Team' %>
-  </div>
-<% end %>
 
-<%= link_to 'Back', show_season_path(params[:season_id]), class: 'btn btn-primary outline' %>
+</div>
