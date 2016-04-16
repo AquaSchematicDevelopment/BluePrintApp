@@ -25,14 +25,9 @@
     </div>
     <div class="action">
       <div class="row padding">
-        <%= f.submit "Buy" , :class => "btn btn-primary outline" %> | <%= link_to 'Cancel', team_sell_requests_path(@sell_request.team), class: 'btn btn-primary outline' %>
-        
+        <%= f.submit "Buy" , :class => "btn btn-primary outline" %> | 
+        <%= link_to 'Cancel', team_sell_requests_path(@sell_request.team), class: 'btn btn-primary outline' %>
       </div>
     </div>
   <% end %>
-  
-  <div class="row padding">
-    <%= link_to 'Cancel', team_sell_requests_path(@sell_request.team), class: 'btn btn-primary outline' %>
-  </div>
-  
 </div>
