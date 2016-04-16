@@ -20,7 +20,7 @@
       <div class="row">
         <%= f.label :name %>
       </div>
-      <div class="row">
+      <div class="row padding-top padding-bottom">
         <%= f.text_field :name %>
       </div>
     </div>
@@ -31,7 +31,7 @@
     </div>
   <% end %>
   
-  <div class="row">
+  <div class="row padding">
     <%= link_to 'Back', show_season_path(params[:season_id]), class: 'btn btn-primary outline' %>
   </div>
 
