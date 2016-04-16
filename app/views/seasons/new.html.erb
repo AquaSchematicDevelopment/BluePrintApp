@@ -3,34 +3,33 @@
     <h2>New Season</h2>
   </div>
   
-  <%= form_for(@season, url: add_season_path(params[:league_id])) do |f| %>
+  <%= form_for(@season, url: add_season_path(params[:league_id])) do |form| %>
+  
     <% if @season.errors.any? %>
       <div id="error_explanation">
         <h2><%= pluralize(@season.errors.count, "error") %> prohibited this season from being saved:</h2>
-  
         <ul>
-        <% @season.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
+          <% @season.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
         </ul>
       </div>
-    <% end %>
-  
-    <div class="field">
-      <div class="row">
-        <%= f.label :name %><br>
-      </div>
-      <div class="row padding-top padding-bottom">
-        <%= f.text_field :name %>
-      </div>
-    </div>
-    <div class="actions">
-      <div class="row padding">
-        <%= f.submit "Add" , :class => "btn btn-primary outline" %> |
-        <%= link_to 'Back', show_league_path(params[:league_id]), class: 'btn btn-primary outline' %>
-
-      </div>
-    </div>
+    <% end %>  
+   	<div class="form-group">
+   	  <div class="row padding">
+   	    <%= form.label 'Season', class: 'col-xs-2 control-label' %>
+   		  <div class="col-xs-10">
+   		    <%= form.text_field :name, class: 'form-control' %>
+   		  </div>
+   		</div>
+   	</div>
+   	<div class="form-group">
+   	  <div class="row padding">
+   		  <div class="col-xs-offset-2 col-xs-10">
+   		    <%= form.submit 'Add Season', class: 'btn btn-primary outline' %>
+   		   </div>
+   		</div>
+   	</div>
   <% end %>
-
+  
 </div>
