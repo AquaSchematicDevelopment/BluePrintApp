@@ -41,12 +41,12 @@
 .btn-primary {
   color: #fff;
   background-color: #428bca;
-  border-color: #357ebd;
+  border-color: #2a67a4;
   border-radius:0;
 }
 
 .btn.outline {
-	background: #2a67a4;
+	background: none;
 	padding: 12px 22px;
 }
 
