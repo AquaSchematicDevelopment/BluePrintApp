@@ -3,7 +3,7 @@
     <h2>Edit Sport</h2>
   </div>
 
-  <%= form_for(@sport, url: edit_sport_path(@sport.id), method: 'post') do |f| %>
+  <%= form_for(@sport, url: edit_sport_path(@sport.id), method: 'post') do |form| %>
     <% if @sport.errors.any? %>
       <div id="error_explanation">
         <h2><%= pluralize(@sport.errors.count, "error") %> prohibited this sport from being saved:</h2>
@@ -18,14 +18,14 @@
   
     <div class="form-group">
       <div class="row">
-        <%= f.label :name %>
+        <%= formlabel :name %>
       </div>
       <div class="row">
-        <%= f.text_field :name %>
+        <%= form.text_field :name %>
       </div>
     </div>
     <div class="row padding">
-      <%= f.submit "Edit" , :class => "btn btn-primary outline" %> |
+      <%= form.submit "Edit" , :class => "btn btn-primary outline" %> |
       <%= link_to 'Back', sports_path, class: 'btn btn-primary outline' %>
     </div>
   <% end %>
