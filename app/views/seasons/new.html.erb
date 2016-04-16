@@ -25,13 +25,12 @@
       </div>
     </div>
     <div class="actions">
-      <div class="row">
-        <%= f.submit "Add" , :class => "btn btn-primary outline" %>
+      <div class="row padding">
+        <%= f.submit "Add" , :class => "btn btn-primary outline" %> |
+        <%= link_to 'Back', show_league_path(params[:league_id]), class: 'btn btn-primary outline' %>
+
       </div>
     </div>
   <% end %>
-  
-  <div class="row padding">
-    <%= link_to 'Back', show_league_path(params[:league_id]), class: 'btn btn-primary outline' %>
-  </div>
+
 </div>
