@@ -4,9 +4,9 @@
     <p><%= team.name %></p>
   </div>
   <div class="col-xs-4 padding-top padding-bottom">
-    <%= link_to 'Show', show_team_path(team), class: 'btn btn-primary' %> |
-    <%= link_to 'Edit', edit_team_path(team), class: 'btn btn-primary' %> |
-    <%= link_to 'Delete', delete_team_path(team), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-primary' %>
+    <%= link_to 'Show', show_team_path(team), class: 'btn btn-primary outline' %> |
+    <%= link_to 'Edit', edit_team_path(team), class: 'btn btn-primary outline' %> |
+    <%= link_to 'Delete', delete_team_path(team), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-primary outline' %>
   </div>
 </div>
 <% end %>
