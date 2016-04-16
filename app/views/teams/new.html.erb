@@ -18,7 +18,7 @@
   
     <div class="field">
       <div class="row">
-        <%= f.label :name %><br>
+        <%= f.label :name %>
       </div>
       <div class="row">
         <%= f.text_field :name %>
@@ -29,7 +29,8 @@
    		  <%= form.submit 'Add', class: 'btn btn-primary outline' %>
       </div>
     </div>
-    
+  <% end %>
+  
   <div class="row">
     <%= link_to 'Back', show_season_path(params[:season_id]), class: 'btn btn-primary outline' %>
   </div>
