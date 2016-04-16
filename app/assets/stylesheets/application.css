@@ -81,10 +81,10 @@
     	padding-top:18px;
  }
 
-h1, h2, h3, h4, h5 { 
+h1, h2, h3, h4, h5, a { 
 	font-family: 'Open Sans', sans-serif !important;
 }
 
-p, a {
+p {
 	font-family: 'Lato', sans-serif !important;
 }
