@@ -1,5 +1,7 @@
 <div class="container">
-  <h1>New Season</h1>
+  <div class="row">
+    <h2>New Season</h2>
+  </div>
   
   <%= form_for(@season, url: add_season_path(params[:league_id])) do |f| %>
     <% if @season.errors.any? %>
@@ -15,13 +17,21 @@
     <% end %>
   
     <div class="field">
-      <%= f.label :name %><br>
-      <%= f.text_field :name %>
+      <div class="row>
+        <%= f.label :name %>
+      </div>
+      <div class="row padding-top padding-bottom>
+        <%= f.text_field :name %>
+      </div>
     </div>
     <div class="actions">
-      <%= f.submit %>
+      <div class="row">
+        <%= f.submit %>
+      </div>
     </div>
   <% end %>
   
-  <%= link_to 'Back', show_league_path(params[:league_id]) %>
+  <div class="row padding">
+    <%= link_to 'Back', show_league_path(params[:league_id]), class: 'btn btn-primary' %>
+  </div>
 </div>
