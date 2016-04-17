@@ -6,13 +6,19 @@
     </div>
   </div>
   <div class="row padding">
-    <p><strong>Team:</strong> <%= @sell_request.team.name %></p>
+    <div class="col-xs-2">
+      <p><strong>Team:</strong> <%= @sell_request.team.name %></p>
+    </div>
   </div>
   <div class="row">
-    <p><strong>Price:</strong> <%= @sell_request.price %></p>
+    <div class="col-xs-2">
+      <p><strong>Price:</strong> <%= @sell_request.price %></p>
+    </div>
   </div>
   <div class="row">
-    <p><strong>Amount Available:</strong> <%= @sell_request.amount %></p>
+    <div class="col-xs-2">
+      <p><strong>Amount Available:</strong> <%= @sell_request.amount %></p>
+    </div>
   </div>
   
   <%= form_for(@transaction, url: buy_sell_request_path(@sell_request), method: 'post') do |form| %>
