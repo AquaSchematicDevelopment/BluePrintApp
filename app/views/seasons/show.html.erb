@@ -6,23 +6,17 @@
     <h2>Season</h2>
   </div>
   
-  <div class="row">
-    <p>
-      <strong>League:</strong>
-      <%= @season.league.name %>
-    </p>
+  <div class="row even-row">
+    <div class="col-xs-8 vcenter">
+      <p><%= @season.name %></p>
+    </div>
+    <div class="col-xs-1 padding-top padding-bottom">
+      <%= link_to 'Edit', edit_season_path(@season), class: 'btn btn-primary outline' %> |
+    </div>
   </div>
   
-  <div class="row">
-    <p>
-      <strong>Name:</strong>
-      <%= @season.name %>
-    </p>
-  </div>
-
-  <div class="row">
-    <%= link_to 'Edit', edit_season_path(@season), class: 'btn btn-primary outline' %> |
-    <%= link_to 'Back', show_league_path(@season.league), class: 'btn btn-primary outline' %>
+  <div class="row padding">
+    <%= link_to 'Back to Seasons', show_league_path(@season.league), class: 'btn btn-primary outline' %>
   </div>
   
   <div class="row padding">
