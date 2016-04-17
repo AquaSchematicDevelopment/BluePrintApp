@@ -2,15 +2,10 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-5">
-      <h2>Buy</h2>
+      <h2>Buy <%= @sell_request.team.name %> BluePrints</h2>
     </div>
   </div>
   <div class="row padding">
-    <div class="col-xs-5">
-      <p><strong>Team:</strong> <%= @sell_request.team.name %></p>
-    </div>
-  </div>
-  <div class="row">
     <div class="col-xs-5">
       <p><strong>Price:</strong> <%= @sell_request.price %></p>
     </div>
