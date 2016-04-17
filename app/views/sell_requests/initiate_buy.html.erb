@@ -13,19 +13,20 @@
     <p><strong>Amount Available:</strong> <%= @sell_request.amount %></p>
   </div>
   
-  <%= form_for(@transaction, url: buy_sell_request_path(@sell_request), method: 'post') do |f| %>
+  <%= form_for(@transaction, url: buy_sell_request_path(@sell_request), method: 'post') do |form| %>
   
-    <div class="field">
-      <div class="row">
-        <%= f.label :ammount, 'Amount To Buy' %>
-      </div>
-      <div class="row">
-        <%= f.text_field :amount %>
+    <div class="form-group">
+      <div class="row padding">
+        <%= form.label :ammount, 'Amount To Buy', class: 'col-xs-2 control-label' %>
+          <div class="col-xs-10">
+            <%= f.text_field :amount, class: 'form-control' %>
+          </div>
       </div>
     </div>
-    <div class="action">
+    
+    <div class="actions">
       <div class="row padding">
-        <%= f.submit "Buy" , :class => "btn btn-primary outline" %> | 
+        <%= form.submit "Buy" , :class => "btn btn-primary outline" %> | 
         <%= link_to 'Cancel', team_sell_requests_path(@sell_request.team), class: 'btn btn-primary outline' %>
       </div>
     </div>
