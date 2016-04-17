@@ -16,7 +16,7 @@
   <%= form_for(@transaction, url: buy_sell_request_path(@sell_request), method: 'post') do |form| %>
   
     <div class="form-group">
-      <div class="row padding">
+      <div class="row padding padding-left">
         <%= form.label :ammount, 'Amount To Buy', class: 'col-xs-2 control-label' %>
           <div class="col-xs-10">
             <%= form.text_field :amount, class: 'form-control' %>
