@@ -3,7 +3,7 @@
     <h2>Edit Season</h2>
   </div>
 
-  <%= form_for(@season, url: edit_season_path(@season), method: 'post') do |f| %>
+  <%= form_for(@season, url: edit_season_path(@season), method: 'post') do |form| %>
     <% if @season.errors.any? %>
       <div id="error_explanation">
         <h2><%= pluralize(@season.errors.count, "error") %> prohibited this season from being saved:</h2>
@@ -15,15 +15,16 @@
         </ul>
       </div>
     <% end %>
-  
-    <div class="field">
-      <div class="row">
-        <%= f.label :name %>
-      </div>
-      <div class="row">
-        <%= f.text_field :name %>
+    
+    <div class="form-group">
+      <div class="row padding">
+        <%= form.label :name, class: 'col-xs-2 control-label' %>
+          <div class="col-xs-10">
+            <%= form.text_field :name, class: 'form-control' %>
+          </div>
       </div>
     </div>
+  
     <div class="row padding">
       <%= f.submit "Edit" , :class => "btn btn-primary outline" %> |
       <%= link_to 'Back', show_league_path(@season.league), class: 'btn btn-primary outline' %>
