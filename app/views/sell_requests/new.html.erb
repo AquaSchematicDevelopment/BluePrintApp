@@ -1,18 +1,12 @@
 <div class="container">
   
   <div class="row">
-    <div class="col-xs-5">
-      <h2>Sell BluePrints</h2>
+    <div class="col-xs-12">
+      <h2>Sell <%= @holding.team.name %> BluePrints</h2>
     </div>
   </div>
 
   <div class="row padding">
-    <div class="col-xs-5">
-      <p><strong>Team:</strong> <%= @holding.team.name %></p>
-    </div>
-  </div>
-
-  <div class="row">
     <div class="col-xs-5">
       <p><strong>Available BluePrints:</strong> <%= @holding.available_blueprints %></p>
     </div>
