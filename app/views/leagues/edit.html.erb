@@ -3,7 +3,7 @@
     <h2>Edit League</h2>
   </div>
 
-  <%= form_for(@league, url: edit_league_path(@league), method: 'post') do |f| %>
+  <%= form_for(@league, url: edit_league_path(@league), method: 'post') do |form| %>
     <% if @league.errors.any? %>
       <div id="error_explanation">
         <h2><%= pluralize(@league.errors.count, "error") %> prohibited this league from being saved:</h2>
