@@ -4,7 +4,7 @@
     <h2>Sell BluePrints</h2>
   </div>
 
-  <div class="row">
+  <div class="row padding">
     <p><strong>Team:</strong> <%= @holding.team.name %></p>
   </div>
 
@@ -12,7 +12,7 @@
     <p><strong>Available BluePrints:</strong> <%= @holding.available_blueprints %></p>
   </div>
 
-  <%= form_for(@sell_request, url: sell_holding_path(@holding), method: 'post') do |f| %>
+  <%= form_for(@sell_request, url: sell_holding_path(@holding), method: 'post') do |form| %>
   <% if @sell_request.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@sell_request.errors.count, "error") %> prohibited this sell_request from being saved:</h2>
@@ -25,27 +25,27 @@
     </div>
   <% end %>
   
-  <div class="field">
-    <div class="row">
-      <%= f.label :price %>
-    </div>
-
-    <div class="row">
-      <%= f.text_field :price %>
+  <div class="form-group">
+    <div class="row padding">
+      <%= form.label :price, class: 'col-xs-2 control-label' %>
+        <div class="col-xs-10">
+          <%= form.text_field :price, class: 'form-control' %>
+        </div>
     </div>
   </div>
   
-  <div class="field">
+  <div class="form-group">
     <div class="row padding-top">
-      <%= f.label :amount %>
-    </div>
-    <div class="row">
-      <%= f.number_field :amount %>
+      <%= form.label :amount, class: 'col-xs-2 control-label' %>
+        <div class="col-xs-10">
+          <%= form.number_field :amount, class: 'form-control' %>
+        </div>
     </div>
   </div>
-  <div class="actions padding">
-    <div class="row">
-      <%= f.submit "Add" , :class => "btn btn-primary outline" %> | 
+  
+  <div class="actions">
+    <div class="row padding">
+      <%= form.submit "Add" , :class => "btn btn-primary outline" %> | 
       <%= link_to 'Cancel', show_portfolio_path, class: 'btn btn-primary outline' %>
     </div>
   </div>
