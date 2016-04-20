@@ -26,4 +26,10 @@ class ApplicationController < ActionController::Base
   def redirect_non_player(to: '/')
     redirect_to(to) unless current_user && current_user.is_player?
   end
+  
+  def number_or_nil(string)
+    Integer(string || '')
+  rescue ArgumentError
+    nil
+  end
 end
