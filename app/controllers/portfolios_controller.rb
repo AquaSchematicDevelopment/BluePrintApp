@@ -30,6 +30,7 @@ class PortfoliosController < ApplicationController
           return by_team
         end
       end
+    @sell_request = @portfolio.sell_requests
   end
 
   # GET /portfolios/new
