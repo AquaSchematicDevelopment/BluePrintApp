@@ -10,4 +10,8 @@ class Holding < ActiveRecord::Base
   def available_blue_prints
     self.blue_prints - self.total_blue_prints_currently_being_sold
   end
+  
+  def total_book_value
+    self.blue_prints * self.team.book_value
+  end
 end
