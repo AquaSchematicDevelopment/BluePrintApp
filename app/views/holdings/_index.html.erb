@@ -24,7 +24,7 @@
       <p><%= holding.team.book_value %></p>
     </div>
     <div class="col-xs-2 vcenter">
-      <p><%= holding.team.market_price %></p>
+      <p><%= holding.team.market_price ? holding.team.market_price : '-' %></p>
     </div>
     <div class="col-xs-3 vcenter">
       <p><%= holding.blue_prints %> (<%= holding.total_blue_prints_currently_being_sold %>)</p>
