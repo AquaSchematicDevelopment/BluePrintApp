@@ -13,4 +13,7 @@ class Team < ActiveRecord::Base
     self.sell_requests.map { |sell_request| sell_request.price }.min
   end
   
+  def market_price_formated
+    self.market_price ? self.market_price : '-'
+  end
 end
