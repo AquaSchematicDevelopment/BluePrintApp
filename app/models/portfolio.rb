@@ -8,6 +8,6 @@ class Portfolio < ActiveRecord::Base
   has_many :buyers, :class_name => 'Transaction', :foreign_key => 'buyer_id'
   
   def total_book_value
-    self.holdings.reduce(:+)
+    self.holdings.map{|holding| holding.total_book_value}.reduce(:+)
   end
 end
