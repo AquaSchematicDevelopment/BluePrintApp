@@ -70,6 +70,10 @@
  	padding-top:500px;
  }
  
+ .padding-relative-top{
+ 	padding-top 50%; 
+ }
+ 
  .padding-bottom {
  	padding-bottom:5px;
  }
