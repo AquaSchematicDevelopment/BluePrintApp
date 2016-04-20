@@ -79,7 +79,7 @@ class TeamsController < ApplicationController
   end
   
   def sell_request_index
-    @sell_requests = @team.sell_requests.sort_by {|sell_request| sell_request.price}
+    @sell_requests = @team.sell_requests.reject{|sell_request| sell_request.portfolio.user == current_user}.sort_by {|sell_request| sell_request.price}
   end
 
   private
