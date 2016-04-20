@@ -17,11 +17,16 @@
     <%= current_user.funds %>
   </p>
   
+  <p>
+    <strong>Total Portfolio Book Value:</strong>
+    <%= @portfolio.total_book_value %>
+  </p>
+  
   <h2>Current Holdings</h2>
   
   <%= render 'holdings/index' %>
   
-  <h2>Sell Requests</h2>
+  <h2>Pending Sell Requests</h2>
   
   <%= render 'sell_requests/index_delete' %>
   
