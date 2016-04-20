@@ -6,7 +6,7 @@
     <p><b>Book Value</p></b>
   </div>
   <div class="col-xs-4">
-    <p><b>Lowest Price</p></b>
+    <p><b>Market Price</p></b>
   </div>
 </div>
 
@@ -16,10 +16,10 @@
     <p><%= team.name %></p>
   </div>
   <div class="col-xs-4 vcenter">
-    <p> - </p>
+    <p><%= team.book_value %></p>
   </div>
   <div class="col-xs-4 vcenter">
-    <p><%= team.lowest_price %></p>
+    <p><%= team.market_price_formated %></p>
   </div>
   <div class="col-xs-2 padding-top padding-bottom">
     <%= link_to 'buy', team_sell_requests_path(team), class: 'btn btn-primary outline' %>
