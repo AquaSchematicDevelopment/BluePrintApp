@@ -1,14 +1,23 @@
 <div class="row padding">
-  <div class="col-xs-5">
+  <div class="col-xs-3">
     <p><b>Team</b></p>
   </div>
-  <div class="col-xs-5">
-    <p><b>Blueprints</b></p>
+  <div class="col-xs-2">
+    <p><b>Book Value</b></p>
+  </div>
+  <div class="col-xs-2">
+    <p><b>Market Value</b></p>
+  </div>
+  <div class="col-xs-3">
+    <p><b>Blueprints(Selling)</b></p>
+  </div>
+  <div class="col-xs-2">
+    <p><b>Combined Value</b></p>
   </div>
 </div>
 <% @holdings.each_with_index do |holding, index| %>
   <div class="row <%= index.even? ? 'even-row' : 'odd-row' %>">
-    <div class="col-xs-2 vcenter">
+    <div class="col-xs-3 vcenter">
       <p><%= holding.team.name %></p>
     </div>
     <div class="col-xs-2 vcenter">
@@ -20,7 +29,7 @@
     <div class="col-xs-3 vcenter">
       <p><%= holding.available_blueprints%></p>
     </div>
-    <div class="col-xs-3 vcenter">
+    <div class="col-xs-2 vcenter">
       <p>Combined Value</p>
     </div>
   </div>
