@@ -6,7 +6,7 @@
     <p><b>Book Value</b></p>
   </div>
   <div class="col-xs-2">
-    <p><b>Market Value</b></p>
+    <p><b>Market Price</b></p>
   </div>
   <div class="col-xs-3">
     <p><b>Blueprints (Selling)</b></p>
@@ -24,7 +24,7 @@
       <p><%= holding.team.book_value %></p>
     </div>
     <div class="col-xs-2 vcenter">
-      <p> Market Value </p>
+      <p><%= holding.team.market_price %></p>
     </div>
     <div class="col-xs-3 vcenter">
       <p><%= holding.blue_prints %> (<%= holding.blue_prints - holding.available_blue_prints %>)</p>
