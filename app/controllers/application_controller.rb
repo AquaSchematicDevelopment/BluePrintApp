@@ -10,7 +10,10 @@ class ApplicationController < ActionController::Base
   end
   
   def current_portfolio
-    current_user.portfolios.first if current_user && current_user.is_player?
+    if current_user && current_user.is_player?
+      current_user.portfolios.first
+    else
+    end
   end
 
   def redirect_non_user(to: '/')
