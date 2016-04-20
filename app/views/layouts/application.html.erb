@@ -37,7 +37,9 @@
         <% if current_user && current_user.is_player? %>
         <li><%= link_to 'Home', root_path %></li>
         <li><%= link_to 'Profile', profile_path %></li>
+        <% if current_portfolio %>
         <li><%= link_to 'Buy', season_sell_requests_path(current_portfolio.season) %></li>
+        <% end %>
         <li><%= link_to 'My Portfolio', show_portfolio_path %></li>
         <li><%= link_to 'Logout', logout_path, method: 'delete' %></li>
         <% end %>
