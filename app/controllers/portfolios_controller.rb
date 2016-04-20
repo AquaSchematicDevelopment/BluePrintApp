@@ -20,7 +20,7 @@ class PortfoliosController < ApplicationController
          #by_amount = a.amount<=> b.amount if by_price && by_price == 0
          
          if by_team == 0
-           by_price = b.price <=> a.price
+           by_price = a.price <=> b.price
            if by_price == 0
              a.amount<=> b.amount
            else
