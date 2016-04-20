@@ -17,7 +17,7 @@ class PortfoliosController < ApplicationController
 #    @sell_requests = @portfolio.sell_requests.sort do |a,b|
 #        by_team = a.team.name <=> b.team.name
 #        #by_price = a.price <=> b.price if by_team == 0
- #       #by_amount = a.amount<=> b.amount if by_price && by_price == 0
+#        #by_amount = a.amount<=> b.amount if by_price && by_price == 0
 #        
 #        if by_team == 0
 #          by_price = a.price <=> b.price
@@ -30,7 +30,7 @@ class PortfoliosController < ApplicationController
 #          return by_team
 #        end
 #      end
-    @sell_requests = @portfolio.sell_requests
+    @sell_requests = @portfolio.sell_requests.sort {|a,b| a.team.name <=> b.team.name}
   end
 
   # GET /portfolios/new
