@@ -50,7 +50,10 @@ class TeamsController < ApplicationController
   def update
     if Team.where(season_id: @team.season_id, name: team_params[:name]).first && @team.name != team_params[:name]
       @errors = ['There already exists a team with that name in the season']
-      render :new
+      render :edit
+    if !team_params.is_a? Numeric || team_params[:book_value] < 0
+      @errors = ['The book price must be a positive number']
+      render :edit
     else
       respond_to do |format|
         if @team.update(team_params)
