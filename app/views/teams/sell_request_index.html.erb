@@ -3,8 +3,19 @@
   <div class="row">
     <h1><%= @team.name %></h1>
   </div>
+  
   <div class="row">
-    <h3>Available Blueprints</h3>
+    <label>Book Value</label>
+    <h1><%= @team.book_value %></h1>
+  </div>
+  
+  <div class="row">
+    <label>Market Price</label>
+    <h1><%= @team.market_price_formated %></h1>
+  </div>
+  
+  <div class="row">
+    <h3>Available Sellers</h3>
   </div>
 
   <%= render 'sell_requests/index_buy' %>
