@@ -8,14 +8,20 @@
 </div>
 <% @holdings.each_with_index do |holding, index| %>
   <div class="row <%= index.even? ? 'even-row' : 'odd-row' %>">
-    <div class="col-xs-5 vcenter">
+    <div class="col-xs-2 vcenter">
       <p><%= holding.team.name %></p>
     </div>
-    <div class="col-xs-5 vcenter">
-      <p><%= holding.available_blueprints %></p>
+    <div class="col-xs-2 vcenter">
+      <p> Book Value </p>
     </div>
-    <div class="col-xs-2 padding-top padding-bottom">
-      <%= link_to 'sell', sell_holding_path(holding), class: 'btn btn-primary outline' %>
+    <div class="col-xs-2 vcenter">
+      <p> Market Value </p>
+    </div>
+    <div class="col-xs-3 vcenter">
+      <p><%= holding.available_blueprints%></p>
+    </div>
+    <div class="col-xs-3 vcenter">
+      <p>Combined Value</p>
     </div>
   </div>
 <% end %>
