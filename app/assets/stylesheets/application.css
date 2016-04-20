@@ -50,6 +50,13 @@
 	padding: 12px 22px;
 }
 
+.btn.outline :hover{
+	background: #2a67a4;
+	padding: 12px 22px;
+	border: 2px solid #fff;
+	color: #fff;
+}
+
 .btn-primary.outline {
 	border: 2px solid #2a67a4;
 	color: #2a67a4;
