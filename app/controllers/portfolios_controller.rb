@@ -30,7 +30,6 @@ class PortfoliosController < ApplicationController
            by_team
          end
        end
-    @sell_requests = @portfolio.sell_requests.sort {|a,b| a.team.name <=> b.team.name}
   end
 
   # GET /portfolios/new
