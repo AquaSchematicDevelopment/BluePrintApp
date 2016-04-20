@@ -12,7 +12,6 @@ class ApplicationController < ActionController::Base
   def current_portfolio
     if current_user && current_user.is_player?
       current_user.portfolios.first
-    else
     end
   end
 
