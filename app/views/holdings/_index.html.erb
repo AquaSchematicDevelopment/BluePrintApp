@@ -12,7 +12,7 @@
     <p><b>Blueprints (Selling)</b></p>
   </div>
   <div class="col-xs-2">
-    <p><b>Combined Value</b></p>
+    <p><b>Total Book Value</b></p>
   </div>
 </div>
 <% @holdings.each_with_index do |holding, index| %>
@@ -27,10 +27,10 @@
       <p><%= holding.team.market_price %></p>
     </div>
     <div class="col-xs-3 vcenter">
-      <p><%= holding.blue_prints %> (<%= holding.blue_prints - holding.available_blue_prints %>)</p>
+      <p><%= holding.blue_prints %> (<%= holding.blue_prints_selling %>)</p>
     </div>
     <div class="col-xs-2 vcenter">
-      <p>Combined Value</p>
+      <p><%= holding.total_book_value %></p>
     </div>
   </div>
 <% end %>
