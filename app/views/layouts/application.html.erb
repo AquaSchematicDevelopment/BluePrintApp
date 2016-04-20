@@ -26,21 +26,22 @@
       <ul class="nav navbar-nav">
         <% if current_user && current_user.is_admin? %>
         <li><%= link_to 'Home', root_path %></li>
-        <li><%= link_to 'Profile', profile_path %></li>
         <li><%= link_to 'Register Player', new_player_path %></li>
         <li><%= link_to 'Players', players_path %></li>
         <li><%= link_to 'Add Sport', new_sport_path %></li>
         <li><%= link_to 'Sports', sports_path %></li>
+        <li><%= link_to 'Settings', profile_path %></li>
         <li><%= link_to 'Logout', logout_path, method: 'delete' %></li>
         <% end %>
         
         <% if current_user && current_user.is_player? %>
         <li><%= link_to 'Home', root_path %></li>
-        <li><%= link_to 'Profile', profile_path %></li>
+        <li><%= link_to 'My Portfolio', show_portfolio_path %></li>
         <% if current_portfolio %>
         <li><%= link_to 'Buy', season_sell_requests_path(current_portfolio.season) %></li>
+        <li><%= link_to 'Sell', season_sell_requests_path(current_portfolio.season) %></li>
         <% end %>
-        <li><%= link_to 'My Portfolio', show_portfolio_path %></li>
+        <li><%= link_to 'Settings', profile_path %></li>
         <li><%= link_to 'Logout', logout_path, method: 'delete' %></li>
         <% end %>
         
