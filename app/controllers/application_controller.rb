@@ -30,6 +30,10 @@ class ApplicationController < ActionController::Base
   def number_or_nil(string)
     Integer(string || '')
   rescue ArgumentError
-    nil
+    do
+      Float(string || '')
+    rescue ArgumentError
+      nil
+    end
   end
 end
