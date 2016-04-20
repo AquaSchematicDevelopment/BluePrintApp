@@ -51,7 +51,7 @@ class TeamsController < ApplicationController
     if Team.where(season_id: @team.season_id, name: team_params[:name]).first && @team.name != team_params[:name]
       @errors = ['There already exists a team with that name in the season']
       render :edit
-    elsif !number_or_null(team_params[:book_value]) || number_or_null(team_params[:book_value]) < 0
+    elsif !number_or_nil(team_params[:book_value]) || number_or_nil(team_params[:book_value]) < 0
       @errors = ['The book price must be a positive number']
       render :edit
     else
