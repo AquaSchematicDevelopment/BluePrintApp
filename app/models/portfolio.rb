@@ -6,4 +6,8 @@ class Portfolio < ActiveRecord::Base
   has_many :buy_requests
   has_many :sellers, :class_name => 'Transaction', :foreign_key => 'seller_id'
   has_many :buyers, :class_name => 'Transaction', :foreign_key => 'buyer_id'
+  
+  def total_book_value
+    self.holdings.inject(0) {|holding| holding.total_book_value}
+  end
 end
