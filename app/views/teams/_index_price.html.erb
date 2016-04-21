@@ -3,10 +3,10 @@
     <p><b>Team</p></b>
   </div>
   <div class="col-xs-2">
-    <p><b>Book Value</p></b>
+    <center><p><b>Book Value</p></b></center>
   </div>
   <div class="col-xs-2">
-    <p><b>Market Price</p></b>
+    <center><p><b>Market Price</p></b></center>
   </div>
 </div>
 
@@ -16,10 +16,10 @@
     <p><%= team.name %></p>
   </div>
   <div class="col-xs-2 vcenter">
-    <p><%= team.book_value %></p>
+    <center><p><%= team.book_value %></p></center>
   </div>
   <div class="col-xs-2 vcenter">
-    <p><%= team.market_price_formated %></p>
+    <center><p><%= team.market_price_formated %></p></center>
   </div>
   <div class="col-xs-2 col-xs-offset-3 padding-top padding-bottom">
     <%= link_to 'buy', team_sell_requests_path(team), class: 'btn btn-primary outline' %>
