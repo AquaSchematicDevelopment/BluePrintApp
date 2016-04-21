@@ -3,10 +3,10 @@
     <p><b>Team</b></p>
   </div>
   <div class="col-xs-3">
-    <p><b>Price</b></p>
+    <center><p><b>Price</b></p></center>
   </div>
   <div class="col-xs-3">
-    <p><b>Amount</b></p>
+    <center><p><b>Amount</b></p></center>
   </div>
 </div>
 
@@ -16,10 +16,10 @@
       <p><%= sell_request.team.name %></p>
     </div>
     <div class="col-xs-3 vcenter">
-      <p><%= sell_request.price %></p>
+      <center><p><%= sell_request.price %></p></center>
     </div>
     <div class="col-xs-3 vcenter">
-      <p><%= sell_request.amount %></p>
+      <center><p><%= sell_request.amount %></p></center>
     </div>
     <div class="col-xs-2 padding-top padding-bottom">
       <%= link_to 'Delete', delete_sell_request_path(sell_request),  method: :delete, class: 'btn btn-primary outline', data: { confirm: 'Are you sure?' } %>
