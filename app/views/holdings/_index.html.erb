@@ -18,7 +18,7 @@
 <% @holdings.each_with_index do |holding, index| %>
   <div class="row <%= index.even? ? 'even-row' : 'odd-row' %>">
     <div class="col-xs-3 vcenter">
-      <p><%= holding.team.name %></p>
+      <center><p><%= holding.team.name %></p></center>
     </div>
     <div class="col-xs-2 vcenter">
       <p><%= holding.team.book_value %></p>
