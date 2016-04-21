@@ -3,34 +3,34 @@
     <p><b>Team</b></p>
   </div>
   <div class="col-xs-2">
-    <p><b>Book Value</b></p>
+    <center><p><b>Book Value</b></p></center>
   </div>
   <div class="col-xs-2">
-    <p><b>Market Price</b></p>
+    <center><p><b>Market Price</b></p></center>
   </div>
   <div class="col-xs-3">
-    <p><b>Blueprints (Selling)</b></p>
+    <center><p><b>Blueprints (Selling)</b></p></center>
   </div>
   <div class="col-xs-2">
-    <p><b>Total Book Value</b></p>
+    <center><p><b>Total Book Value</b></p></center>
   </div>
 </div>
 <% @holdings.each_with_index do |holding, index| %>
   <div class="row <%= index.even? ? 'even-row' : 'odd-row' %>">
     <div class="col-xs-3 vcenter">
-      <center><p><%= holding.team.name %></p></center>
+      <p><%= holding.team.name %></p>
     </div>
     <div class="col-xs-2 vcenter">
-      <p><%= holding.team.book_value %></p>
+      <center><p><%= holding.team.book_value %></p></center>
     </div>
     <div class="col-xs-2 vcenter">
-      <p><%= holding.team.market_price ? holding.team.market_price : '-' %></p>
+      <center><p><%= holding.team.market_price ? holding.team.market_price : '-' %></p></center>
     </div>
     <div class="col-xs-3 vcenter">
-      <p><%= holding.blue_prints %> (<%= holding.total_blue_prints_currently_being_sold %>)</p>
+      <center><p><%= holding.blue_prints %> (<%= holding.total_blue_prints_currently_being_sold %>)</p></center>
     </div>
     <div class="col-xs-2 vcenter">
-      <p><%= holding.total_book_value %></p>
+      <center><p><%= holding.total_book_value %></p></center>
     </div>
   </div>
 <% end %>
