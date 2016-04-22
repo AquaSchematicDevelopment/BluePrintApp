@@ -22,7 +22,7 @@
     <center><p><%= team.market_price_formated %></p></center>
   </div>
   <div class="col-xs-2 vcenter">
-    <center><p><% if team.sell_request.empty? %>No Players Selling<% else %><strong>Players Currently Selling</strong><% end %></p></center>
+    <center><p><% if team.sell_requests.empty? %>No Players Selling<% else %><strong>Players Currently Selling</strong><% end %></p></center>
   </div>
   <div class="col-xs-2 col-xs-offset-1 padding-top padding-bottom">
     <%= link_to 'buy', team_sell_requests_path(team), class: 'btn btn-primary outline' %>
