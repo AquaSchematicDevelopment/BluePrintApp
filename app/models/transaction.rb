@@ -43,7 +43,7 @@ class Transaction < ActiveRecord::Base
     transaction.seller = seller_portfolio
     
     total = transaction.amount * transaction.price
-    raise TransactionException.new "Buyer doesn't have enough funds" unless buyer_user.funds > total
+    raise TransactionException.new "Buyer doesn't have enough funds" unless buyer_user.available_funds > total
     
     # move funds
     
