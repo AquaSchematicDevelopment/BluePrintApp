@@ -79,6 +79,10 @@ class SeasonsController < ApplicationController
   def sell_request_index
     @teams = @season.teams.sort_by{|team| team.name }
   end
+  
+  def buy_request_index
+    @teams = @season.teams.sort_by{|team| team.name }
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
