@@ -39,7 +39,7 @@
         <li><%= link_to 'My Portfolio', show_portfolio_path %></li>
         <% if current_portfolio %>
         <li><%= link_to 'Buy', season_sell_requests_path(current_portfolio.season) %></li>
-        <li><%= link_to 'Sell', season_sell_requests_path(current_portfolio.season) %></li>
+        <li><%= link_to 'Sell', season_buy_requests_path(current_portfolio.season) %></li>
         <% end %>
         <li><%= link_to 'Settings', profile_path %></li>
         <li><%= link_to 'Logout', logout_path, method: 'delete' %></li>
