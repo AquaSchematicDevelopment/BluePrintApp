@@ -69,8 +69,8 @@ Rails.application.routes.draw do
   delete 'buy_request/:id/delete', to: 'buy_requests#destroy', as: :delete_buy_request
   get 'season/:id/sell', to: 'seasons#buy_request_index', as: :season_buy_requests
   get 'team/:id/sell', to: 'teams#buy_request_index', as: :team_buy_requests
-  get 'buy_request/:id/sell', to: 'sell_requests#initiate_buy', as: :sell_buy_request
-  post 'buy_request/:id/sell', to: 'sell_requests#process_buy'
+  get 'buy_request/:id/sell', to: 'buy_requests#initiate_sell', as: :sell_buy_request
+  post 'buy_request/:id/sell', to: 'buy_requests#process_sell'
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
