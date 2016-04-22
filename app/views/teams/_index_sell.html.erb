@@ -1,0 +1,31 @@
+<div class="row padding">
+  <div class="col-xs-3">
+    <p><b>Team</p></b>
+  </div>
+  <div class="col-xs-2">
+    <center><p><b>Book Value</p></b></center>
+  </div>
+  <div class="col-xs-2">
+    <center><p><b>Market Price</p></b></center>
+  </div>
+</div>
+
+<% @teams.each_with_index do |team, index| %>
+<div class="row <%= index.even? ? 'even-row' : 'odd-row' %>">
+  <div class="col-xs-3 vcenter">
+    <p><%= team.name %></p>
+  </div>
+  <div class="col-xs-2 vcenter">
+    <center><p><%= team.book_value %></p></center>
+  </div>
+  <div class="col-xs-2 vcenter">
+    <center><p><%= team.market_price_formated %></p></center>
+  </div>
+  <div class="col-xs-2 vcenter">
+    <center><p><% if team.sell_requests.empty? %>No Players Buying<% else %><strong>Players Currently Buying</strong><% end %></p></center>
+  </div>
+  <div class="col-xs-2 col-xs-offset-1 padding-top padding-bottom">
+    <%= link_to 'sell', team_buy_requests_path(team), class: 'btn btn-primary outline' %>
+  </div>
+</div>
+<% end %>
