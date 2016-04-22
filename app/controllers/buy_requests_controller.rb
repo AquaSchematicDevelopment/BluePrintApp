@@ -85,8 +85,8 @@ class BuyRequestsController < ApplicationController
   end
   
   def process_sell
-    buyer_portfolio = current_portfolio
-    seller_portfolio = @buy_request.portfolio
+    buyer_portfolio = @buy_request.portfolio
+    seller_portfolio = current_portfolio
     
     @transaction = Transaction.new(transaction_params)
     
@@ -104,7 +104,6 @@ class BuyRequestsController < ApplicationController
       @errors = ["You don't have enough bluprints."]
       render :initiate_sell
     else
-      raise @buy_request.class.name unless @buy_request.is_a? BuyRequest
       sell_request = SellRequest.create(portfolio: seller_portfolio, team: @buy_request.team, price: @buy_request.price, amount: @transaction.amount)
       begin
         Transaction.handle_transaction buy_request: @buy_request , sell_request: sell_request
