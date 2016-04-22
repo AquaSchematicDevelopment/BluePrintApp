@@ -12,22 +12,24 @@ class PortfoliosController < ApplicationController
   # GET /portfolios/1
   # GET /portfolios/1.json
   def show
+    request_sort = lambda do |a,b| 
+      by_team = a.team.name <=> b.team.name
+        
+      if by_team == 0
+        by_price = a.price <=> b.price
+        if by_price == 0
+          a.amount<=> b.amount
+        else
+          by_price
+        end
+      else
+        by_team
+      end
+    end
     @portfolio = current_portfolio
     @holdings = @portfolio.holdings.sort_by{|holding| holding.team.name}
-    @sell_requests = @portfolio.sell_requests.sort do |a,b|
-         by_team = a.team.name <=> b.team.name
-         
-         if by_team == 0
-           by_price = a.price <=> b.price
-           if by_price == 0
-             a.amount<=> b.amount
-           else
-             by_price
-           end
-         else
-           by_team
-         end
-       end
+    @sell_requests = @portfolio.sell_requests.sort request_sort
+    @buy_requests = @portfolio.buy_requests.sort request_sort
   end
 
   # GET /portfolios/new
