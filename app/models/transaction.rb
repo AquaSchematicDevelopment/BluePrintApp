@@ -23,8 +23,8 @@ class Transaction < ActiveRecord::Base
     # made to the datebase
     undos = []
     
-    raise TransactionException.new 'Requires buy request to be a buy request' + buy_request.class.name if buy_request.is_a? BuyRequest
-    raise TransactionException.new 'Requires sell request to be a sell request' if buy_request.is_a? SellRequest
+    raise TransactionException.new 'Requires buy request to be a buy request' unless buy_request.is_a? BuyRequest
+    raise TransactionException.new 'Requires sell request to be a sell request' unless sell_request.is_a? SellRequest
     raise TransactionException.new 'Teams are not the same' unless buy_request.team == sell_request.team
     raise TransactionException.new 'Prices are not the same' unless buy_request.price == sell_request.price
     raise TransactionException.new 'The users are the same' if buy_request.portfolio.user == sell_reqest.portfolio.user
