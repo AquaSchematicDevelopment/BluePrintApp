@@ -1,0 +1,28 @@
+<div class="row padding">
+  <div class="col-xs-3">
+    <p><b>Team</b></p>
+  </div>
+  <div class="col-xs-2">
+    <center><p><b>Price</b></p></center>
+  </div>
+  <div class="col-xs-2">
+    <center><p><b>Amount</b></p></center>
+  </div>
+</div>
+
+<% @buy_requests.each_with_index do |buy_request, index| %>
+  <div class="row <%= index.even? ? 'even-row' : 'odd-row' %>">
+    <div class="col-xs-3 vcenter">
+      <p><%= buy_request.team.name %></p>
+    </div>
+    <div class="col-xs-2 vcenter">
+      <center><p><%= buy_request.price %></p></center>
+    </div>
+    <div class="col-xs-2 vcenter">
+      <center><p><%= buy_request.amount %></p></center>
+    </div>
+    <div class="col-xs-2 col-xs-offset-3 padding-top padding-bottom">
+      <%= link_to 'Delete', delete_buy_request_path(buy_request),  method: :delete, class: 'btn btn-primary outline', data: { confirm: 'Are you sure?' } %>
+    </div>
+  </div>
+<% end %>
