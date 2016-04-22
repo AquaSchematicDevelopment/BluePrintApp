@@ -20,4 +20,8 @@ class Team < ActiveRecord::Base
   def currently_being_sold?
     !team.sell_requests.reject{|sell_request| sell_request.portfolio == current_portfolio}.empty?
   end
+  
+  def currently_being_bought?
+    !team.buy_requests.reject{|buy_request| buy_request.portfolio == current_portfolio}.empty?
+  end
 end
