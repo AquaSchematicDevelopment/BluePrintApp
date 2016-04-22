@@ -22,7 +22,7 @@
     <center><p><%= team.market_price_formated %></p></center>
   </div>
   <div class="col-xs-2 vcenter">
-    <center><p><% if team.currently_being_sold? %><strong>Players Currently Selling</strong><% else %>No Players Selling<% end %></p></center>
+    <center><p><% if team.currently_being_sold? exclude: current_portfolio %><strong>Players Currently Selling</strong><% else %>No Players Selling<% end %></p></center>
   </div>
   <div class="col-xs-2 col-xs-offset-1 padding-top padding-bottom">
     <%= link_to 'buy', team_sell_requests_path(team), class: 'btn btn-primary outline' %>
