@@ -32,8 +32,8 @@ class Transaction < ActiveRecord::Base
     buyer_portfolio = buy_request.portfolio
     seller_portfolio = sell_request.portfolio
     
-    buyer_user = to_portfolio.user
-    seller_user = from_portfolio.user
+    buyer_user = buyer_portfolio.user
+    seller_user = seller_portfolio.user
     
     transaction = Transaction.new
     transaction.price = buy_request.price
