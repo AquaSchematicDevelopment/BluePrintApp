@@ -26,15 +26,28 @@ class BuyRequestsController < ApplicationController
   # POST /buy_requests
   # POST /buy_requests.json
   def create
+    @team = Holding.find(params[:team_id])
     @buy_request = BuyRequest.new(buy_request_params)
-
-    respond_to do |format|
-      if @buy_request.save
-        format.html { redirect_to @buy_request, notice: 'Buy request was successfully created.' }
-        format.json { render :show, status: :created, location: @buy_request }
+    @buy_request.team = @team
+    @buy_request.portfolio = current_portfolio
+    
+    if @buy_request.portfolio.user != current_user
+      @errors = ["Request from wrong user."]
+      redirect_to root
+    elsif !@buy_request.amount || !@buy_request.price
+      @errors = ['Form was incomplete']
+      render :new
+    elsif current.user.funds < @buy_request.amount * @buy_request.price
+      @errors = ["You don't have enough funds."]
+      render :new
+    elsif @sell_request.amount <= 0 || @sell_request.price <= 0
+      @errors = ['Either price or amount is zero']
+      render :new
+    else
+      if @sell_request.save
+        redirect_to show_portfolio_path, notice: 'Buy request was successfully created.'
       else
-        format.html { render :new }
-        format.json { render json: @buy_request.errors, status: :unprocessable_entity }
+        render :new
       end
     end
   end
