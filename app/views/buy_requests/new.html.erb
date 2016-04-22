@@ -11,6 +11,12 @@
       <p><strong>Funds:</strong> <%= current_user.funds %></p>
     </div>
   </div>
+  
+  <div class="row padding">
+    <div class="col-xs-5">
+      <p><strong>Avilable Funds:</strong> <%= current_user.available_funds %></p>
+    </div>
+  </div>
 
   <%= form_for(@buy_request, url: buy_team_path(@team), method: 'post') do |form| %>
   <% if @buy_request.errors.any? %>
