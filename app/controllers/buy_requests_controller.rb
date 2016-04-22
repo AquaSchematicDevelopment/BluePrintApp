@@ -71,7 +71,7 @@ class BuyRequestsController < ApplicationController
   def destroy
     @buy_request.destroy
     respond_to do |format|
-      format.html { redirect_to buy_requests_url, notice: 'Buy request was successfully destroyed.' }
+      format.html { redirect_to show_portfolio_path }
       format.json { head :no_content }
     end
   end
