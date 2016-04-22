@@ -55,6 +55,7 @@
   </div>
 </div>
 
+<div class='container'>
 <% if @errors && @errors.any? %>
 <div id="error_explanation">
   <h2><%= pluralize(@errors.count, "error") %>:</h2>
@@ -66,6 +67,7 @@
   </ul>
 </div>
 <% end %>
+</div>
 
 <%= yield %>
 
