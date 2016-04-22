@@ -81,7 +81,7 @@ class SeasonsController < ApplicationController
   end
   
   def buy_request_index
-    @teams = @season.teams.select{|team| current_portfolio.holdings.find_by(team: team)}.sort_by{|team| team.name }
+    @teams = @season.teams.select{|team| current_portfolio.holdings.select{|holding| holding.team == team}}.sort_by{|team| team.name }
   end
 
   private
