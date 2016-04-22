@@ -12,7 +12,10 @@ class User < ActiveRecord::Base
   
   def available_funds
     self.portfolios.inject(self.funds) do |result, portfolio| 
-      result - portfolio.buy_requests.map{|buy_request| buy_request.amount * buy_request.price}.reduce(:+)
+      unless portfolio.buy_requests.empty?
+        result -= portfolio.buy_requests.map{|buy_request| buy_request.amount * buy_request.price}.reduce(:+)
+      end
+      result
     end
   end
 end
