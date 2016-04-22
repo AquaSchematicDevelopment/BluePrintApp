@@ -44,7 +44,7 @@ class BuyRequestsController < ApplicationController
       @errors = ['Either price or amount is zero']
       render :new
     else
-      if @sell_request.save
+      if @buy_request.save
         redirect_to show_portfolio_path, notice: 'Buy request was successfully created.'
       else
         render :new
