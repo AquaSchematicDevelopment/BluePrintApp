@@ -14,6 +14,7 @@ class BuyRequestsController < ApplicationController
 
   # GET /buy_requests/new
   def new
+    @team = Team.find(params[:team_id])
     @buy_request = BuyRequest.new
   end
 
