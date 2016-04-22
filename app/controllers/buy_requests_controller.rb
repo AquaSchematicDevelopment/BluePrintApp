@@ -100,7 +100,7 @@ class BuyRequestsController < ApplicationController
     elsif @transaction.amount > @buy_request.amount
       @errors = ["You can't buy more Blueprints than are being offered."]
       render :initiate_sell
-    elsif !holding || @transaction.amount > holding.amount
+    elsif !holding || @transaction.amount > holding.blue_prints
       @errors = ["You don't have enough bluprints."]
       render :initiate_sell
     else
