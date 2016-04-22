@@ -152,7 +152,7 @@ class Transaction < ActiveRecord::Base
       end
       raise error
     rescue => critical_error
-      raise CriticalTransactionException.new critical_error_message
+      raise critical_error
     end
   end
 end
