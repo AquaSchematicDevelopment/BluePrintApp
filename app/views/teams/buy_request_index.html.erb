@@ -16,7 +16,7 @@
   
   <div class="row">
     <label>Market Price</label>
-    <%= link_to 'Make Sell Request', sell_holding_path(current_portfolio.holdings.find_by(team: @team), class: 'btn btn-primary outline' %>
+    <%= link_to 'Make Sell Request', sell_holding_path(current_portfolio.holdings.find_by(team: @team)), class: 'btn btn-primary outline' %>
   </div>
   
   <div class="row">
