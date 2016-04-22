@@ -115,7 +115,7 @@ class Transaction < ActiveRecord::Base
       raise unless buy_request.save
       undos.push(lambda do ||
         sell_request.amount += transaction.amount
-        raise DatabaseException unless buy_request.save
+        raise unless buy_request.save
       end)
     end
     
@@ -132,13 +132,28 @@ class Transaction < ActiveRecord::Base
       raise unless sell_request.save
       undos.push(lambda do ||
         sell_request.amount += transaction.amount
-        raise DatabaseException unless sell_request.save
+        raise unless sell_request.save
       end)
     end
     
     # add transaction to data base
     
     raise unless transaction.save
+    undos.push(lambda do ||
+      raise unless transaction.delete
+    end)
+    
+    # change the team's market price
+    
+    team = transaction.team
+    previous_market_price = team.market_price
+    team.market_price = transaction.price
+    
+    raise unless team.save
+    undos.push(lambda do ||
+      team.market_price = previous_market_price
+      raise unless team.save
+    end)
     
     # everything is now safe
     undos = nil
