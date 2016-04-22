@@ -47,4 +47,13 @@
     <%= render 'sell_requests/index_delete' %>
   <% end %>
   
+  <h2>Pending Buy Requests</h2>
+  
+  <% if @sell_requests.empty? %>
+    <center><h3>You currently don't have any Pending Buy Requests.<h3></center>
+    <center><h4>To buy Blueprints, go to the <%= link_to 'BUY', season_sell_requests_path(current_portfolio.season) %> tab.<h4></center>
+  <% else %>
+    <%= render 'sell_requests/index_delete' %>
+  <% end %>
+  
 </div>
