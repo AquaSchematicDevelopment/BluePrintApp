@@ -26,6 +26,6 @@ class Team < ActiveRecord::Base
   def currently_being_bought?(exclude: nil)
     buy_requests = self.buy_requests
     buy_requests = buy_requests.reject{|buy_request| buy_request.portfolio == current_portfolio} if exclude
-    buy_requests.empty?
+    !buy_requests.empty?
   end
 end
