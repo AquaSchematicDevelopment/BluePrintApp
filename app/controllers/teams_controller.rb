@@ -81,6 +81,10 @@ class TeamsController < ApplicationController
   def sell_request_index
     @sell_requests = @team.sell_requests.reject{|sell_request| sell_request.portfolio.user == current_user}.sort_by {|sell_request| sell_request.price}
   end
+  
+  def buy_request_index
+    @buy_requests = @team.buy_requests.reject{|buy_request| buy_request.portfolio.user == current_user}.sort_by {|buy_request| buy_request.price}
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
