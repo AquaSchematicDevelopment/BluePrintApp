@@ -73,16 +73,12 @@ class BuyRequestsController < ApplicationController
   end
   
   def process_sell
-    @from_portfolio = current_portfolio
-    @to_portfolio = @buy_request.portfolio
+    buyer_portfolio = current_portfolio
+    seller_portfolio = @buy_request.portfolio
     
     @transaction = Transaction.new(transaction_params)
-    @transaction.team = @buy_request.team
-    @transaction.price = @buy_request.price
-    @transaction.seller = @from_portfolio
-    @transaction.buyer = @to_portfolio
     
-    holding = @from_portfolio.holdings.find_by(@transaction.team)
+    holding = seller_portfolio.holdings.find_by(@transaction.team)
     
     if @buy_request.portfolio.user == current_user
       redirect_to team_sell_requests_path(@sell_request.team), notice: "You can't buy your own Blueprints."
@@ -96,7 +92,13 @@ class BuyRequestsController < ApplicationController
       @errors = ["You don't have enough bluprints."]
       render :initiate_sell
     else
-     handle_buy
+      sell_request = SellRequest.create(portfolio: seller_portfolio, team: @buy_request.team, price: @buy_request.price, amount: @transaction.amount)
+      begin
+        Transaction.handle_transaction buy_request: @buy_request , sell_request: sell_request
+      rescue => error
+        raise 'fatal error' unless sell_request.destroy
+        raise error
+      end
     end
   end
 
