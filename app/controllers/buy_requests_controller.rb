@@ -37,7 +37,7 @@ class BuyRequestsController < ApplicationController
     elsif !@buy_request.amount || !@buy_request.price
       @errors = ['Form was incomplete']
       render :new
-    elsif current_user.funds < @buy_request.amount * @buy_request.price
+    elsif current_user.available_funds < @buy_request.amount * @buy_request.price
       @errors = ["You don't have enough funds."]
       render :new
     elsif @buy_request.amount <= 0 || @buy_request.price <= 0
