@@ -84,7 +84,7 @@ class TeamsController < ApplicationController
   
   def buy_request_index
     @portfolio = current_portfolio
-    @holding = @portfolio.holdins.find_by(team: @team)
+    @holding = @portfolio.holdings.find_by(team: @team)
     @buy_requests = @team.buy_requests.reject{|buy_request| buy_request.portfolio.user == current_user}.sort_by {|buy_request| buy_request.price}
   end
 
