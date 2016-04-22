@@ -143,8 +143,6 @@ class Transaction < ActiveRecord::Base
     # everything is now safe
     undos = nil
     
-    redirect_to show_portfolio_path, notice: "Your transaction was successfully processed."
-    
   rescue => error
     begin
       if undos
