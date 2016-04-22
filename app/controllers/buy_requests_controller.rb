@@ -1,7 +1,6 @@
 class BuyRequestsController < ApplicationController
-  before_action :set_buy_request, only: [:show, :edit, :update, :destroy]
-   before_action :redirect_non_player, only: [:new, :create, :initiate_sell, :process_buy]
-  before_action :set_sell_request, only: [:show, :edit, :update, :initiate_sell, :process_buy, :destroy]
+  before_action :set_buy_request, only: [:show, :edit, :update, :destroy, :initiate_sell, :process_sell]
+  before_action :redirect_non_player, only: [:new, :create, :initiate_sell, :process_buy]
 
   # GET /buy_requests
   # GET /buy_requests.json
