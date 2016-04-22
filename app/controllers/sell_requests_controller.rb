@@ -64,7 +64,6 @@ class SellRequestsController < ApplicationController
   end
   
   def initiate_buy
-    # TODO
     @transaction = Transaction.new
     
     if @sell_request.portfolio.user == current_user
