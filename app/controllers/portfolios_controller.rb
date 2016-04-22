@@ -30,8 +30,8 @@ class PortfoliosController < ApplicationController
       end
     end
     
-    @sell_requests = @portfolio.sell_requests.sort request_sort
-    @buy_requests = @portfolio.buy_requests.sort request_sort
+    @sell_requests = @portfolio.sell_requests.sort{request_sort}
+    @buy_requests = @portfolio.buy_requests.sort{request_sort}
   end
 
   # GET /portfolios/new
