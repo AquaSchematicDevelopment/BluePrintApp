@@ -26,7 +26,7 @@ class BuyRequestsController < ApplicationController
   # POST /buy_requests
   # POST /buy_requests.json
   def create
-    @team = Holding.find(params[:team_id])
+    @team = Team.find(params[:team_id])
     @buy_request = BuyRequest.new(buy_request_params)
     @buy_request.team = @team
     @buy_request.portfolio = current_portfolio
