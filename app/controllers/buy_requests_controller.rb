@@ -1,5 +1,7 @@
 class BuyRequestsController < ApplicationController
   before_action :set_buy_request, only: [:show, :edit, :update, :destroy]
+   before_action :redirect_non_player, only: [:new, :create, :initiate_sell, :process_buy]
+  before_action :set_sell_request, only: [:show, :edit, :update, :initiate_sell, :process_buy, :destroy]
 
   # GET /buy_requests
   # GET /buy_requests.json
@@ -61,6 +63,42 @@ class BuyRequestsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  def initiate_sell
+    @transaction = Transaction.new
+    
+    if @buy_request.portfolio.user == current_user
+      redirect_to team_buy_requests_path(@buy_request.team), notice: "You can't buy your own Blueprints."
+    end
+  end
+  
+  def process_sell
+    @from_portfolio = current_portfolio
+    @to_portfolio = @buy_request.portfolio
+    
+    @transaction = Transaction.new(transaction_params)
+    @transaction.team = @buy_request.team
+    @transaction.price = @buy_request.price
+    @transaction.seller = @from_portfolio
+    @transaction.buyer = @to_portfolio
+    
+    holding = @from_portfolio.holdings.find_by(@transaction.team)
+    
+    if @buy_request.portfolio.user == current_user
+      redirect_to team_sell_requests_path(@sell_request.team), notice: "You can't buy your own Blueprints."
+    elsif !@transaction.amount || @transaction.amount <= 0
+      @errors = ["You didn't input a valid amount."]
+      render :initiate_sell
+    elsif @transaction.amount > @buy_request.amount
+      @errors = ["You can't buy more Blueprints than are being offered."]
+      render :initiate_sell
+    elsif !holding || @transaction.amount > holding.amount
+      @errors = ["You don't have enough bluprints."]
+      render :initiate_sell
+    else
+     handle_buy
+    end
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -72,4 +110,8 @@ class BuyRequestsController < ApplicationController
     def buy_request_params
       params.require(:buy_request).permit(:amount, :price)
     end
+    
+  def transaction_params
+    params.require(:transaction).permit(:amount)
+  end
 end
