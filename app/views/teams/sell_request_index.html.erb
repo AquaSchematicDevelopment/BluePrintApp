@@ -27,7 +27,7 @@
     <h3>Available Sellers</h3>
   </div>
   
-  <% if @sell_requests.is_empty? %>
+  <% if @sell_requests.empty? %>
     <center><h3>There are no Available Sellers for this team.</h3></center>
   <% else %>
     <%= render 'sell_requests/index_buy' %>
