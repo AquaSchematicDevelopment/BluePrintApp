@@ -1,0 +1,37 @@
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <h2>Buy <%= @buy_request.team.name %> BluePrints</h2>
+    </div>
+  </div>
+  <div class="row padding">
+    <div class="col-xs-5">
+      <p><strong>Price:</strong> <%= @buy_request.price %></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-5">
+      <p><strong>Amount Wanted:</strong> <%= @buy_request.amount %></p>
+    </div>
+  </div>
+  
+  <%= form_for(@transaction, url: sell_buy_request_path(@buy_request), method: 'post') do |form| %>
+  
+    <div class="form-group">
+      <div class="row padding">
+        <%= form.label :ammount, 'Amount To Sell', class: 'col-xs-2 control-label' %>
+          <div class="col-xs-10">
+            <%= form.number_field :amount, class: 'form-control' %>
+          </div>
+      </div>
+    </div>
+    
+    <div class="actions">
+      <div class="row padding col-xs-offset-2">
+        <%= form.submit "Sell" , :class => "btn btn-primary outline" %> | 
+        <%= link_to 'Cancel', team_buy_requests_path(@buy_request.team), class: 'btn btn-primary outline' %>
+      </div>
+    </div>
+  <% end %>
+</div>
