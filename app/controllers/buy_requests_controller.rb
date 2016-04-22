@@ -104,6 +104,7 @@ class BuyRequestsController < ApplicationController
       @errors = ["You don't have enough bluprints."]
       render :initiate_sell
     else
+      raise unless buy_request.is_a? BuyRequest
       sell_request = SellRequest.create(portfolio: seller_portfolio, team: @buy_request.team, price: @buy_request.price, amount: @transaction.amount)
       begin
         Transaction.handle_transaction buy_request: @buy_request , sell_request: sell_request
