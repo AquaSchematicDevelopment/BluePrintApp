@@ -31,7 +31,12 @@
   <div class="row">
     <h3>Available Buyers</h3>
   </div>
-
-  <%= render 'buy_requests/index_sell' %>
+  
+  <% if @buy_requests.empty? %>
+  <center><h3>There are no current Buyers for this team.</h3></center>
+  
+  <% else %>
+    <%= render 'buy_requests/index_sell' %>
+  <% end %>
   
 </div>
