@@ -5,7 +5,7 @@ class CreateBuyRequests < ActiveRecord::Migration
       t.integer :team_id
       
       t.integer :amount
-      t.decimal :price
+      t.decimal :price, precision: 12, scale: 4
 
       t.timestamps null: false
     end
