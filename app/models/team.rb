@@ -16,4 +16,8 @@ class Team < ActiveRecord::Base
   def market_price_formated
     self.market_price ? self.market_price : '-'
   end
+  
+  def currently_being_sold?
+    !team.sell_requests.reject{|sell_request| sell_request.portfolio == current_portfolio}.empty?
+  end
 end
