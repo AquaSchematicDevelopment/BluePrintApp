@@ -1,7 +1,7 @@
 <div class="container">
 
   <div class="row">
-    <h1>Sell <%= @team.name %></h1>
+    <h1>Buy <%= @team.name %></h1>
   </div>
   
   <div class="row">
@@ -12,6 +12,11 @@
   <div class="row">
     <label>Market Price</label>
     <p><%= @team.market_price_formated %></p>
+  </div>
+  
+  <div class="row">
+    <label>My Funds</label>
+    <p><%= current_user.funds %></p>
   </div>
   
   <div class="row">
