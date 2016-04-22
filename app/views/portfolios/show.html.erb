@@ -1,5 +1,5 @@
 <div class="container">
-  <h2> Portfolio Profile </h2>
+  <h1> Portfolio Profile </h1>
   <p id="notice"><%= notice %></p>
   
   <p>
@@ -23,16 +23,21 @@
   </p>
   
   <h2>Current Holdings</h2>
-  
-  <%= render 'holdings/index' %>
-  <div class="row total-row">
-    <div class="col-xs-3 vcenter">
-      <p><b>Total Portfolio Book Value</b><p>
+  <% if @holdings.empty? %>
+    <center><h2><strong>You currently don't have any Blueprints in any teams.</strong><h2></center>
+    <center><h3><strong>To Buy Blueprints,</strong><h3></center>\
+    <center><h3><strong>Go to the <%= link_to 'BUY', season_sell_requests_path(current_portfolio.season) %> tab.</strong><h3></center>
+  <% else %>
+    <%= render 'holdings/index' %>
+    <div class="row total-row">
+      <div class="col-xs-3 vcenter">
+        <p><b>Total Portfolio Book Value</b><p>
+      </div>
+      <div class="col-xs-2 col-xs-offset-7 vcenter">
+        <center><p><%= @portfolio.total_book_value %><p></center>
+      </div>
     </div>
-    <div class="col-xs-2 col-xs-offset-7 vcenter">
-      <center><p><%= @portfolio.total_book_value %><p></center>
-    </div>
-  </div>
+  <% end %>
   
   <h2>Pending Sell Requests</h2>
   
