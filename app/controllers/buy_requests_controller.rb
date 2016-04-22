@@ -78,6 +78,7 @@ class BuyRequestsController < ApplicationController
   
   def initiate_sell
     @transaction = Transaction.new
+    @holding = current_portfolio.holdings.find(team: @buy_request.team)
     
     if @buy_request.portfolio.user == current_user
       redirect_to team_buy_requests_path(@buy_request.team), notice: "You can't buy your own Blueprints."
