@@ -64,8 +64,8 @@ Rails.application.routes.draw do
   get 'sell_request/:id/buy', to: 'sell_requests#initiate_buy', as: :buy_sell_request
   post 'sell_request/:id/buy', to: 'sell_requests#process_buy'
   
-  get 'sell/:team_id', to: 'buy_requests#new', as: :buy_team
-  post 'sell/:team_id', to: 'buy_requests#create'
+  get 'buy/:team_id', to: 'buy_requests#new', as: :buy_team
+  post 'buy/:team_id', to: 'buy_requests#create'
   delete 'buy_request/:id/delete', to: 'buy_requests#destroy', as: :delete_buy_request
   get 'season/:id/sell', to: 'seasons#buy_request_index', as: :season_buy_requests
   get 'team/:id/sell', to: 'teams#buy_request_index', as: :team_buy_requests
