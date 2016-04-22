@@ -27,7 +27,7 @@ class Transaction < ActiveRecord::Base
     raise TransactionException.new 'Requires sell request to be a sell request' unless sell_request.is_a? SellRequest
     raise TransactionException.new 'Teams are not the same' unless buy_request.team == sell_request.team
     raise TransactionException.new 'Prices are not the same' unless buy_request.price == sell_request.price
-    raise TransactionException.new 'The users are the same' if buy_request.portfolio.user == sell_reqest.portfolio.user
+    raise TransactionException.new 'The users are the same' if buy_request.portfolio.user == sell_request.portfolio.user
     
     buyer_portfolio = buy_request.portfolio
     seller_portfolio = sell_request.portfolio
@@ -150,9 +150,9 @@ class Transaction < ActiveRecord::Base
       if undos
         undos.reverse.each { |undo| undo.call }
       end
-      raise error
     rescue => critical_error
-      raise critical_error
+      raise CriticalTransactionException.new 'fatal error'
     end
+    raise error
   end
 end
