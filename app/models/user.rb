@@ -9,4 +9,10 @@ class User < ActiveRecord::Base
   def is_player?
     self.role == 'player'
   end
+  
+  def available_funds
+    self.portfolios.inject(self.funds) do |result, portfolio| 
+      result - portfolio.buy_requests.map{|buy_request| buy_request.amount * buy_request.price}.reduce(:+)
+    end
+  end
 end
