@@ -17,11 +17,15 @@ class Team < ActiveRecord::Base
     self.market_price ? self.market_price : '-'
   end
   
-  def currently_being_sold?
-    !self.sell_requests.reject{|sell_request| sell_request.portfolio == current_portfolio}.empty?
+  def currently_being_sold?(exclude: nil)
+    sell_requests = self.sell_requests
+    sell_requests = sell_requests.reject{|sell_request| sell_request.portfolio == exclude} if exclude
+    !sell_requests.empty?
   end
   
-  def currently_being_bought?
-    !self.buy_requests.reject{|buy_request| buy_request.portfolio == current_portfolio}.empty?
+  def currently_being_bought?(exclude: nil)
+    buy_requests = self.buy_requests
+    buy_requests = buy_requests.reject{|buy_request| buy_request.portfolio == current_portfolio} if exclude
+    buy_requests.empty?
   end
 end
