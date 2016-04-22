@@ -4,7 +4,7 @@ class CreateSellRequests < ActiveRecord::Migration
       t.integer :portfolio_id
       t.integer :team_id
       
-      t.decimal :price
+      t.decimal :price, precision: 12, scale: 4
       t.integer :amount
 
       t.timestamps null: false
