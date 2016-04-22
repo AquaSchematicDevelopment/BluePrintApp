@@ -9,7 +9,7 @@ class Transaction < ActiveRecord::Base
   class CriticalTransactionException < Exception
   end
   
-  def handle_transaction(buy_request:, sell_request:)
+  def self.handle_transaction(buy_request:, sell_request:)
     # This is a generic message for when there is an error in processing the transaction
     # but all the changes to the database were able to be undone.
     error_message = "There was a problem when processing the transaction."
