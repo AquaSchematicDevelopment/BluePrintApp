@@ -72,17 +72,12 @@ class SellRequestsController < ApplicationController
   end
   
   def process_buy
-    # TODO
-    @from_portfolio = @sell_request.portfolio
-    @to_portfolio = current_portfolio
+    seller_portfolio = @sell_request.portfolio
+    buyer_portfolio = current_portfolio
     
     @transaction = Transaction.new(transaction_params)
-    @transaction.team = @sell_request.team
-    @transaction.price = @sell_request.price
-    @transaction.seller = @from_portfolio
-    @transaction.buyer = @to_portfolio
     
-    if @sell_request.portfolio.user == current_user
+    if seller_portfolio.user == current_user
       redirect_to team_sell_requests_path(@sell_request.team), notice: "You can't buy your own Blueprints."
     elsif !@transaction.amount || @transaction.amount <= 0
       @errors = ["You didn't input a valid amount."]
@@ -94,7 +89,14 @@ class SellRequestsController < ApplicationController
       @errors = ["You don't have enough funds."]
       render :initiate_buy
     else
-     handle_buy
+      buy_request = BuyRequest.create(portfolio: buyer_portfolio, team: @sell_request.team, price: @sell_request.price, amount: @transaction.amount)
+      begin
+        Transaction.handle_transaction buy_request: buy_request , sell_request: @sell_request
+        redirect_to show_portfolio_path, notice: "Your transaction was successfully processed."
+      rescue => error
+        raise 'fatal error' unless buy_request.destroy
+        raise error
+      end
     end
   end
 
