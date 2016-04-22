@@ -1,0 +1,23 @@
+<div class="container">
+
+  <div class="row">
+    <h1><%= @team.name %></h1>
+  </div>
+  
+  <div class="row">
+    <label>Book Value</label>
+    <p><%= @team.book_value %></p>
+  </div>
+  
+  <div class="row">
+    <label>Market Price</label>
+    <p><%= @team.market_price_formated %></p>
+  </div>
+  
+  <div class="row">
+    <h3>Available Buyers</h3>
+  </div>
+
+  <%= render 'buy_requests/index_sell' %>
+  
+</div>
