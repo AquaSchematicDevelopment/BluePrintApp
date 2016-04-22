@@ -107,6 +107,7 @@ class BuyRequestsController < ApplicationController
       sell_request = SellRequest.create(portfolio: seller_portfolio, team: @buy_request.team, price: @buy_request.price, amount: @transaction.amount)
       begin
         Transaction.handle_transaction buy_request: @buy_request , sell_request: sell_request
+        redirect_to show_portfolio_path, notice: "Your transaction was successfully processed."
       rescue => error
         raise 'fatal error' unless sell_request.destroy
         raise error
