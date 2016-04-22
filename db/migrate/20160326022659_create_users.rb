@@ -4,7 +4,7 @@ class CreateUsers < ActiveRecord::Migration
       table.string :name
       table.string :password_digest
       table.string :email
-      table.decimal :funds
+      table.decimal :funds, precision: 12, scale: 4
       table.string :role
 
       table.timestamps null: false
