@@ -85,7 +85,7 @@ class SellRequestsController < ApplicationController
     elsif @transaction.amount > @sell_request.amount
       @errors = ["You can't buy more Blueprints than are being offered."]
       render :initiate_buy
-    elsif @transaction.amount * @sell_request.price > current_user.funds
+    elsif @transaction.amount * @sell_request.price > current_user.available_funds
       @errors = ["You don't have enough funds."]
       render :initiate_buy
     else
