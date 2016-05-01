@@ -44,6 +44,8 @@ Rails.application.routes.draw do
   get 'season/:id', to: 'seasons#show', as: :show_season
   get 'season/:id/edit', to: 'seasons#edit', as: :edit_season
   post 'season/:id/edit', to: 'seasons#update'
+  get 'season/:id/manage', to: 'seasons#initiate_manage', as: :manage_season
+  post 'season/:id/manage', to: 'seasons#handle_manage'
   delete 'season/:id/delete', to: 'seasons#destroy', as: :delete_season
   get 'season/:season_id/addTeam', to: 'teams#new', as: :add_team
   post 'season/:season_id/addTeam', to: 'teams#create'
