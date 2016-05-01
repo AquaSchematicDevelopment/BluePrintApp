@@ -10,7 +10,7 @@ User.create(name: 'admin', password: 'rubyserver', email: 'aqua.schematic@gmail.
 
 football = Sport.create(name: 'Football')
 nfl = League.create(name: 'NFL', sport: football)
-nfl_season_2016 = Season.create(name: '2016', league: nfl)
+nfl_season_2016 = Season.create(name: '2016', league: nfl, status: :season_in_progress)
 
 #AFC-NORTH
 ravens = Team.create(name: 'Baltimore Ravens', season: nfl_season_2016, book_value: 20)
