@@ -1,10 +1,7 @@
 <% @seasons.each_with_index do |season, index| %>
   <div class="row <%= index.even? ? 'even-row' : 'odd-row' %>">
     <div class="col-xs-8 vcenter">
-      <p><%= season.name %></p>
-      <div class="boxed">
-        <p><%= season.formatted_status %></p>
-      </div>
+      <p><%= season.name %> | <%= season.formatted_status %></p>
     </div>
     <div class="col-xs-4 padding-top padding-bottom">
       <%= link_to 'Show', show_season_path(season), class: 'btn btn-primary outline' %> |
