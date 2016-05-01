@@ -3,7 +3,7 @@ class Season < ActiveRecord::Base
   has_many :teams
   
   def self.statuses
-    self.status_options.map {|option| option[0]}
+    self.status_options.map {|option| option[1]}
   end
   
   def self.check_valid_status(status)
@@ -11,6 +11,6 @@ class Season < ActiveRecord::Base
   end
   
   def self.status_options
-    [[:unpublished, 'Unpublished'], [:pre_ipo, 'Pre-IPO'], [:ipo, 'IPO'], [:post_ipo, 'Post IPO'], [:game_open, 'Game Open'], [:game_closed, 'Game Close']]
+    [['Unpublished', :unpublished], ['Pre-IPO', :pre_ipo], ['IPO', :ipo], ['Post IPO', :post_ipo], ['Game Open', :game_open], ['Game Close', :game_closed]]
   end
 end
