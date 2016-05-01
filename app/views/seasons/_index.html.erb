@@ -1,18 +1,18 @@
 <% @seasons.each_with_index do |season, index| %>
   <div class="row">
     <div class="col-xs-4 vcenter">
-      <b><p>Season Name</p></b>
+      <center><b><p>Season Name</p></b></center>
     </div>
     <div class="col-xs-4 vcenter">
-      <b><p>Season Status</p></b>
+      <center><b><p>Season Status</p></b></center>
     </div>
   </div>
   <div class="row <%= index.even? ? 'even-row' : 'odd-row' %>">
     <div class="col-xs-4 vcenter">
-      <p><%= season.name %></p>
+      <center><p><%= season.name %></p></center>
     </div>
     <div class="col-xs-4 vcenter">
-      <p><%= season.formatted_status %></p>
+      <center><p><%= season.formatted_status %></p></center>
     </div>
     <div class="col-xs-4 padding-top padding-bottom">
       <%= link_to 'Show', show_season_path(season), class: 'btn btn-primary outline' %> |
