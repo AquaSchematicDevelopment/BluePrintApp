@@ -4,6 +4,7 @@ class PagesController < ApplicationController
     if current_user
       player_home if current_user.is_player?
       admin_home if current_user.is_admin?
+      session[:season_id] = nil
     else
       non_user_home
     end
