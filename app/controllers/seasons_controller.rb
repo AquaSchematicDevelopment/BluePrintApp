@@ -1,5 +1,7 @@
 class SeasonsController < ApplicationController
-  before_action :set_season, only: [:show, :edit, :update, :destroy, :sell_request_index, :buy_request_index]
+  before_action :set_season, only: 
+    [:show, :edit, :update, :destroy, :sell_request_index, :buy_request_index, :initiate_manage, :handle_manage]
+    
   before_action :redirect_non_user
   before_action :redirect_non_admin, only: [:index, :show, :new, :create, :edit, :update, :destroy]
 
@@ -64,6 +66,23 @@ class SeasonsController < ApplicationController
       end
     end
   end
+  
+  def initiate_manage
+    
+  end
+  
+  def handle_manage
+    if false
+      @errors = []
+    else
+      if @season.update(manage_season_params)
+        redirect_to show_season_path(@season)
+      else
+        @errors = []
+        render initiate_manage
+      end
+    end
+  end
 
   # DELETE /seasons/1
   # DELETE /seasons/1.json
@@ -93,5 +112,9 @@ class SeasonsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def season_params
       params.require(:season).permit(:name)
+    end
+    
+    def manage_season_params
+      params.require(:season).permit(:status)
     end
 end
