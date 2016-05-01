@@ -72,6 +72,10 @@
 <% end %>
 </div>
 
+<% if current_portfolio %>
+  <h1><%= current_season.league.name %> | <%= current_season.name %> | <%= yeild :header %></h1>
+<% end %>
+
 <%= yield %>
 
 <div class="row super-padding">
