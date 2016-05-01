@@ -18,7 +18,7 @@ class ApplicationController < ActionController::Base
         season
       else
         @errors = ['Season not found.']
-        redirect_to root
+        redirect_to root_path
       end
     else
       nil
@@ -32,7 +32,7 @@ class ApplicationController < ActionController::Base
         portfolio
       else
         @errors = ['Portfolio not found.']
-        redirect_to root
+        redirect_to root_path
       end
     end
   end
