@@ -9,4 +9,8 @@ class Season < ActiveRecord::Base
   def self.check_valid_status(status)
     self.statuses.find(|obj| obj == status)
   end
+  
+  def self.status_options
+    self.statuses.map {|status| [status, status]}
+  end
 end
