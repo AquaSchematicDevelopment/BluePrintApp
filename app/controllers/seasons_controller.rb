@@ -68,18 +68,18 @@ class SeasonsController < ApplicationController
   end
   
   def initiate_manage
-    
   end
   
   def handle_manage
-    if false
-      @errors = []
+    if Season.check_valid_status(manage_season_params[:status])
+      @errors = ['Invalid status']
+      render :initiate_manage
     else
       if @season.update(manage_season_params)
         redirect_to show_season_path(@season)
       else
         @errors = []
-        render initiate_manage
+        render :initiate_manage
       end
     end
   end
