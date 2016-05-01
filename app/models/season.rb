@@ -18,6 +18,7 @@ class Season < ActiveRecord::Base
   end
   
   def formatted_status
-    Season.status_options.find{|option| option[1] == self.status}[0]
+    option = Season.status_options.find{|option| option[1] == self.status}
+    option[0]
   end
 end
