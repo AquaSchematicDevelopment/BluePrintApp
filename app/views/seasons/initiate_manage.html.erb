@@ -19,6 +19,7 @@
       <div class="row padding">
         <%= form.label :name, class: 'col-xs-2 control-label' %>
           <div class="col-xs-10">
+            <%= form.select :status, options_for_select(Season.status_options, @season.status), class: 'form-control' %>
           </div>
       </div>
     </div>
