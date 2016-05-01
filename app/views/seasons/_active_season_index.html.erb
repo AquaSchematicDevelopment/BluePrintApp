@@ -1,1 +1,10 @@
-
+<% seasons.each_with_index do |season, index| %>
+  <div class="row <%= index.even? ? 'even-row' : 'odd-row' %>">
+    <div class="col-xs-4 vcenter">
+      <p><%= season.league.name %> | <%= season.name %></p>
+    </div>
+    <div class="col-xs-4 vcenter">
+      <%= link_to 'View', set_current_season_path(season) %>
+    </div>
+  </div>
+<% end %>
