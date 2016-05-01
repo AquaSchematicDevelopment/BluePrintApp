@@ -16,4 +16,8 @@ class Season < ActiveRecord::Base
       ['Post IPO', :post_ipo], ['Game Open', :game_open], ['Game Close', :game_closed]
     ]
   end
+  
+  def formatted_status
+    self.status_options.find{|option| option[1] == self.status}[0]
+  end
 end
