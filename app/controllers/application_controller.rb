@@ -26,14 +26,16 @@ class ApplicationController < ActionController::Base
   end
   
   def current_portfolio
-    if current_user && current_user.is_player?
-      portfolio = current_user.portfolios.find_by season: self.current_season
+    if current_user && current_user.is_player? && current_season
+      portfolio = current_user.portfolios.find_by season: current_season
       if portfolio
         portfolio
       else
         @errors = ['Portfolio not found.']
         redirect_to root_path
       end
+    else
+      nil
     end
   end
 
