@@ -3,15 +3,33 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
   helper_method :current_user
+  helper_method :current_season
   helper_method :current_portfolio
 
   def current_user
     User.find_by_id(session[:user_id]) if session[:user_id]
   end
   
+  def current_season
+    season = Season.find(session[:season_id])
+    
+    if season
+      season
+    else
+      @errors = ['Season not found.']
+      redirect_to root
+    end
+  end
+  
   def current_portfolio
     if current_user && current_user.is_player?
-      current_user.portfolios.first
+      portfolio = current_user.portfolios.find_by season: self.current_season
+      if portfolio
+        portfolio
+      else
+        @errors = ['Portfolio not found.']
+        redirect_to root
+      end
     end
   end
 
