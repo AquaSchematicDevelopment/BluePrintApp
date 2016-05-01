@@ -1,10 +1,10 @@
 <% @seasons.each_with_index do |season, index| %>
   <div class="row">
     <div class="col-xs-4 vcenter">
-      <p>Season Name</p>
+      <b><p>Season Name</p></b>
     </div>
     <div class="col-xs-4 vcenter">
-      <p>Season Status</p>
+      <b><p>Season Status</p></b>
     </div>
   </div>
   <div class="row <%= index.even? ? 'even-row' : 'odd-row' %>">
