@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get 'login', to: 'sessions#new', as: :login
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy', as: :logout
+  get 'set_current_session/:id', to:'sessions#set_current_season', as: :set_current_season
   
   get 'players', to: 'players#index', as: :players
   get 'player/new', to: 'players#new', as: :new_player
