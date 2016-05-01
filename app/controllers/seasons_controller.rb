@@ -31,6 +31,7 @@ class SeasonsController < ApplicationController
   def create
     @season = Season.new(season_params)
     @season.league_id = params[:league_id]
+    @season.status = :unpublished
     
     if Season.where(league_id: params[:league_id], name: season_params[:name]).first
       @errors = ['A season with that name already exists for the league']
