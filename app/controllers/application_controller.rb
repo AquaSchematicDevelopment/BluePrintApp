@@ -11,13 +11,17 @@ class ApplicationController < ActionController::Base
   end
   
   def current_season
-    season = Season.find(session[:season_id])
-    
-    if season
-      season
+    if session[:season_id]
+      season = Season.find(session[:season_id])
+      
+      if season
+        season
+      else
+        @errors = ['Season not found.']
+        redirect_to root
+      end
     else
-      @errors = ['Season not found.']
-      redirect_to root
+      nil
     end
   end
   
