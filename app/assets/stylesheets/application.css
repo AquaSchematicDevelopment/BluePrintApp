@@ -117,3 +117,7 @@ body {
 form {
   font-size: 14px;
 }
+
+.boxed {
+  border: 1px solid green ;
+}
