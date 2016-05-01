@@ -11,8 +11,8 @@
       <p><%= @season.name %></p>
     </div>
     <div class="col-xs-4 padding-top padding-bottom">
-      <center><%= link_to 'Edit', edit_season_path(@season), class: 'btn btn-primary outline' %></center> |
-      <center><%= link_to 'Manage', edit_season_path(@season), class: 'btn btn-primary outline' %></center>
+      <center><%= link_to 'Edit', edit_season_path(@season), class: 'btn btn-primary outline' %> |
+      <%= link_to 'Manage', edit_season_path(@season), class: 'btn btn-primary outline' %></center>
     </div>
   </div>
   
