@@ -17,12 +17,13 @@ class SessionsController < ApplicationController
     end
   end
   
-  def set_season
+  def set_current_season
     session[:season_id] = params[:id]
     redirect_to show_portfolio_path
   end
 
   def destroy
+    session[:season_id = nil]
     session[:user_id] = nil
     redirect_to root_url
   end
