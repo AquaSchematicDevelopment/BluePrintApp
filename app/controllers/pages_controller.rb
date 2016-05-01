@@ -22,7 +22,7 @@ private
   end
   
   def player_home
-    @active_seasons = current_players.portfolios.map{|portfolio| portfolio.season}
+    @active_seasons = current_player.portfolios.map{|portfolio| portfolio.season}
     render template: 'pages/player_home'
   end
   
