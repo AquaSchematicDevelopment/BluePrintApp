@@ -13,7 +13,7 @@ class Season < ActiveRecord::Base
   def self.status_options
     [
       ['Unpublished', :unpublished], ['Pre IPO', :pre_ipo], ['IPO', :ipo], 
-      ['Post IPO', :post_ipo], ['Game Open', :game_open], ['Game Close', :game_closed]
+      ['Post IPO', :post_ipo], ['Season Inprogress', :season_inprogress], ['Season Concluded', :season_concluded]
     ]
   end
   
