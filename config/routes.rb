@@ -56,7 +56,7 @@ Rails.application.routes.draw do
   post 'team/:id/edit', to: 'teams#update'
   delete 'team/:id/delete', to: 'teams#destroy', as: :delete_team
   
-  get 'MyPortfolio', to: 'portfolios#show', as: :show_portfolio
+  get 'portfolio', to: 'portfolios#show', as: :show_portfolio
   
   get 'sell/:holding_id', to: 'sell_requests#new', as: :sell_holding
   post 'sell/:holding_id', to: 'sell_requests#create'
