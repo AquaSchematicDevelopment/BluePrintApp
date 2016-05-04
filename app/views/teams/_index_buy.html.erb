@@ -19,7 +19,7 @@
     <center><p><%= "%.2f" % [team.book_value] %></p></center>
   </div>
   <div class="col-xs-2 vcenter">
-    <center><p><%= team.market_price_formated %></p></center>
+    <center><p><%= "%.2f" % [team.market_price_formated] %></p></center>
   </div>
   <div class="col-xs-2 vcenter">
     <center><p><% if team.currently_being_sold? exclude: current_portfolio %><strong>Players Currently Selling</strong><% else %>No Players Selling<% end %></p></center>
