@@ -3,6 +3,7 @@ class SeasonsController < ApplicationController
     [:show, :edit, :update, :destroy, :sell_request_index, :buy_request_index, :initiate_manage, :handle_manage]
     
   before_action :redirect_non_user
+  before_action :redirect_non_user, only: [:join_index, :join]
   before_action :redirect_non_admin, only: [:index, :show, :new, :create, :edit, :update, :destroy]
 
   # GET /seasons
@@ -102,6 +103,14 @@ class SeasonsController < ApplicationController
   
   def buy_request_index
     @teams = @season.teams.select{|team| current_portfolio.holdings.find_by(team: team)}.sort_by{|team| team.name }
+  end
+  
+  def join_index
+    
+  end
+  
+  def join
+    
   end
 
   private
