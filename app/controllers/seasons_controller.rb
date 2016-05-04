@@ -110,7 +110,7 @@ class SeasonsController < ApplicationController
   end
   
   def join
-    if !current_user.portfolios.map{|portfolio| portfolio.season}.find(@season).empty?
+    if current_user.portfolios.map{|portfolio| portfolio.season}.include?(@season)
       redirect_to root_path, notice: 'Unable to join season1'
     elsif !@season.active?
       redirect_to root_path, notice: 'Unable to join season2'
