@@ -7,38 +7,31 @@
     <div class="col-xs-4">
       <p>
         <strong>Funds:</strong>
-        <%= current_user.funds %>
       </p>
     </div>
     <div class="col-xs-4">
       <p>
         <strong>Available Funds:</strong>
-        <%= current_user.available_funds %>
       </p>
     </div>
     <div class="col-xs-4">
       <p>
         <strong>Total Portfolio Value:</strong>
-        <%= current_user.portfolios.select{|portfolio|portfolio.season.in_progress?}.inject(0){|total,portfolio|total + portfolio.total_book_value} %>
-      </p>
     </div>
   </div>
    <div class="row">
     <div class="col-xs-4">
       <p>
-        <strong>Funds:</strong>
         <%= current_user.funds %>
       </p>
     </div>
     <div class="col-xs-4">
       <p>
-        <strong>Available Funds:</strong>
         <%= current_user.available_funds %>
       </p>
     </div>
     <div class="col-xs-4">
       <p>
-        <strong>Total Portfolio Value:</strong>
         <%= current_user.portfolios.select{|portfolio|portfolio.season.in_progress?}.inject(0){|total,portfolio|total + portfolio.total_book_value} %>
       </p>
     </div>
