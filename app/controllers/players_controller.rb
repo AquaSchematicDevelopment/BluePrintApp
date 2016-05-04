@@ -56,7 +56,7 @@ class PlayersController < ApplicationController
     if @player
       @player.destroy
       respond_to do |format|
-        format.html { redirect_to player_index_path, notice: 'Player was successfully destroyed.' }
+        format.html { redirect_to players_path, notice: 'Player was successfully destroyed.' }
         format.json { head :no_content }
       end
     else
