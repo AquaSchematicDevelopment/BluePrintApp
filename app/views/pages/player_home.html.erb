@@ -17,7 +17,14 @@
       <%= current_user.available_funds %>
     </p>
   </div>
-
+  
+  <div class="row">
+  <p>
+    <strong>Total Portfolio Book Value:</strong>
+    <%= @portfolio.total_book_value %>
+  </p>
+  </div>
+   
   <div class="row">
     
     <% if @active_seasons.empty? %>
