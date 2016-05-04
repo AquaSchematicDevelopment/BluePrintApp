@@ -3,14 +3,19 @@
     <h1>Join A Season<h1>
   </div>
   
-  <% @seasons.each_with_index do |season, index| %>
-  <div class="row">
-    <div class="col-xs-4">
-      <p><%= season.league.name %> | <%= season.name %></p>
+  <% if @seasons.empty? %>
+    <center><h3> There are not any seasons available for you to join. Please check again soon or contact your administrator.  </h3></center>
+    
+  <% else %>
+    <% @seasons.each_with_index do |season, index| %>
+    <div class="row">
+      <div class="col-xs-4">
+        <p><%= season.league.name %> | <%= season.name %></p>
+      </div>
+      <div class="col-xs-2 col-xs-offset-6">
+        <%= link_to 'Join', join_season_path(season), method: 'post', class: 'btn btn-primary outline' %>
+      </div>
     </div>
-    <div class="col-xs-2 col-xs-offset-6">
-      <%= link_to 'Join', join_season_path(season), method: 'post', class: 'btn btn-primary outline' %>
-    </div>
-  </div>
+    <% end %>
   <% end %>
 </div>
