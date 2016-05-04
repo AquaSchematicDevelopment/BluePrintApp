@@ -120,4 +120,8 @@ class PlayersController < ApplicationController
     def update_player_params
       params.require(:player).permit(:funds)
     end
+    
+    def password_params
+      params.require(:player).permit(:password, :password_confirmation)
+    end
 end
