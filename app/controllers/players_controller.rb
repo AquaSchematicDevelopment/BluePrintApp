@@ -84,12 +84,12 @@ class PlayersController < ApplicationController
   end
   
   def handle_change_password
-    if password_params[:new_password].length < 6
+    if password_params[:password].length < 6
       @errors = ['New password must be at least 6 characters long']
       render :change_password
     else
       respond_to do |format|
-        if @player.update(password: password_params[:new_password], password_confirmation: password_params[:password_confirmation])
+        if @player.update(password: password_params[:password], password_confirmation: password_params[:password_confirmation])
           format.html { redirect_to players_path, notice: 'Your password was successfully updated.' }
           format.json { render :show, status: :ok, location: @user }
         else
@@ -122,6 +122,6 @@ class PlayersController < ApplicationController
     end
     
     def password_params
-      params.require(:player).permit(:new_password, :password_confirmation)
+      params.require(:player).permit(:password, :password_confirmation)
     end
 end
