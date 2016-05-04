@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <h1>Join A Season<h1>
+    <h1>Join Season<h1>
   </div>
   
   <% if @seasons.empty? %>
@@ -8,7 +8,7 @@
     
   <% else %>
     <% @seasons.each_with_index do |season, index| %>
-    <div class="row">
+    <div class="row padding-top">
       <div class="col-xs-4">
         <p><%= season.league.name %> | <%= season.name %></p>
       </div>
