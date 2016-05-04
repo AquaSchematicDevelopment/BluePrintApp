@@ -22,17 +22,17 @@
    <div class="row stats">
     <div class="col-xs-4">
       <p>
-        <center><%= current_user.funds %></center>
+        <center><%= "%.2f" % [current_user.funds] %></center>
       </p>
     </div>
     <div class="col-xs-4">
       <p>
-        <center><%= current_user.available_funds %></center>
+        <center><%= "%.2f" % [current_user.available_funds] %></center>
       </p>
     </div>
     <div class="col-xs-4">
       <p>
-        <center><%= current_user.portfolios.select{|portfolio|portfolio.season.in_progress?}.inject(0){|total,portfolio|total + portfolio.total_book_value} %></center>
+        <center><%= "%.2f" % [current_user.total_portfolio_value] %></center>
       </p>
     </div>
   </div>
