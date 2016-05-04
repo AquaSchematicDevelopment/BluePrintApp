@@ -15,6 +15,7 @@ class PlayersController < ApplicationController
   end
 
   def edit
+    #test
     @player = current_user
   end
 
@@ -101,6 +102,7 @@ class PlayersController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_player
       user = User.find(params[:id])
+      @player = user
       if user.is_player?
         @player = user
       else
