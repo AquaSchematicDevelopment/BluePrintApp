@@ -23,7 +23,9 @@ private
   
   def player_home
     session[:season_id] = nil
-    @active_seasons = current_user.portfolios.map{|portfolio| portfolio.season}
+    @seasons = current_user.portfolios.map{|portfolio| portfolio.season}
+    @active_seasons = @seasons.select{|season| season.active?}
+    @concluded_seasons = @seasons.select{|season| season.concluded?}
     render template: 'pages/player_home'
   end
   
