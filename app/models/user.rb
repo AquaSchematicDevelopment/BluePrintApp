@@ -20,6 +20,6 @@ class User < ActiveRecord::Base
   end
   
   def total_portfolio_value
-    current_user.portfolios.select{|portfolio|portfolio.season.in_progress?}.inject(0){|total,portfolio|total + portfolio.total_book_value}
+    self.portfolios.select{|portfolio|portfolio.season.in_progress?}.inject(0){|total,portfolio|total + portfolio.total_book_value}
   end
 end
