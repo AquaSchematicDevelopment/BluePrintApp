@@ -127,6 +127,10 @@ class SeasonsController < ApplicationController
     end
   end
   
+  def portfolio_index
+    @portfolios = @season.portfolios
+  end
+  
   def portfolio_view
     @season = Season.find(params[:season_id])
     @portfolio = User.find(params[:portfolio_id])
