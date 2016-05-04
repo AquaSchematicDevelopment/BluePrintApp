@@ -14,7 +14,7 @@ class Team < ActiveRecord::Base
   end
   
   def market_price_formated
-    self.market_price ? self.market_price : '-'
+    self.market_price ? self.market_price : self.book_value
   end
   
   def currently_being_sold?(exclude: nil)
