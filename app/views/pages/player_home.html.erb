@@ -22,17 +22,17 @@
    <div class="row">
     <div class="col-xs-4">
       <p>
-        <font color ="#2a67a4"><%= current_user.funds %><font>
+        <%= current_user.funds %>
       </p>
     </div>
     <div class="col-xs-4">
       <p>
-        <font color ="#2a67a4"><%= current_user.available_funds %><font>
+        <%= current_user.available_funds %>
       </p>
     </div>
     <div class="col-xs-4">
       <p>
-        <font color ="#2a67a4"><%= current_user.portfolios.select{|portfolio|portfolio.season.in_progress?}.inject(0){|total,portfolio|total + portfolio.total_book_value} %><font>
+        <%= current_user.portfolios.select{|portfolio|portfolio.season.in_progress?}.inject(0){|total,portfolio|total + portfolio.total_book_value} %>
       </p>
     </div>
   </div>
