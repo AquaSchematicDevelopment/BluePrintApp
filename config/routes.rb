@@ -17,6 +17,8 @@ Rails.application.routes.draw do
   post 'player/new', to: 'players#create'
   get 'player/:id/edit', to: 'players#edit', as: :edit_player
   post 'player/:id/edit', to: 'players#update'
+  get 'player/:id/change-password', to: 'players#initiate_change_password', as: :player_change_password
+  post 'player/:id/change-password', to: 'players#handle_change_password'
   delete 'player/:id/delete', to: 'players#destroy', as: :delete_player
   
   get 'profile' => 'profiles#show', as: :profile
