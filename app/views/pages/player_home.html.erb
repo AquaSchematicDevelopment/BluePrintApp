@@ -50,5 +50,14 @@
   
   
   <%= render 'seasons/active_season_index', seasons: @active_seasons %>
+  
+  <div class="row">
+    
+    <% if !@active_seasons.empty? %>
+      <h2>Active Seasons</h2>
+    <% end %>
+  </div>
+  
+  <%= render 'seasons/active_season_index', seasons: @concluded_seasons %>
 
 </div>
