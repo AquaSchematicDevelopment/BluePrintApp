@@ -10,7 +10,7 @@
 <% @sell_requests.each_with_index do |sell_request, index| %>
   <div class="row <%= index.even? ? 'even-row' : 'odd-row' %>">  
     <div class="col-xs-5 vcenter">
-      <p><%= sell_request.price %></p>
+      <p><%= "%.2f" % [sell_request.price] %></p>
     </div>
     <div class="col-xs-5 vcenter">
       <p><%= sell_request.amount %></p>
