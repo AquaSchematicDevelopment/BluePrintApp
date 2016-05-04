@@ -106,11 +106,17 @@ class SeasonsController < ApplicationController
   end
   
   def join_index
-    
+    @seasons = Season.all.select{|season| season.active? } - current_player.portfolios.map{|portfolio| portfolio.season}
   end
   
   def join
-    
+    if current_player.portfolios.map{|portfolio| portfolio.season}.find(@season)
+      redirect_to join_index_path, notice: 'Unable to join season'
+    elsif !@season.active?
+      redirect_to join_index_path, notice: 'Unable to join season'
+    else
+      
+    end
   end
 
   private
