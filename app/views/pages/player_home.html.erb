@@ -17,6 +17,13 @@
       <%= current_user.available_funds %>
     </p>
   </div>
+  
+  <div class="row">
+  <p>
+    <strong>Total Portfolio Value:</strong>
+    <%= currrent_user.portfolios.select{|portfolio|portfolio.season.active}.reduce(:+) %>
+  </p>
+   </div>
    
   <div class="row">
     
