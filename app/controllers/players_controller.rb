@@ -46,7 +46,10 @@ class PlayersController < ApplicationController
   end
 
   def update
-    if User.find_by_name(player_params[:name]) && @user.name != player_params[:name]
+    if update_player_params[:funds] < 0
+      @errors = ["Player can't have negative funds"]
+      render :edit
+    else
       respond_to do |format|
         if @player.update(player_params)
           format.html { redirect_to players_path, notice: 'User was successfully updated.' }
@@ -88,5 +91,9 @@ class PlayersController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def player_params
       params.require(:player).permit(:name, :email, :password, :password_confirmation)
+    end
+    
+    def update_player_params
+      params.require(:player).permit(:funds)
     end
 end
