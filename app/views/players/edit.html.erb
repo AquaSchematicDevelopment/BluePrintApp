@@ -3,7 +3,7 @@
     <h2>Edit Player</h2>
   </div>
 
-  <%= form_for(@player, url: edit_player_path(player.id), method: 'post') do |form| %>
+  <%= form_for(:player, url: edit_player_path(player.id), method: 'post') do |form| %>
     <% if @player.errors.any? %>
       <div id="error_explanation">
         <h2><%= pluralize(@sport.errors.count, "error") %> prohibited this sport from being saved:</h2>
