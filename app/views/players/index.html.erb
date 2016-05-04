@@ -22,7 +22,7 @@
     </div>
     <div class="col-xs-5 padding-top padding-bottom">
       <%= link_to 'Edit', edit_player_path(player.id), class: 'btn btn-primary outline' %> |
-      <%= link_to 'Change Password', edit_player_path(player.id), class: 'btn btn-primary outline' %> |
+      <%= link_to 'Change Password', player_change_password_path(player.id), class: 'btn btn-primary outline' %> |
       <%= link_to 'Delete', delete_player_path(player.id), method: 'delete', class: 'btn btn-primary outline' %>
     </div>
   </div>
