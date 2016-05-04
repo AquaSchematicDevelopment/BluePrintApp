@@ -14,7 +14,7 @@
   <tbody>
     <% @sell_requests.each do |sell_request| %>
       <tr>
-        <td><%= sell_request.price %></td>
+        <td><%= "%.2f" % [sell_request.price] %></td>
         <td><%= sell_request.amount %></td>
         <td><%= link_to 'Show', sell_request %></td>
         <td><%= link_to 'Edit', edit_sell_request_path(sell_request) %></td>
