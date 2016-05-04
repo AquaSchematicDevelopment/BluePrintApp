@@ -71,4 +71,18 @@
     <center><h4>Please want until the results of the IPO are published.<h4></center>
   <% end %>
   
+   <% if @portfolio.season.ipo? %>
+    <center><h3>This season has been concluded.<h3></center>
+    <center><h4>Here are your final BluePrints for this season.<h4></center>
+    <%= render 'holdings/index' %>
+    <div class="row total-row">
+      <div class="col-xs-3 vcenter">
+        <p><b>Total Portfolio Book Value</b><p>
+      </div>
+      <div class="col-xs-2 col-xs-offset-7 vcenter">
+        <center><p><%= @portfolio.total_book_value %><p></center>
+      </div>
+    </div>
+  <% end %>
+  
 </div>
