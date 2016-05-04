@@ -1,4 +1,22 @@
 <div class="container padding-home">
+<div class="container">
+  <h1>Financial Statistics</h1>
+  <p id="notice"><%= notice %></p>
+  
+  <p>
+    <strong>Funds:</strong>
+    <%= current_user.funds %>
+  </p>
+  
+  <p>
+    <strong>Available Funds:</strong>
+    <%= current_user.available_funds %>
+  </p>
+  
+  <p>
+    <strong>Total Portfolio Book Value:</strong>
+    <%= @portfolio.total_book_value %>
+  </p>
   <div class="row">
     
     <% if @active_seasons.empty? %>
