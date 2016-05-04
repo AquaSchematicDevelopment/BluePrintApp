@@ -1,6 +1,6 @@
 class SeasonsController < ApplicationController
   before_action :set_season, only: 
-    [:show, :edit, :update, :destroy, :sell_request_index, :buy_request_index, :initiate_manage, :handle_manage, :join]
+    [:show, :edit, :update, :destroy, :sell_request_index, :buy_request_index, :initiate_manage, :handle_manage, :join, :portfolio_index]
     
   before_action :redirect_non_user
   before_action :redirect_non_user, only: [:join_index, :join]
