@@ -21,9 +21,16 @@ class PlayersController < ApplicationController
   def create
     @player = User.new(player_params)
     @player.role = :player
+    @player.funds = 0.00
     
     if User.find_by_name(@player.name)
       @errors = ['A user with that name already exists']
+      render :new
+    elsif @player.name.length < 3
+      @errors = ["User's name needs to be at least 3 characters long"]
+      render :new
+    elsif player_params[:password]. length < 6
+      @errors = ["Passwords must be at least 6 characters long"]
       render :new
     else
       respond_to do |format|
