@@ -116,4 +116,3 @@ class PlayersController < ApplicationController
       params.require(:player).permit(:funds)
     end
 end
-end
