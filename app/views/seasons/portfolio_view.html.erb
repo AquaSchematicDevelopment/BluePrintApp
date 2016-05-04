@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-2"
+      <p><strong>Player:</strong> @portfolio.user.name</p>
+    </div>
+    <div class="col-xs-2"
+      <%= link_to 'Add Team Holding', season_add_holding_path(season_id: @season, portfolio_id: @portfolio), class: 'btn btn-primary outline' %>
+    </div>
+  </div>
+  <% @holdings.each_with_index do |holding, index| %>
+    <div class="row <%= index.even? ? 'even-row' : 'odd-row' %>">
+    <div class="col-xs-4 vcenter">
+      <p><%= holding.team.name %></p>
+    </div>
+    <div class="col-xs-2 col-xs-offset-6 padding-top padding-bottom">
+      <center>
+      <%= link_to 'Edit', season_edit_holding_path(season_id: @season, holding_id: holding), class: 'btn btn-primary outline' %> |
+      <%= link_to 'Delete', season_delete_holding_path(season_id: @season, holding_id: holding), method: 'post', class: 'btn btn-primary outline' %> 
+      </center>
+    </div>
+  </div>
+  <% end %>
+</div>
