@@ -76,9 +76,7 @@ class SeasonsController < ApplicationController
     end
   end
   
-  def portfolio_index
-    @portfolios = @season.portfolios
-  end
+  
 
   private
     # Use callbacks to share common setup or constraints between actions.
