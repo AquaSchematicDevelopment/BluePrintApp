@@ -16,7 +16,7 @@ class PlayersController < ApplicationController
 
   def edit
     #test
-    @player = current_user
+    #@player = current_user
   end
 
   def create
