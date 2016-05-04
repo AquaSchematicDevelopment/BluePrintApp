@@ -8,7 +8,13 @@ class ProfilesController < ApplicationController
   end
 
   def update_password
-    if current_user.authenticate(password_params[:old_password])
+    if !current_user.authenticate(password_params[:old_password])
+      @errors = ['Old password was incorrect']
+      render :change_password
+    elsif password_params[:new_password].length < 6
+      @errors = ['New password must be at least 6 characters long']
+      render :change_password
+    else
       respond_to do |format|
         if current_user.update(password: password_params[:new_password], password_confirmation: password_params[:password_confirmation])
           format.html { redirect_to profile_path, notice: 'Your password was successfully updated.' }
@@ -18,8 +24,6 @@ class ProfilesController < ApplicationController
           format.json { render json: @user.errors, status: :unprocessable_entity }
         end
       end
-    else
-      render :change_password
     end
   end
 
