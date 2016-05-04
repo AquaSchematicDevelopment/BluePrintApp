@@ -21,7 +21,7 @@
   <div class="row">
   <p>
     <strong>Total Portfolio Value:</strong>
-    <%= current_user.portfolios.select{|portfolio|portfolio.season.active}.reduce(:+) %>
+    <%= current_user.portfolios.select{|portfolio|portfolio.season.in_progress?}.reduce(:+) %>
   </p>
    </div>
    
