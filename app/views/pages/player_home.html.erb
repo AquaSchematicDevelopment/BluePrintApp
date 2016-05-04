@@ -3,11 +3,27 @@
       <h1>Financial Statistics</h1>
       <p id="notice"><%= notice %></p>
   </div>
-  <div class="row">
+  <div class=""row <%= index.even? ? 'even-row' : 'odd-row' %>"">
     <div class="col-xs-4">
-      <strong>Funds:</strong>
-      <%= current_user.funds %>
+      <p>
+        <strong>Funds:</strong>
+        <%= current_user.funds %>
+      </p>
     </div>
+    <div class="col-xs-4">
+      <p>
+        <strong>Available Funds:</strong>
+        <%= current_user.available_funds %>
+      </p>
+    </div>
+    <div class="col-xs-4">
+      <p>
+        <strong>Total Portfolio Value:</strong>
+        <%= current_user.portfolios.select{|portfolio|portfolio.season.in_progress?}.inject(0){|total,portfolio|total + portfolio.total_book_value} %>
+      </p>
+    </div>
+  </div>
+   <div class=""row <%= index.even? ? 'even-row' : 'odd-row' %>"">
     <div class="col-xs-4">
       <p>
         <strong>Funds:</strong>
