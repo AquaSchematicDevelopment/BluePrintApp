@@ -21,7 +21,7 @@
   <div class="row">
   <p>
     <strong>Total Portfolio Value:</strong>
-    <%= current_user.portfolios.select{|portfolio|portfolio.season.in_progress?}.inject(0){|portfolio,total|total + portfolio.total_book_value} %>
+    <%= current_user.portfolios.select{|portfolio|portfolio.season.in_progress?}.inject(0){|total,portfolio|total + portfolio.total_book_value} %>
   </p>
    </div>
    
