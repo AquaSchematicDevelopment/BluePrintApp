@@ -1,6 +1,7 @@
 class Season < ActiveRecord::Base
   belongs_to :league
   has_many :teams
+  has_many :portfolios
   
   def self.statuses
     self.status_options.map {|option| option[1]}
