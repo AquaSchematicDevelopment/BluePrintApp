@@ -60,7 +60,7 @@ Rails.application.routes.draw do
   post 'season/:season_id/player/:portfolio_id', to: 'seasons#handle_add_holding'
   get 'season/:season_id/holding/:holding_id', to: 'seasons#edit_holding', as: :season_edit_holding
   post 'season/:season_id/holding/:holding_id', to: 'seasons#update_holding'
-  delete 'season/:season_id/holding/:holding_id', to: 'seasons#update_holding', as: :season_delete_holding
+  delete 'season/:season_id/holding/:holding_id', to: 'seasons#delete_holding', as: :season_delete_holding
   
   get 'join-season', to: 'seasons#join_index', as: :join_index
   post 'season/:id/join', to: 'seasons#join', as: :join_season
