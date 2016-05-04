@@ -12,7 +12,7 @@ class Season < ActiveRecord::Base
   
   def self.status_options
     [
-      ['Unpublished', :unpublished], ['IPO', :ipo], ['Season In Progress', :season_in_progress], ['Season Concluded', :season_concluded]
+      ['Unpublished', 'unpublished'], ['IPO', 'ipo'], ['Season In Progress', 'season_in_progress'], ['Season Concluded', 'season_concluded']
     ]
   end
   
@@ -26,11 +26,11 @@ class Season < ActiveRecord::Base
   end
   
   def ipo?
-    self.status == :ipo
+    self.status == 'ipo'
   end
   
   def in_progress?
-    self.status == :season_in_progress
+    self.status == 'season_in_progress'
   end
   
   def active?
@@ -38,6 +38,6 @@ class Season < ActiveRecord::Base
   end
   
   def concluded?
-    self.status == :season_concluded
+    self.status == 'season_concluded'
   end
 end
