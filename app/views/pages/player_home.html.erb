@@ -1,30 +1,33 @@
 <div class="container">
   <div class="row">
-    <h1>Financial Statistics</h1>
-    <p id="notice"><%= notice %></p>
+      <h1>Financial Statistics</h1>
+      <p id="notice"><%= notice %></p>
   </div>
-
   <div class="row">
-    <p>
+    <div class="col-xs-4">
       <strong>Funds:</strong>
       <%= current_user.funds %>
-    </p>
+    </div>
+    <div class="col-xs-4">
+      <p>
+        <strong>Funds:</strong>
+        <%= current_user.funds %>
+      </p>
+    </div>
+    <div class="col-xs-4">
+      <p>
+        <strong>Available Funds:</strong>
+        <%= current_user.available_funds %>
+      </p>
+    </div>
+    <div class="col-xs-4">
+      <p>
+        <strong>Total Portfolio Value:</strong>
+        <%= current_user.portfolios.select{|portfolio|portfolio.season.in_progress?}.inject(0){|total,portfolio|total + portfolio.total_book_value} %>
+      </p>
+    </div>
   </div>
   
-  <div class="row">
-    <p>
-      <strong>Available Funds:</strong>
-      <%= current_user.available_funds %>
-    </p>
-  </div>
-  
-  <div class="row">
-  <p>
-    <strong>Total Portfolio Value:</strong>
-    <%= current_user.portfolios.select{|portfolio|portfolio.season.in_progress?}.inject(0){|total,portfolio|total + portfolio.total_book_value} %>
-  </p>
-   </div>
-   
   <div class="row">
     
     <% if @active_seasons.empty? %>
