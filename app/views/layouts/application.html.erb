@@ -72,9 +72,11 @@
 <% end %>
 </div>
 
-<% if current_portfolio %>
-  <h1><%= current_season.league.name %> | <%= current_season.name %> | <%= yield :header %></h1>
-<% end %>
+<div class="container">
+  <% if current_portfolio %>
+    <h1><%= current_season.league.name %> | <%= current_season.name %> | <%= yield :header %></h1>
+  <% end %>
+</div>
 
 <%= yield %>
 
