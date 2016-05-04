@@ -24,4 +24,8 @@ class Season < ActiveRecord::Base
       nil
     end
   end
+  
+  def active?
+    return true
+  end
 end
