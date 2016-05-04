@@ -78,6 +78,11 @@ class SeasonsController < ApplicationController
       render :initiate_manage
     else
       if @season.update(manage_season_params)
+        if @season.concluded?
+          @season.teams.map{|team| team.sell_requests + team.buy_requests}
+            .flatten
+            .each{|request| request.destroy}
+        end
         redirect_to show_season_path(@season)
       else
         @errors = []
