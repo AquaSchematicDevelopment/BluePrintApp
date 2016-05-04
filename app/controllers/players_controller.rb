@@ -51,7 +51,7 @@ class PlayersController < ApplicationController
       render :edit
     else
       respond_to do |format|
-        if @player.update(player_params)
+        if @player.update(update_player_params)
           format.html { redirect_to players_path, notice: 'User was successfully updated.' }
           format.json { render :show, status: :ok, location: @user }
         else
