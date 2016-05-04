@@ -3,7 +3,7 @@ class SeasonsController < ApplicationController
     [:show, :edit, :update, :destroy, :sell_request_index, :buy_request_index, :initiate_manage, :handle_manage, :join, :portfolio_index]
     
   before_action :redirect_non_user
-  before_action :redirect_non_user, only: [:join_index, :join]
+  before_action :redirect_non_user, only: [:join_index, :join, :sell_request_index, :buy_request_index]
   before_action :redirect_non_admin, except: [:join_index, :join]
 
   # GET /seasons
