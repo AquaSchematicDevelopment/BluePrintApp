@@ -73,7 +73,7 @@ class SeasonsController < ApplicationController
   end
   
   def handle_manage
-    if Season.check_valid_status(manage_season_params[:status])
+    if !Season.check_valid_status(manage_season_params[:status])
       @errors = ['Invalid status:' + manage_season_params[:status]]
       render :initiate_manage
     else
