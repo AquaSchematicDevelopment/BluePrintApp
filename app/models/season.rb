@@ -25,7 +25,19 @@ class Season < ActiveRecord::Base
     end
   end
   
+  def ipo?
+    self.status == 'ipo'
+  end
+  
   def in_progress?
     self.status == 'season_in_progress'
+  end
+  
+  def active?
+    self.in_progress? || self.ipo?
+  end
+  
+  def concluded?
+    self.status == 'season_concluded'
   end
 end
