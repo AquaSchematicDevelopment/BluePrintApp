@@ -79,7 +79,7 @@ class SeasonsController < ApplicationController
     else
       if @season.update(manage_season_params)
         if @season.concluded?
-          @season.teams.map{|team| team.sell_requests + team.buy_requests}
+          @season.teams.map{|team| team.sell_requests}
             .flatten
             .each{|request| request.destroy}
         end
