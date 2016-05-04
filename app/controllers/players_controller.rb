@@ -47,12 +47,14 @@ class PlayersController < ApplicationController
   end
 
   def update
-    if update_player_params[:funds] < 0
+    @player.funds = update_player_params[:funds]
+    
+    if @player.funds < 0
       @errors = ["Player can't have negative funds"]
       render :edit
     else
       respond_to do |format|
-        if @player.update(update_player_params)
+        if @player.save
           format.html { redirect_to players_path, notice: 'User was successfully updated.' }
           format.json { render :show, status: :ok, location: @user }
         else
