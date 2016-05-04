@@ -55,6 +55,9 @@ Rails.application.routes.draw do
   get 'season/:season_id/addTeam', to: 'teams#new', as: :add_team
   post 'season/:season_id/addTeam', to: 'teams#create'
   
+  get 'join-season', to: 'seasons#join_index', as: :join_index
+  post 'season/:id/join', to: 'seasons#join', as: :join_season
+  
   get 'teams/:season_id', to: 'teams#index', as: :teams
   get 'team/:id', to: 'teams#show', as: :show_team
   get 'team/:id/edit', to: 'teams#edit', as: :edit_team
