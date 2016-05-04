@@ -77,6 +77,9 @@ class PlayersController < ApplicationController
     end
   end
   
+  def initiate_change_password
+  end
+  
   def handle_change_password
     if password_params[:new_password].length < 6
       @errors = ['New password must be at least 6 characters long']
