@@ -3,7 +3,7 @@
     <h1>Join A Season<h1>
   </div>
   
-  <% @seasons.each do |season| %>
+  <% @seasons.each_with_index do |season, index| %>
   <div class="row">
     <div class="col-xs-4">
       <p><%= season.league.name %> | <%= season.name %></p>
