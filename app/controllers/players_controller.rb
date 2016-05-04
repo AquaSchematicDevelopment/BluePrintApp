@@ -76,6 +76,22 @@ class PlayersController < ApplicationController
       end
     end
   end
+  
+  def handle_change_password
+    if password_params[:new_password].length < 6
+      @errors = ['New password must be at least 6 characters long']
+      render :change_password
+    else
+      respond_to do |format|
+        if @player.update(password: password_params[:new_password], password_confirmation: password_params[:password_confirmation])
+          format.html { redirect_to players_path, notice: 'Your password was successfully updated.' }
+          format.json { render :show, status: :ok, location: @user }
+        else
+          format.html { render :change_password }
+          format.json { render json: @player.errors, status: :unprocessable_entity }
+        end
+      end
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
