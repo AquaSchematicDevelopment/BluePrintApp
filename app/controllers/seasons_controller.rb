@@ -75,6 +75,90 @@ class SeasonsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  def portfolio_index
+    @portfolios = @season.portfolios
+  end
+  
+  def portfolio_view
+    @season = Season.find(params[:season_id])
+    @portfolio = User.find(params[:portfolio_id])
+    @holdings = @portfolio.holdings
+  end
+  
+  def initiate_add_holdings
+    @season = Season.find(params[:season_id])
+    @portfolio = Portfolio.find(params[:portfolio_id])
+  end
+  
+  def handle_add_holding
+    @season = Season.find(params[:season_id])
+    @portfolio = Portfolio.find(params[:portfolio_id])
+    
+    holding_params = params.require(:holding).permit(:team_id, :amount)
+    @team = Team.find(holding_params[:team_id])
+    
+    if !@team
+      @errors = ['Team not found']
+      render :initiate_add_holdings
+    elsif !@portfolio
+      @errors = ['No such player']
+      render :initiate_add_holdings
+    elsif holding_params[:amount] <= 0
+      @errors = ['Amount must be more than 0']
+      render :initiate_add_holdings
+    else
+      holding = @portfolio.holdings.select{|holding| holding.team == @team}.first
+      
+      if !holding
+        holding = Holding.new(holding_params)
+        holding.portfolio = @portfolio
+      else
+        holding.amount += holding_params[:amount]
+      end
+      
+      if holding.save
+        redirect_to season_portfolio_view_path(season_id: params[:season_id], portfolio_id: params[:portfolio_id])
+      else
+        @errors = ['Unable to add holding']
+        render :initiate_add_holdings
+      end
+    end
+  end
+  
+  def edit_holding
+    @season = Season.find(params[:season_id])
+    @holding = Holding.find(params[:holding_id])
+  end
+  
+  def update_holding
+    @season = Season.find(params[:season_id])
+    @holding = Holding.find(params[:holding_id])
+    holding_edit_params = params.require(:holding).permit(:amount)
+    
+    if holdings_edit_params[:amount] < 0
+      @errors = ['Amount must be more than 0']
+      render :edit_holding
+    else
+      if @holding.update(holding_edit_params)
+        redirect_to season_portfolio_view_path(season_id: params[:season_id], portfolio_id: @holding.portfolio)
+      else
+        @error = ['Unable to update holding']
+        render :edit_holding
+      end
+    end
+  end
+  
+  def delete_holding
+    @season = Season.find(params[:season_id])
+    @holding = Holding.find(params[:holding_id])
+    
+    if holding.destroy
+      redirect_to season_portfolio_view_path(season_id: params[:season_id], portfolio_id: @holding.portfolio)
+    else
+      redirect_to season_portfolio_view_path(season_id: params[:season_id], portfolio_id: @holding.portfolio), warning: 'Unable to delete holding'
+    end
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
