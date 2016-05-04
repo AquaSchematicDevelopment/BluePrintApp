@@ -16,17 +16,17 @@
   
   <p>
     <strong>Funds:</strong>
-    <%= current_user.funds %>
+    <%= "%.2f" % [current_user.funds] %>
   </p>
   
   <p>
     <strong>Available Funds:</strong>
-    <%= current_user.available_funds %>
+    <%= "%.2f" % [current_user.available_funds] %>
   </p>
   
   <p>
     <strong>Total Portfolio Book Value:</strong>
-    <%= @portfolio.total_book_value %>
+    <%= "%.2f" % [@portfolio.total_book_value] %>
   </p>
   
   <% if @portfolio.season.in_progress? %>
@@ -41,7 +41,7 @@
         <p><b>Total Portfolio Book Value</b><p>
       </div>
       <div class="col-xs-2 col-xs-offset-7 vcenter">
-        <center><p><%= @portfolio.total_book_value %><p></center>
+        <center><p><%= "%.2f" % [@portfolio.total_book_value] %><p></center>
       </div>
     </div>
   <% end %>
@@ -80,7 +80,7 @@
         <p><b>Total Portfolio Book Value</b><p>
       </div>
       <div class="col-xs-2 col-xs-offset-7 vcenter">
-        <center><p><%= @portfolio.total_book_value %><p></center>
+        <center><p><%= "%.2f" % [@portfolio.total_book_value] %><p></center>
       </div>
     </div>
   <% end %>
