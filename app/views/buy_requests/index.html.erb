@@ -15,7 +15,7 @@
     <% @buy_requests.each do |buy_request| %>
       <tr>
         <td><%= buy_request.amount %></td>
-        <td><%= buy_request.price %></td>
+        <td><%= "%.2f" % [buy_request.price] %></td>
         <td><%= link_to 'Show', buy_request %></td>
         <td><%= link_to 'Edit', edit_buy_request_path(buy_request) %></td>
         <td><%= link_to 'Destroy', buy_request, method: :delete, data: { confirm: 'Are you sure?' } %></td>
