@@ -25,7 +25,7 @@ class Season < ActiveRecord::Base
     end
   end
   
-  def active?
+  def in_progress?
     return true
   end
 end
