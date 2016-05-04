@@ -138,7 +138,7 @@ class SeasonsController < ApplicationController
   
   def portfolio_view
     @season = Season.find(params[:season_id])
-    @portfolio = User.find(params[:portfolio_id])
+    @portfolio = Portfolio.find(params[:portfolio_id])
     @holdings = @portfolio.holdings
   end
   
