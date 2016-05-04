@@ -94,6 +94,7 @@ class PlayersController < ApplicationController
           format.json { render json: @player.errors, status: :unprocessable_entity }
         end
       end
+    end
   end
 
   private
