@@ -111,9 +111,9 @@ class SeasonsController < ApplicationController
   
   def join
     if current_user.portfolios.map{|portfolio| portfolio.season}.find(@season)
-      redirect_to root_path, notice: 'Unable to join season'
+      redirect_to root_path, notice: 'Unable to join season1'
     elsif !@season.active?
-      redirect_to root_path, notice: 'Unable to join season'
+      redirect_to root_path, notice: 'Unable to join season2'
     else
       portfolio = Portfolio.new()
       portfolio.user = current_user
@@ -122,7 +122,7 @@ class SeasonsController < ApplicationController
       if portfolio.save()
         redirect_to root_path
       else
-        redirect_to root_path, warning: 'Unable to join season'
+        redirect_to root_path, warning: 'Unable to join season3'
       end
     end
   end
