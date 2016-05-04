@@ -1,10 +1,10 @@
-<% seasons.each_with_index do |season, index| %>
+<% @portfolios.each_with_index do |portfolio, index| %>
   <div class="row <%= index.even? ? 'even-row' : 'odd-row' %>">
     <div class="col-xs-4 vcenter">
-      <p><%= season.league.name %> | <%= season.name %></p>
+      <p><%= portfolio.user.name %></p>
     </div>
     <div class="col-xs-2 col-xs-offset-6 padding-top padding-bottom">
-      <%= link_to 'View', set_current_season_path(season), class: 'btn btn-primary outline' %>
+      <%= link_to 'View', season_portfolio_view_path(season_id: @season, portfolio_id: portfolio), class: 'btn btn-primary outline' %>
     </div>
   </div>
 <% end %>
