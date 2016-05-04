@@ -54,6 +54,12 @@ Rails.application.routes.draw do
   delete 'season/:id/delete', to: 'seasons#destroy', as: :delete_season
   get 'season/:season_id/addTeam', to: 'teams#new', as: :add_team
   post 'season/:season_id/addTeam', to: 'teams#create'
+  get 'season/:id/players', to: 'seasons#portfolio_index', as: :season_portfolio_index
+  get 'season/:season_id/player/:portfolio_id', to: 'seasons#portfolio_view', as: :season_portfolio_view
+  get 'season/:season_id/player/:portfolio_id', to: 'seasons#initiate_add_holding', as: :initiate_add_holding
+  post 'season/:season_id/player/:portfolio_id', to: 'seasons#handle_add_holding'
+  get 'season/:season_id/holding/:holding_id', to: 'seasons#edit_holding', as: :season_edit_holding
+  post 'season/:season_id/holding/:holding_id', to: 'seasons#update_holding'
   
   get 'join-season', to: 'seasons#join_index', as: :join_index
   post 'season/:id/join', to: 'seasons#join', as: :join_season
