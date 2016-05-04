@@ -30,7 +30,7 @@ class Season < ActiveRecord::Base
   end
   
   def in_progress?
-    #self.status == 'season_in_progress'
+    self.status == :season_in_progress
     true
   end
   
