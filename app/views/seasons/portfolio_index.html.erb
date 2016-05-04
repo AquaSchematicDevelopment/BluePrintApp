@@ -1,3 +1,5 @@
+<div class="container">
+
 <% @portfolios.each_with_index do |portfolio, index| %>
   <div class="row <%= index.even? ? 'even-row' : 'odd-row' %>">
     <div class="col-xs-4 vcenter">
@@ -8,3 +10,5 @@
     </div>
   </div>
 <% end %>
+
+</div>
