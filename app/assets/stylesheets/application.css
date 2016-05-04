@@ -121,6 +121,9 @@ form {
 .boxed {
   border: 1px solid green ;
 }
+.stats_title {
+  font-size: 20px;
+}
 .stats {
   font-size: 60px;
   color: #2a67a4;
