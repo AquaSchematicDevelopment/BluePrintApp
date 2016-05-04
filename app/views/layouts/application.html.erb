@@ -39,8 +39,10 @@
         <li><%= link_to 'Home', root_path %></li>
         <% if current_portfolio %>
         <li><%= link_to 'Portfolio', show_portfolio_path %></li>
+        <% if current_portfolio.season.in_progress %>
         <li><%= link_to 'Buy', season_sell_requests_path(current_season) %></li>
         <li><%= link_to 'Sell', season_buy_requests_path(current_season) %></li>
+        <% end %>
         <% else %>
         <li><%= link_to 'Join A Season', join_index_path %></li>
         <% end %>
