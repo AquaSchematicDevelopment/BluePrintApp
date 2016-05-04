@@ -1,17 +1,22 @@
 <div class="container">
-  <h1>Financial Statistics</h1>
-  <p id="notice"><%= notice %></p>
+  <div class="row">
+    <h1>Financial Statistics</h1>
+    <p id="notice"><%= notice %></p>
+  </div>
+
+  <div class="row">
+    <p>
+      <strong>Funds:</strong>
+      <%= current_user.funds %>
+    </p>
+  </div>
   
-  <p>
-    <strong>Funds:</strong>
-    <%= current_user.funds %>
-  </p>
-  
-  <p>
-    <strong>Available Funds:</strong>
-    <%= current_user.available_funds %>
-  </p>
-  
+  <div class="row">
+    <p>
+      <strong>Available Funds:</strong>
+      <%= current_user.available_funds %>
+    </p>
+  </div>
 </div>
 
 
