@@ -15,6 +15,8 @@ Rails.application.routes.draw do
   get 'players', to: 'players#index', as: :players
   get 'player/new', to: 'players#new', as: :new_player
   post 'player/new', to: 'players#create'
+  get 'player/:id/edit', to: 'players#edit', as: :edit_player
+  post 'player/:id/edit', to: 'players#update'
   delete 'player/:id/delete', to: 'players#destroy', as: :delete_player
   
   get 'profile' => 'profiles#show', as: :profile
