@@ -1,3 +1,7 @@
 <div class="container">
+<% if @teams.empty? %>
+  <center><h3> You do not own any BluePrints for any teams, therefore you may not initiate a sell request. </h3></center>
+<% else %>
   <%= render 'teams/index_sell' %>
+<% end %>
 </div>
