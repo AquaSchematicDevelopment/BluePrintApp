@@ -4,7 +4,7 @@ class SeasonsController < ApplicationController
     
   before_action :redirect_non_user
   before_action :redirect_non_user, only: [:join_index, :join]
-  before_action :redirect_non_admin, only: [:index, :show, :new, :create, :edit, :update, :destroy]
+  before_action :redirect_non_admin, except: [:join_index, :join]
 
   # GET /seasons
   # GET /seasons.json
