@@ -12,7 +12,8 @@
     </div>
     <div class="col-xs-4 padding-top padding-bottom">
       <center><%= link_to 'Edit', edit_season_path(@season), class: 'btn btn-primary outline' %> |
-      <%= link_to 'Manage', manage_season_path(@season), class: 'btn btn-primary outline' %></center>
+      <%= link_to 'Manage', manage_season_path(@season), class: 'btn btn-primary outline' %> | 
+      <%= link_to 'Players', season_player_index_path(@season), class: 'btn btn-primary outline' %></center>
     </div>
   </div>
   
