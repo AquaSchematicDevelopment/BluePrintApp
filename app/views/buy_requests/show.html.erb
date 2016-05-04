@@ -7,7 +7,7 @@
 
 <p>
   <strong>Price:</strong>
-  <%= @buy_request.price %>
+  <%= "%.2f" % [@buy_request.price] %>
 </p>
 
 <%= link_to 'Edit', edit_buy_request_path(@buy_request) %> |
