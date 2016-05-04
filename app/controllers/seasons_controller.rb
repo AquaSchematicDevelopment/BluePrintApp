@@ -115,7 +115,15 @@ class SeasonsController < ApplicationController
     elsif !@season.active?
       redirect_to join_index_path, notice: 'Unable to join season'
     else
+      portfolio = Portfolio.new()
+      portfolio.user = current_user
+      portfolio.season = @season
       
+      if portfolio.save
+        redirect_to root_path
+      else
+        redirect_to root_path, warning: 'Unable to join season'
+      end
     end
   end
 
